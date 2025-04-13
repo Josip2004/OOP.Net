@@ -1,0 +1,7 @@
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.csproj.AssemblyReference.cache
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\GavranovicJankovicJosipOOP.Form1.resources
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.csproj.GenerateResource.cache
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.AssemblyInfoInputs.cache
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.AssemblyInfo.cs
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.csproj.CoreCompileInputs.cache

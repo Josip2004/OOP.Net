@@ -1,0 +1,7 @@
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.Main.resources
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.StartDisplay.resources
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.csproj.GenerateResource.cache
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.AssemblyInfoInputs.cache
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.AssemblyInfo.cs
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.csproj.CoreCompileInputs.cache
