@@ -71,9 +71,9 @@ namespace Dao.Models
         public Tactics Tactics { get; set; }
 
         [JsonProperty("starting_eleven")]
-        public List<StartingEleven> StartingEleven { get; set; }
+        public List<Player> StartingEleven { get; set; }
 
         [JsonProperty("substitutes")]
-        public List<StartingEleven> Substitutes { get; set; }
+        public List<Player> Substitutes { get; set; }
     }
 }

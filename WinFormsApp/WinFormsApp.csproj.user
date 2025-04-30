@@ -4,8 +4,11 @@
     <Compile Update="ExitMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Main.cs">
+    <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PlayerControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="StartDisplay.cs">
       <SubType>Form</SubType>

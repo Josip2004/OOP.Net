@@ -45,7 +45,6 @@
             label1.Size = new Size(568, 59);
             label1.TabIndex = 0;
             label1.Text = "Choose the championship";
-            label1.Click += this.label1_Click;
             // 
             // cbChampionship
             // 
@@ -82,6 +81,7 @@
             btnApply.TabIndex = 4;
             btnApply.Text = "Apply";
             btnApply.UseVisualStyleBackColor = true;
+            btnApply.Click += btnApply_Click;
             // 
             // btnNext
             // 
@@ -106,6 +106,7 @@
             Controls.Add(label1);
             Name = "StartDisplay";
             Text = "Form1";
+            Load += StartDisplay_Load;
             ResumeLayout(false);
             PerformLayout();
         }

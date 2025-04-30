@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Dao.Models
 {
-    class Team
+    public class Team
     {
         [JsonProperty("country")]
         public string Country { get; set; }
 
-        [JsonProperty("code")]
+        [JsonProperty("fifa_code")]
         public string Code { get; set; }
 
         [JsonProperty("goals")]
@@ -20,5 +20,10 @@ namespace Dao.Models
 
         [JsonProperty("penalties")]
         public long Penalties { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Country} {Code}";
+        }
     }
 }

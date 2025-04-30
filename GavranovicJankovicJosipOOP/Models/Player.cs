@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dao.Models
 {
-    public class StartingEleven
+    public class Player
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -21,5 +21,10 @@ namespace Dao.Models
 
         [JsonProperty("position")]
         public Position Position { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} {Captain} {ShirtNumber} {Position}";
+        }
     }
 }

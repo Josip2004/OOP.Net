@@ -24,7 +24,7 @@ namespace Dao.Converters
                 TacticsConverter.Singleton,
                 StageNameConverter.Singleton,
                 StatusConverter.Singleton,
-                TypeConverter.Singleton,
+                TimeConverter.Singleton,
                 WeatherTypeConverter.Singleton,
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },

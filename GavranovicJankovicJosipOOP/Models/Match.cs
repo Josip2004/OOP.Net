@@ -9,10 +9,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Dao.Models;
 using Dao.Enums;
+using Dao.Converters;
 
 namespace GavranovicJankovicJosipOOP.Models
 {
-    class Match
+    public class Match
     {
         [JsonProperty("venue")]
         public string Venue { get; set; }

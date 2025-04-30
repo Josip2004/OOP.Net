@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,12 +35,12 @@
             cbFavoriteNationalTeam = new ComboBox();
             label2 = new Label();
             label3 = new Label();
-            pnlPlayers = new Panel();
-            pnlFavoritePlayers = new Panel();
             label4 = new Label();
             btnMoveToFav = new Button();
             btnRemoveFromFav = new Button();
             button1 = new Button();
+            flpnlPlayers = new FlowLayoutPanel();
+            flpnlFavoritePlayers = new FlowLayoutPanel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, rangListToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1399, 40);
+            menuStrip1.Size = new Size(1925, 40);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -83,6 +83,7 @@
             cbFavoriteNationalTeam.Name = "cbFavoriteNationalTeam";
             cbFavoriteNationalTeam.Size = new Size(515, 40);
             cbFavoriteNationalTeam.TabIndex = 2;
+            cbFavoriteNationalTeam.SelectedIndexChanged += cbFavoriteNationalTeam_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -96,30 +97,16 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(554, 190);
+            label3.Location = new Point(745, 190);
             label3.Name = "label3";
             label3.Size = new Size(185, 32);
             label3.TabIndex = 4;
             label3.Text = "Favorite players:";
             // 
-            // pnlPlayers
-            // 
-            pnlPlayers.Location = new Point(39, 243);
-            pnlPlayers.Name = "pnlPlayers";
-            pnlPlayers.Size = new Size(411, 517);
-            pnlPlayers.TabIndex = 5;
-            // 
-            // pnlFavoritePlayers
-            // 
-            pnlFavoritePlayers.Location = new Point(554, 243);
-            pnlFavoritePlayers.Name = "pnlFavoritePlayers";
-            pnlFavoritePlayers.Size = new Size(411, 517);
-            pnlFavoritePlayers.TabIndex = 6;
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1041, 190);
+            label4.Location = new Point(1434, 190);
             label4.Name = "label4";
             label4.Size = new Size(83, 32);
             label4.TabIndex = 7;
@@ -127,49 +114,74 @@
             // 
             // btnMoveToFav
             // 
-            btnMoveToFav.Location = new Point(39, 797);
+            btnMoveToFav.Location = new Point(100, 797);
             btnMoveToFav.Name = "btnMoveToFav";
             btnMoveToFav.Size = new Size(411, 114);
             btnMoveToFav.TabIndex = 8;
             btnMoveToFav.Text = "Move to favorites";
             btnMoveToFav.UseVisualStyleBackColor = true;
+            btnMoveToFav.Click += btnMoveToFav_Click;
             // 
             // btnRemoveFromFav
             // 
-            btnRemoveFromFav.Location = new Point(554, 797);
+            btnRemoveFromFav.Location = new Point(795, 797);
             btnRemoveFromFav.Name = "btnRemoveFromFav";
             btnRemoveFromFav.Size = new Size(411, 114);
             btnRemoveFromFav.TabIndex = 9;
             btnRemoveFromFav.Text = "Remove from favorites";
             btnRemoveFromFav.UseVisualStyleBackColor = true;
+            btnRemoveFromFav.Click += btnRemoveFromFav_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(1041, 797);
+            button1.Location = new Point(1434, 797);
             button1.Name = "button1";
             button1.Size = new Size(267, 114);
             button1.TabIndex = 10;
             button1.Text = "Add picture";
             button1.UseVisualStyleBackColor = true;
             // 
-            // Main
+            // flpnlPlayers
+            // 
+            flpnlPlayers.AllowDrop = true;
+            flpnlPlayers.AutoScroll = true;
+            flpnlPlayers.BackColor = Color.LightBlue;
+            flpnlPlayers.Location = new Point(48, 243);
+            flpnlPlayers.Name = "flpnlPlayers";
+            flpnlPlayers.Size = new Size(508, 517);
+            flpnlPlayers.TabIndex = 11;
+            flpnlPlayers.DragEnter += flpnlPlayers_DragEnter;
+            // 
+            // flpnlFavoritePlayers
+            // 
+            flpnlFavoritePlayers.AllowDrop = true;
+            flpnlFavoritePlayers.AutoScroll = true;
+            flpnlFavoritePlayers.BackColor = Color.LightGreen;
+            flpnlFavoritePlayers.Location = new Point(735, 243);
+            flpnlFavoritePlayers.Name = "flpnlFavoritePlayers";
+            flpnlFavoritePlayers.Size = new Size(508, 517);
+            flpnlFavoritePlayers.TabIndex = 12;
+            flpnlFavoritePlayers.DragDrop += flpnlPlayers_DragDrop;
+            flpnlFavoritePlayers.DragEnter += flpnlPlayers_DragEnter;
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1399, 939);
+            ClientSize = new Size(1925, 939);
+            Controls.Add(flpnlFavoritePlayers);
+            Controls.Add(flpnlPlayers);
             Controls.Add(button1);
             Controls.Add(btnRemoveFromFav);
             Controls.Add(btnMoveToFav);
             Controls.Add(label4);
-            Controls.Add(pnlFavoritePlayers);
-            Controls.Add(pnlPlayers);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(cbFavoriteNationalTeam);
             Controls.Add(label1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "Main";
+            Name = "MainForm";
             Text = "Main";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -186,11 +198,11 @@
         private ComboBox cbFavoriteNationalTeam;
         private Label label2;
         private Label label3;
-        private Panel pnlPlayers;
-        private Panel pnlFavoritePlayers;
         private Label label4;
         private Button btnMoveToFav;
         private Button btnRemoveFromFav;
         private Button button1;
+        private FlowLayoutPanel flpnlPlayers;
+        private FlowLayoutPanel flpnlFavoritePlayers;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Dao.Enums;
+﻿using Dao.Converters;
+using Dao.Enums;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Dao.Models
 {
-    class Weather
+    public class Weather
     {
         [JsonProperty("humidity")]
         [JsonConverter(typeof(ParseStringConverter))]
