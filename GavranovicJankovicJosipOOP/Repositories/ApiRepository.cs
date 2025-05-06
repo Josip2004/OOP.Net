@@ -45,5 +45,6 @@ namespace Dao.Repositories
 
             return JsonConvert.DeserializeObject<List<Team>>(response.Content);
         }
+
     }
 }

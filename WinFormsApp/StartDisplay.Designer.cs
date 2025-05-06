@@ -33,7 +33,6 @@
             label2 = new Label();
             cbLanguage = new ComboBox();
             btnApply = new Button();
-            btnNext = new Button();
             SuspendLayout();
             // 
             // label1
@@ -75,30 +74,19 @@
             // btnApply
             // 
             btnApply.Font = new Font("Segoe UI Black", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnApply.Location = new Point(222, 616);
+            btnApply.Location = new Point(260, 614);
             btnApply.Name = "btnApply";
-            btnApply.Size = new Size(279, 124);
+            btnApply.Size = new Size(717, 124);
             btnApply.TabIndex = 4;
             btnApply.Text = "Apply";
             btnApply.UseVisualStyleBackColor = true;
             btnApply.Click += btnApply_Click;
-            // 
-            // btnNext
-            // 
-            btnNext.Font = new Font("Segoe UI Black", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNext.Location = new Point(731, 616);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(279, 124);
-            btnNext.TabIndex = 5;
-            btnNext.Text = "Next";
-            btnNext.UseVisualStyleBackColor = true;
             // 
             // StartDisplay
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1293, 860);
-            Controls.Add(btnNext);
             Controls.Add(btnApply);
             Controls.Add(cbLanguage);
             Controls.Add(label2);
@@ -118,6 +106,5 @@
         private Label label2;
         private ComboBox cbLanguage;
         private Button btnApply;
-        private Button btnNext;
     }
 }

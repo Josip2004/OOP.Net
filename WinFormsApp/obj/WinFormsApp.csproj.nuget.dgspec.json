@@ -137,6 +137,14 @@
             "RestSharp": {
               "target": "Package",
               "version": "[112.1.0, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[9.1.0, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[9.1.0, )"
             }
           },
           "imports": [

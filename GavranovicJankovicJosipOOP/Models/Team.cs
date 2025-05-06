@@ -23,7 +23,12 @@ namespace Dao.Models
 
         public override string ToString()
         {
-            return $"{Country} {Code}";
+            if (string.IsNullOrWhiteSpace(Country) && string.IsNullOrWhiteSpace(Code))
+            {
+                return ""; 
+            }
+
+            return $"{Country} ({Code})";
         }
     }
 }
