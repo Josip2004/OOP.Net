@@ -1,4 +1,6 @@
-﻿using Dao.Repositories;
+﻿using Dao.Enums;
+using Dao.Models;
+using Dao.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,10 +42,13 @@ namespace Dao.Repositories
                 }
 
                 File.AppendAllText(fullPath, content + Environment.NewLine);
+
+                // DEBUG: log poruku za potvrdu
+                MessageBox.Show($"Zapisano u: {fullPath}\nSadržaj: {content}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Došlo je do greške prilikom spremanja putanje: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Greška kod zapisa: " + ex.Message);
             }
         }
 
@@ -82,28 +87,52 @@ namespace Dao.Repositories
             return settings.ElementAtOrDefault(index) ?? string.Empty;
         }
 
-        public bool ImageExists(string playerControl) =>
-        File.Exists(ImageMapPath) &&
-        File.ReadAllLines(ImageMapPath)
-            .Any(line => line.Split(Del).FirstOrDefault() == playerControl);
+        public bool ImageExists(string playerName)
+        {
+            if (!File.Exists(ImageMapPath))
+            {
+                MessageBox.Show($"[ImageExists] Ne postoji file: {ImageMapPath}");
+                return false;
+            }
+
+            var lines = File.ReadAllLines(ImageMapPath);
+            foreach (var line in lines)
+            {
+                MessageBox.Show($"[ImageExists] Čitam liniju: {line}");
+
+                var parts = line.Split(Del);
+                if (parts.Length > 0)
+                {
+                    string nameFromFile = parts[0].Trim();
+                    MessageBox.Show($"[ImageExists] Uspoređujem: {nameFromFile} ↔ {playerName}");
+
+                    if (string.Equals(nameFromFile, playerName.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        MessageBox.Show($"[ImageExists] NAĐEN IGRAČ: {nameFromFile}");
+                        return true;
+                    }
+                }
+            }
+
+            MessageBox.Show($"[ImageExists] Nije pronađena linija za: {playerName}");
+            return false;
+        }
 
         public string RetrieveImagePath(string controlName)
         {
             if (!File.Exists(ImageMapPath))
-                if (!File.Exists(ImageMapPath))
-                {
-                    MessageBox.Show($"File does not exist: {ImageMapPath}");
-                    return string.Empty;
-                }
-
-            var lines = File.ReadAllLines(ImageMapPath);
-            foreach (var lin in lines)
             {
-                MessageBox.Show($"Line: {lin}");
+                MessageBox.Show($"File does not exist: {ImageMapPath}");
+                return string.Empty;
             }
 
-            var line = lines
-                .FirstOrDefault(line => line.Split(Del).FirstOrDefault() == controlName);
+            var lines = File.ReadAllLines(ImageMapPath);
+            var line = lines.FirstOrDefault(l =>
+            {
+                var parts = l.Split(Del);
+                return parts.Length > 0 &&
+                       parts[0].Trim().Equals(controlName.Trim(), StringComparison.OrdinalIgnoreCase);
+            });
 
             if (line == null)
             {
@@ -112,12 +141,17 @@ namespace Dao.Repositories
             }
 
             string imagePath = line.Split(Del).ElementAtOrDefault(1)?.Trim();
-            MessageBox.Show($"Path: {imagePath}");
 
             if (string.IsNullOrEmpty(imagePath))
             {
                 MessageBox.Show("Putanja slike je prazna.");
                 return string.Empty;
+            }
+
+            // Ako nije apsolutna, pretvori u punu putanju
+            if (!Path.IsPathRooted(imagePath))
+            {
+                imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imagePath);
             }
 
             if (!File.Exists(imagePath))
@@ -126,25 +160,45 @@ namespace Dao.Repositories
                 return string.Empty;
             }
 
-            if (!string.IsNullOrEmpty(imagePath))
-            {
-                return imagePath.Replace(@"\\", @"\");
-            }
-
-            return string.Empty;
+            return imagePath;
         }
 
-        public void SaveFavoritePlayers(IEnumerable<string> favoritePlayerNames)
+        public void SaveFavoritePlayers(IEnumerable<Player> players)
         {
             if (!Directory.Exists(BaseFolder))
                 Directory.CreateDirectory(BaseFolder);
 
-            SaveSettings(FavoritePlayersPath, string.Join(Environment.NewLine, favoritePlayerNames));
+            var lines = players.Select(p =>
+                $"{p.Name}#{p.Position}#{p.Captain}#{p.ShirtNumber}"
+            );
+
+            File.WriteAllLines(FavoritePlayersPath, lines);
         }
 
-        public IEnumerable<string> GetFavoritePlayersList()
+        public IEnumerable<Player> GetFavoritePlayersList()
         {
-            return File.Exists(FavoritePlayersPath) ? File.ReadAllLines(FavoritePlayersPath) : Enumerable.Empty<string>();
+            var result = new List<Player>();
+
+            if (!File.Exists(FavoritePlayersPath)) return result;
+
+            var lines = File.ReadAllLines(FavoritePlayersPath);
+            foreach (var line in lines)
+            {
+                var parts = line.Split('#');
+                if (parts.Length < 4) continue;
+
+                var player = new Player
+                {
+                    Name = parts[0],
+                    Position = Enum.TryParse(parts[1], out Position pos) ? pos : Position.Midfield,
+                    Captain = bool.TryParse(parts[2], out bool cap) && cap,
+                    ShirtNumber = long.TryParse(parts[3], out long number) ? number : 0
+                };
+
+                result.Add(player);
+            }
+
+            return result;
         }
 
           

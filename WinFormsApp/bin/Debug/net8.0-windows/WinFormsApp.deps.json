@@ -15,6 +15,11 @@
         },
         "runtime": {
           "WinFormsApp.dll": {}
+        },
+        "resources": {
+          "hr/WinFormsApp.resources.dll": {
+            "locale": "hr"
+          }
         }
       },
       "BouncyCastle.Cryptography/2.4.0": {

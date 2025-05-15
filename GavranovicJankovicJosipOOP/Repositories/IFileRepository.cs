@@ -24,8 +24,8 @@ namespace Dao.Repositories
         string RetrieveImagePath(string controlName);
 
         // Upravljanje omiljenim igračima
-        void SaveFavoritePlayers(IEnumerable<string> favoritePlayerNames);
-        IEnumerable<string> GetFavoritePlayersList();
+        void SaveFavoritePlayers(IEnumerable<Player> favoritePlayerNames);
+        IEnumerable<Player> GetFavoritePlayersList();
 
 
     }

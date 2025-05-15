@@ -138,9 +138,9 @@ namespace WinFormsApp
                 var favoritePlayers = _fileRepository.GetFavoritePlayersList();
                 flpnlFavoritePlayers.Controls.Clear();
 
-                foreach (var playerName in favoritePlayers)
+                foreach (var playerObj in favoritePlayers)
                 {
-                    var player = new Label { Text = playerName, AutoSize = true };
+                    var label = new Label { Text = playerObj.Name, AutoSize = true };
                     var panel = new Panel
                     {
                         Width = flpnlFavoritePlayers.Width - 15,
@@ -150,12 +150,12 @@ namespace WinFormsApp
                         BorderStyle = BorderStyle.FixedSingle
                     };
 
-                    panel.Controls.Add(player);
+                    panel.Controls.Add(label);
 
                     panel.Tag = new PlayerWithImage
                     {
-                        Player = new Player { Name = playerName },
-                        ImagePath = $"Images/{playerName}.jpg"
+                        Player = playerObj,
+                        ImagePath = $"Images/{playerObj.Name}.jpg"
                     };
 
                     panel.MouseClick += PlayerPanel_Click;
@@ -218,7 +218,7 @@ namespace WinFormsApp
                 foreach (var p in players)
                 {
                     Label lbl = new Label();
-                    lbl.Text = p.ToString();
+                    lbl.Text = p.Name;
                     lbl.AutoSize = true;
                     lbl.Margin = new Padding(5);
 
@@ -228,6 +228,8 @@ namespace WinFormsApp
                     playerPanel.BackColor = Color.Gainsboro;
                     playerPanel.Margin = new Padding(5);
                     playerPanel.BorderStyle = BorderStyle.FixedSingle;
+
+                    p.Name = ExtractOnlyName(p.Name);
 
                     playerPanel.Tag = new PlayerWithImage
                     {
@@ -245,11 +247,16 @@ namespace WinFormsApp
 
                     playerPanel.Controls.Add(lbl);
                     flpnlPlayers.Controls.Add(playerPanel);
-                }
 
+                }
             }
         }
 
+        private string ExtractOnlyName(string name)
+        {
+            var parts = name.Split(' ');
+            return parts.Length >= 2 ? $"{parts[0]} {parts[1]}" : name;
+        }
 
         private void PlayerPanel_MouseMove(object? sender, MouseEventArgs e)
         {
@@ -289,13 +296,27 @@ namespace WinFormsApp
                     {
                         playerControl.LoadPlayer(player);
 
-                        if (_fileRepository.ImageExists(player.Player.Name)) 
+                        string actualName = player.Player.Name;
+                        MessageBox.Show("Provjeravam ImageExists za ime: " + actualName);
+                        if (_fileRepository.ImageExists(actualName))
                         {
+                            MessageBox.Show("Pozivam RetrieveImagePath za: " + player.Player.Name);
+
                             string imagePath = _fileRepository.RetrieveImagePath(player.Player.Name);
+
+                            MessageBox.Show("Putanja vraćena iz RetrieveImagePath:\n" + imagePath);
                             if (File.Exists(imagePath))
                             {
                                 playerControl.SetImage(imagePath);
                             }
+                            else
+                            {
+                                MessageBox.Show("File.Exists je FALSE — slika ne postoji na toj putanji.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Image NE postoji prema ImageExists metodi.");
                         }
                     }
                 }
@@ -342,7 +363,7 @@ namespace WinFormsApp
                     }
                 }
 
-                _fileRepository.SaveFavoritePlayers(favoritePlayers.Select(player => player.Name).ToList());
+                _fileRepository.SaveFavoritePlayers(favoritePlayers);
             }
         }
 
@@ -423,13 +444,13 @@ namespace WinFormsApp
         {
             try
             {
-                var favoritePlayers = new List<string>();
+                var favoritePlayers = new List<Player>();
 
                 foreach (var control in flpnlFavoritePlayers.Controls)
                 {
                     if (control is Panel panel && panel.Tag is PlayerWithImage playerWithImage)
                     {
-                        favoritePlayers.Add(playerWithImage.Player.Name);  
+                        favoritePlayers.Add(playerWithImage.Player);
                     }
                 }
 
@@ -448,26 +469,24 @@ namespace WinFormsApp
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string selectedImagePath = openFileDialog.FileName;
-                string playerName = "modric"; 
 
-                string correctedPath = selectedImagePath.Replace(@"\", @"\\");
+                string playerName = ExtractOnlyName(playerControl.CurrentPlayer.Player.Name);
 
+                string safeFileName = playerName.Replace(" ", "_") + ".jpg"; 
 
-                string line = $"{playerName}|{correctedPath}";
-                _fileRepository.AppendToFile("../../../data/images.txt", line);
+                string imagesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+                Directory.CreateDirectory(imagesFolder);
 
-                MessageBox.Show(openFileDialog.FileName);
+                string destinationPath = Path.Combine(imagesFolder, safeFileName);
+                File.Copy(selectedImagePath, destinationPath, true);
 
-                var lines = File.ReadAllLines("../../../data/images.txt");
-                foreach (var lin in lines)
-                {
-                    MessageBox.Show(lin);
-                }
+                string relativePath = Path.Combine("Images", safeFileName);
 
-                MessageBox.Show("Slika koju treba stavit:" +  selectedImagePath);
-                playerControl.SetImage(selectedImagePath);
+                _fileRepository.AppendToFile("images.txt", $"{playerName}#{relativePath}");
 
-                MessageBox.Show("Putanja slike je spremljena u 'images.txt'.", "Potvrda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                playerControl.SetImage(destinationPath);
+
+                MessageBox.Show("Slika spremljena i prikazana.");
             }
         }
 
@@ -684,7 +703,7 @@ namespace WinFormsApp
            // ExportDataGridViewToPdf(dgwCardsTable);
         }
 
-        private async void MainForm_FormClosing(object? sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object? sender, FormClosingEventArgs e)
         {
             try
             {
@@ -695,15 +714,16 @@ namespace WinFormsApp
                 string settingsContent = $"{gender}#{language}#{teamCode}";
                 _fileRepository.SaveSettings("../../../data/settings.txt", settingsContent);
 
-                var favoritePlayerNames = flpnlFavoritePlayers.Controls.Cast<Control>()
-                .Where(p => p is Panel && p.Controls.OfType<Label>().Any()) 
-                .Select(p => p.Controls.OfType<Label>().FirstOrDefault()?.Text) 
-                .Where(name => !string.IsNullOrWhiteSpace(name)) 
-                .ToList();
+                var favoritePlayers = flpnlFavoritePlayers.Controls
+                    .OfType<Panel>()
+                    .Select(panel => panel.Tag)
+                    .OfType<PlayerWithImage>()
+                    .Select(pwi => pwi.Player)
+                    .ToList();
 
-                if (favoritePlayerNames.Count > 0)
+                if (favoritePlayers.Count > 0)
                 {
-                    _fileRepository.SaveFavoritePlayers(favoritePlayerNames);
+                    _fileRepository.SaveFavoritePlayers(favoritePlayers);
                 }
                 else
                 {

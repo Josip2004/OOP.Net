@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblChooserChampionship = new Label();
             cbChampionship = new ComboBox();
-            label2 = new Label();
+            lblSelectLanguage = new Label();
             cbLanguage = new ComboBox();
             btnApply = new Button();
             SuspendLayout();
             // 
-            // label1
+            // lblChooserChampionship
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold);
-            label1.Location = new Point(63, 63);
-            label1.Name = "label1";
-            label1.Size = new Size(568, 59);
-            label1.TabIndex = 0;
-            label1.Text = "Choose the championship";
+            lblChooserChampionship.AutoSize = true;
+            lblChooserChampionship.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold);
+            lblChooserChampionship.Location = new Point(63, 63);
+            lblChooserChampionship.Name = "lblChooserChampionship";
+            lblChooserChampionship.Size = new Size(568, 59);
+            lblChooserChampionship.TabIndex = 0;
+            lblChooserChampionship.Text = "Choose the championship";
             // 
             // cbChampionship
             // 
@@ -53,15 +53,15 @@
             cbChampionship.Size = new Size(555, 40);
             cbChampionship.TabIndex = 1;
             // 
-            // label2
+            // lblSelectLanguage
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold);
-            label2.Location = new Point(63, 284);
-            label2.Name = "label2";
-            label2.Size = new Size(438, 59);
-            label2.TabIndex = 2;
-            label2.Text = "Select the language";
+            lblSelectLanguage.AutoSize = true;
+            lblSelectLanguage.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold);
+            lblSelectLanguage.Location = new Point(63, 284);
+            lblSelectLanguage.Name = "lblSelectLanguage";
+            lblSelectLanguage.Size = new Size(438, 59);
+            lblSelectLanguage.TabIndex = 2;
+            lblSelectLanguage.Text = "Select the language";
             // 
             // cbLanguage
             // 
@@ -89,21 +89,20 @@
             ClientSize = new Size(1293, 860);
             Controls.Add(btnApply);
             Controls.Add(cbLanguage);
-            Controls.Add(label2);
+            Controls.Add(lblSelectLanguage);
             Controls.Add(cbChampionship);
-            Controls.Add(label1);
+            Controls.Add(lblChooserChampionship);
             Name = "StartDisplay";
             Text = "Form1";
-            Load += StartDisplay_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblChooserChampionship;
         private ComboBox cbChampionship;
-        private Label label2;
+        private Label lblSelectLanguage;
         private ComboBox cbLanguage;
         private Button btnApply;
     }

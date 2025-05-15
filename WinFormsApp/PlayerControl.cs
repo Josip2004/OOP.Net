@@ -40,19 +40,23 @@ namespace WinFormsApp
         {
             try
             {
+                if (pbPlayer.Image != null)
+                {
+                    pbPlayer.Image.Dispose();
+                    pbPlayer.Image = null;
+                }
+
                 if (File.Exists(imagePath))
                 {
-                    using (var img = Image.FromFile(imagePath))
-                    {
-                        pbPlayer.Image = new Bitmap(img);
-                    }
+                    pbPlayer.Image = new Bitmap(imagePath);
+                }
+                else if (File.Exists(DefaultImage))
+                {
+                    pbPlayer.Image = new Bitmap(DefaultImage);
                 }
                 else
                 {
-                    using (var img = Image.FromFile(DefaultImage))
-                    {
-                        pbPlayer.Image = new Bitmap(img);
-                    }
+                    MessageBox.Show("Default image nije pronađena.");
                 }
             }
             catch (Exception ex)

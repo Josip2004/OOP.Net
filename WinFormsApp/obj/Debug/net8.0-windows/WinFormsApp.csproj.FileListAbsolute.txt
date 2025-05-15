@@ -51,3 +51,8 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinForms.79E25943.Up2Date
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.genruntimeconfig.cache
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\ref\WinFormsApp.dll
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\data\images.txt
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\hr\WinFormsApp.resources.dll
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.Strings.resources
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.Strings.hr.resources
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\hr\WinFormsApp.resources.dll

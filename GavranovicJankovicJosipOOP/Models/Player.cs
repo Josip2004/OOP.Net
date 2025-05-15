@@ -24,7 +24,7 @@ namespace Dao.Models
 
         public override string ToString()
         {
-            return $"{Name} {Captain} {ShirtNumber} {Position}";
+            return Name;
         }
     }
 }
