@@ -25,7 +25,6 @@ namespace Dao.Repositories
             if (!Directory.Exists(BaseFolder))
                 Directory.CreateDirectory(BaseFolder);
 
-
             File.WriteAllText(path, content);
         }
 
@@ -186,11 +185,7 @@ namespace Dao.Repositories
 
                 result.Add(player);
             }
-
             return result;
         }
-
-          
-        
     }
 }

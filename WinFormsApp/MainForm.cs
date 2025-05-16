@@ -384,7 +384,7 @@ namespace WinFormsApp
 
                 if (panel == flpnlFavoritePlayers && flpnlFavoritePlayers.Controls.Count >= 3)
                 {
-                    MessageBox.Show("Možete imati maksimalno 3 omiljena igrača.");
+                    MessageBox.Show("You can have a maximum of 3 favorite players.");
                     return;
                 }
 
@@ -531,8 +531,6 @@ namespace WinFormsApp
                 _fileRepository.AppendToFile("images.txt", $"{playerName}#{relativePath}");
 
                 playerControl.SetImage(destinationPath);
-
-                MessageBox.Show("Slika spremljena i prikazana.");
             }
         }
 
@@ -771,10 +769,19 @@ namespace WinFormsApp
                 {
                     _fileRepository.SaveFavoritePlayers(favoritePlayers);
                 }
+
+                   ExitMessageBox exitMessage = new ExitMessageBox();
+                   var result = exitMessage.ShowDialog();
+
+                if (result == DialogResult.Yes)
+                {
+                    e.Cancel = false;
+                }
                 else
                 {
-                    MessageBox.Show("No favorite players to save.");
+                    e.Cancel = true;
                 }
+                
             }
             catch (Exception ex)
             {
