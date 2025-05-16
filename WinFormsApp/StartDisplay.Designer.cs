@@ -33,6 +33,7 @@
             lblSelectLanguage = new Label();
             cbLanguage = new ComboBox();
             btnApply = new Button();
+            btnNext = new Button();
             SuspendLayout();
             // 
             // lblChooserChampionship
@@ -74,19 +75,31 @@
             // btnApply
             // 
             btnApply.Font = new Font("Segoe UI Black", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnApply.Location = new Point(260, 614);
+            btnApply.Location = new Point(134, 612);
             btnApply.Name = "btnApply";
-            btnApply.Size = new Size(717, 124);
+            btnApply.Size = new Size(290, 124);
             btnApply.TabIndex = 4;
             btnApply.Text = "Apply";
             btnApply.UseVisualStyleBackColor = true;
             btnApply.Click += btnApply_Click;
+            // 
+            // btnNext
+            // 
+            btnNext.Font = new Font("Segoe UI Black", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNext.Location = new Point(729, 613);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(236, 123);
+            btnNext.TabIndex = 5;
+            btnNext.Text = "Next";
+            btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
             // 
             // StartDisplay
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1293, 860);
+            Controls.Add(btnNext);
             Controls.Add(btnApply);
             Controls.Add(cbLanguage);
             Controls.Add(lblSelectLanguage);
@@ -105,5 +118,6 @@
         private Label lblSelectLanguage;
         private ComboBox cbLanguage;
         private Button btnApply;
+        private Button btnNext;
     }
 }

@@ -17,9 +17,9 @@ namespace WinFormsApp
             InitializeComponent();
             _fileRepository = new FileRepository();
 
-            SetCultureFromSettings();  
-            ApplyLocalization();        
-            LoadSettings();             
+            SetCultureFromSettings();
+            ApplyLocalization();
+            LoadSettings();
         }
 
         private void SetCultureFromSettings()
@@ -36,14 +36,44 @@ namespace WinFormsApp
             lblChooserChampionship.Text = Strings.lblChooserChampionship;
             lblSelectLanguage.Text = Strings.lblSelectLanguage;
             btnApply.Text = Strings.btnApply;
+            btnNext.Text = Strings.btnNext;
+
+            var selectedLanguage = cbLanguage.SelectedItem?.ToString();
+            var selectedChampionship = cbChampionship.SelectedItem?.ToString();
 
             cbChampionship.Items.Clear();
             cbChampionship.Items.Add(Strings.ChampionshipMen);
             cbChampionship.Items.Add(Strings.ChampionshipWomen);
 
+            if (!string.IsNullOrEmpty(selectedChampionship))
+            {
+                if (selectedChampionship.Equals("Men", StringComparison.OrdinalIgnoreCase) ||
+                    selectedChampionship.Equals(Strings.ChampionshipMen, StringComparison.OrdinalIgnoreCase))
+                {
+                    cbChampionship.SelectedItem = Strings.ChampionshipMen;
+                }
+                else
+                {
+                    cbChampionship.SelectedItem = Strings.ChampionshipWomen;
+                }
+            }
+
             cbLanguage.Items.Clear();
             cbLanguage.Items.Add(Strings.EnglishOption);
             cbLanguage.Items.Add(Strings.CroatianOption);
+
+            if (!string.IsNullOrEmpty(selectedLanguage))
+            {
+                if (selectedLanguage.Equals("English", StringComparison.OrdinalIgnoreCase) ||
+                    selectedLanguage.Equals(Strings.EnglishOption, StringComparison.OrdinalIgnoreCase))
+                {
+                    cbLanguage.SelectedItem = Strings.EnglishOption;
+                }
+                else
+                {
+                    cbLanguage.SelectedItem = Strings.CroatianOption;
+                }
+            }
         }
 
         private void LoadSettings()
@@ -80,22 +110,31 @@ namespace WinFormsApp
                 return;
             }
 
-            string genderSelection = cbChampionship.SelectedItem.ToString();
-            string gender = genderSelection.Equals(Strings.ChampionshipMen, StringComparison.OrdinalIgnoreCase) ? "men" : "women";
-
+            string gender = cbChampionship.SelectedItem.ToString().ToLower();
             string language = cbLanguage.SelectedItem.ToString();
 
             string existingTeamCode = _fileRepository.GetCurrentTeam();
-
             string fullSettings = string.IsNullOrWhiteSpace(existingTeamCode)
                 ? $"{gender}#{language}"
                 : $"{gender}#{language}#{existingTeamCode}";
 
             _fileRepository.SaveSettings(@"../../../data/settings.txt", fullSettings);
 
-            var apiRepository = new ApiRepository(gender);
+            string cultureCode = language.Equals("Croatian", StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
+            var culture = new CultureInfo(cultureCode);
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
 
-            var mainForm = new MainForm(apiRepository, _fileRepository);
+            ApplyLocalization();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            string gender = cbChampionship.SelectedItem?.ToString().ToLower() ?? "men";
+            var apiRepo = new ApiRepository(gender);
+            var mainForm = new MainForm(apiRepo, _fileRepository);
             mainForm.Show();
             this.Hide();
         }

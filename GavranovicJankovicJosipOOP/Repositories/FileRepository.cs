@@ -42,13 +42,10 @@ namespace Dao.Repositories
                 }
 
                 File.AppendAllText(fullPath, content + Environment.NewLine);
-
-                // DEBUG: log poruku za potvrdu
-                MessageBox.Show($"Zapisano u: {fullPath}\nSadržaj: {content}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška kod zapisa: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -62,13 +59,12 @@ namespace Dao.Repositories
                 }
                 else
                 {
-                    MessageBox.Show("Datoteka ne postoji.");
                     return string.Empty;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška prilikom čitanja datoteke: {ex.Message}");
+                MessageBox.Show(ex.Message);
                 return string.Empty;
             }
         }
@@ -91,30 +87,25 @@ namespace Dao.Repositories
         {
             if (!File.Exists(ImageMapPath))
             {
-                MessageBox.Show($"[ImageExists] Ne postoji file: {ImageMapPath}");
                 return false;
             }
 
             var lines = File.ReadAllLines(ImageMapPath);
             foreach (var line in lines)
             {
-                MessageBox.Show($"[ImageExists] Čitam liniju: {line}");
 
                 var parts = line.Split(Del);
                 if (parts.Length > 0)
                 {
                     string nameFromFile = parts[0].Trim();
-                    MessageBox.Show($"[ImageExists] Uspoređujem: {nameFromFile} ↔ {playerName}");
 
                     if (string.Equals(nameFromFile, playerName.Trim(), StringComparison.OrdinalIgnoreCase))
                     {
-                        MessageBox.Show($"[ImageExists] NAĐEN IGRAČ: {nameFromFile}");
                         return true;
                     }
                 }
             }
 
-            MessageBox.Show($"[ImageExists] Nije pronađena linija za: {playerName}");
             return false;
         }
 
@@ -136,7 +127,6 @@ namespace Dao.Repositories
 
             if (line == null)
             {
-                MessageBox.Show($"Player {controlName} not found.");
                 return string.Empty;
             }
 
@@ -148,7 +138,6 @@ namespace Dao.Repositories
                 return string.Empty;
             }
 
-            // Ako nije apsolutna, pretvori u punu putanju
             if (!Path.IsPathRooted(imagePath))
             {
                 imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imagePath);

@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime;
+using WinFormsApp.Properties;
 
 
 namespace WinFormsApp
@@ -47,8 +48,11 @@ namespace WinFormsApp
             flpnlPlayers.DragDrop += flpnlPlayers_DragDrop;
             flpnlFavoritePlayers.DragDrop += flpnlPlayers_DragDrop;
 
+            ApplyLocalization();
+
             Load += async (s, e) =>
             {
+                playerControl.ApplyLocalization();
                 await LoadTeams();
             };
         }
@@ -100,6 +104,44 @@ namespace WinFormsApp
             }
         }
 
+        private void ApplyLocalization()
+        {
+            lblFavoritePl.Text = Strings.lblFavoritePl;
+            lblFavoriteTeam.Text = Strings.lblFavoriteTeam;
+            lblMainPlayer.Text = Strings.lblMainPlayer;
+            lblPlayers.Text = Strings.lblPlayers;
+
+            btnAddPicture.Text = Strings.btnAddPicture;
+            btnMoveToFav.Text = Strings.btnMoveToFav;
+            btnRemoveFromFav.Text = Strings.btnRemoveFromFav;
+            btnShowAttendance.Text = Strings.btnShowAttendance;
+            btnShowPlayersGoals.Text = Strings.btnShowPlayersGoals;
+            btnShowPlayersCards.Text = Strings.btnShowPlayersCards;
+            btnPdfCards.Text = Strings.btnPdfCards;
+            btnPdfGoals.Text = Strings.btnPdfGoals;
+            btnPdfAttendance.Text = Strings.btnPdfAttendance;
+
+            tpRankingCards.Text = Strings.tpRankingCards;
+            tpPlayers.Text = Strings.tpPlayers;
+            tpRankingGoals.Text = Strings.tpRankingGoals;
+            tpRankingVisitors.Text = Strings.tpRankingVisitors;
+
+            dgwCardsTable.Columns[0].HeaderText = Strings.ImageColumn;
+            dgwCardsTable.Columns[1].HeaderText = Strings.PlayerNameColumn;
+            dgwCardsTable.Columns[2].HeaderText = Strings.NumberOfOccurrencesColumn;
+
+            dgwPlayersGoals.Columns[0].HeaderText = Strings.ImageCol;
+            dgwPlayersGoals.Columns[1].HeaderText = Strings.PlNameCol;
+            dgwPlayersGoals.Columns[2].HeaderText = Strings.NumOfOccurrencesCol;
+
+            dgwAttendance.Columns[0].HeaderText = Strings.locationCol;
+            dgwAttendance.Columns[1].HeaderText = Strings.AttendanceNumberCol;
+            dgwAttendance.Columns[2].HeaderText = Strings.HomeTeamCol;
+            dgwAttendance.Columns[3].HeaderText = Strings.AwayTeamCol;
+
+            settingsToolStripMenuItem.Text = Strings.settingsToolStripMenuItem;
+        }
+
         private async Task LoadFavoriteTeam()
         {
             try
@@ -124,7 +166,7 @@ namespace WinFormsApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška pri učitavanju omiljenog tima: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -166,7 +208,7 @@ namespace WinFormsApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška pri učitavanju omiljenih igrača: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -273,53 +315,51 @@ namespace WinFormsApp
 
         private void PlayerPanel_Click(object? sender, EventArgs e)
         {
-            Panel clickedPanel = sender as Panel;
-
-            if (clickedPanel == null && sender is Label lbl && lbl.Parent is Panel)
-                clickedPanel = lbl.Parent as Panel;
-
-            if (clickedPanel != null)
+            try
             {
-                if (_selectedPlayers.Contains(clickedPanel))
-                {
-                    _selectedPlayers.Remove(clickedPanel);
-                    clickedPanel.BackColor = Color.Gainsboro;
-                }
-                else
-                {
-                    _selectedPlayers.Add(clickedPanel);
-                    clickedPanel.BackColor = Color.White;
+                Panel clickedPanel = sender as Panel;
 
-                    PlayerWithImage player = clickedPanel.Tag as PlayerWithImage;
+                if (clickedPanel == null && sender is Label lbl && lbl.Parent is Panel)
+                    clickedPanel = lbl.Parent as Panel;
 
-                    if (player != null)
+                if (clickedPanel != null)
+                {
+                    if (_selectedPlayers.Contains(clickedPanel))
                     {
-                        playerControl.LoadPlayer(player);
+                        _selectedPlayers.Remove(clickedPanel);
+                        clickedPanel.BackColor = Color.Gainsboro;
+                    }
+                    else
+                    {
+                        _selectedPlayers.Add(clickedPanel);
+                        clickedPanel.BackColor = Color.White;
 
-                        string actualName = player.Player.Name;
-                        MessageBox.Show("Provjeravam ImageExists za ime: " + actualName);
-                        if (_fileRepository.ImageExists(actualName))
+                        PlayerWithImage player = clickedPanel.Tag as PlayerWithImage;
+
+                        if (player != null)
                         {
-                            MessageBox.Show("Pozivam RetrieveImagePath za: " + player.Player.Name);
+                            playerControl.LoadPlayer(player);
 
-                            string imagePath = _fileRepository.RetrieveImagePath(player.Player.Name);
+                            string actualName = player.Player.Name;
+                            if (_fileRepository.ImageExists(actualName))
+                            {
 
-                            MessageBox.Show("Putanja vraćena iz RetrieveImagePath:\n" + imagePath);
-                            if (File.Exists(imagePath))
-                            {
-                                playerControl.SetImage(imagePath);
+                                string imagePath = _fileRepository.RetrieveImagePath(player.Player.Name);
+
+                                if (File.Exists(imagePath))
+                                {
+                                    playerControl.SetImage(imagePath);
+                                }
+
                             }
-                            else
-                            {
-                                MessageBox.Show("File.Exists je FALSE — slika ne postoji na toj putanji.");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Image NE postoji prema ImageExists metodi.");
+
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

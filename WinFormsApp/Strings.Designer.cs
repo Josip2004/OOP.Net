@@ -61,11 +61,119 @@ namespace WinFormsApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attendance Number.
+        /// </summary>
+        internal static string AttendanceNumberCol {
+            get {
+                return ResourceManager.GetString("AttendanceNumberCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Away Team.
+        /// </summary>
+        internal static string AwayTeamCol {
+            get {
+                return ResourceManager.GetString("AwayTeamCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add picture.
+        /// </summary>
+        internal static string btnAddPicture {
+            get {
+                return ResourceManager.GetString("btnAddPicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apply.
         /// </summary>
         internal static string btnApply {
             get {
                 return ResourceManager.GetString("btnApply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move to favorites.
+        /// </summary>
+        internal static string btnMoveToFav {
+            get {
+                return ResourceManager.GetString("btnMoveToFav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        internal static string btnNext {
+            get {
+                return ResourceManager.GetString("btnNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print to PDF.
+        /// </summary>
+        internal static string btnPdfAttendance {
+            get {
+                return ResourceManager.GetString("btnPdfAttendance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print to PDF.
+        /// </summary>
+        internal static string btnPdfCards {
+            get {
+                return ResourceManager.GetString("btnPdfCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print to PDF.
+        /// </summary>
+        internal static string btnPdfGoals {
+            get {
+                return ResourceManager.GetString("btnPdfGoals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove from favorites.
+        /// </summary>
+        internal static string btnRemoveFromFav {
+            get {
+                return ResourceManager.GetString("btnRemoveFromFav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show attendance.
+        /// </summary>
+        internal static string btnShowAttendance {
+            get {
+                return ResourceManager.GetString("btnShowAttendance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show players.
+        /// </summary>
+        internal static string btnShowPlayersCards {
+            get {
+                return ResourceManager.GetString("btnShowPlayersCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show players.
+        /// </summary>
+        internal static string btnShowPlayersGoals {
+            get {
+                return ResourceManager.GetString("btnShowPlayersGoals", resourceCulture);
             }
         }
         
@@ -106,6 +214,42 @@ namespace WinFormsApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home Team.
+        /// </summary>
+        internal static string HomeTeamCol {
+            get {
+                return ResourceManager.GetString("HomeTeamCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string ImageCol {
+            get {
+                return ResourceManager.GetString("ImageCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        internal static string ImageColumn {
+            get {
+                return ResourceManager.GetString("ImageColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Captain:.
+        /// </summary>
+        internal static string lblCaptain {
+            get {
+                return ResourceManager.GetString("lblCaptain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose the championship.
         /// </summary>
         internal static string lblChooserChampionship {
@@ -115,11 +259,218 @@ namespace WinFormsApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Favorite players:.
+        /// </summary>
+        internal static string lblFavoritePl {
+            get {
+                return ResourceManager.GetString("lblFavoritePl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorite player:.
+        /// </summary>
+        internal static string lblFavoritePlayer {
+            get {
+                return ResourceManager.GetString("lblFavoritePlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorite national team:.
+        /// </summary>
+        internal static string lblFavoriteTeam {
+            get {
+                return ResourceManager.GetString("lblFavoriteTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player:.
+        /// </summary>
+        internal static string lblMainPlayer {
+            get {
+                return ResourceManager.GetString("lblMainPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        internal static string lblName {
+            get {
+                return ResourceManager.GetString("lblName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players:.
+        /// </summary>
+        internal static string lblPlayers {
+            get {
+                return ResourceManager.GetString("lblPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position:.
+        /// </summary>
+        internal static string lblPosition {
+            get {
+                return ResourceManager.GetString("lblPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select the language.
         /// </summary>
         internal static string lblSelectLanguage {
             get {
                 return ResourceManager.GetString("lblSelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shirt number:.
+        /// </summary>
+        internal static string lblShirtNum {
+            get {
+                return ResourceManager.GetString("lblShirtNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        internal static string locationCol {
+            get {
+                return ResourceManager.GetString("locationCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number Of Occurrences.
+        /// </summary>
+        internal static string NumberOfOccurrencesColumn {
+            get {
+                return ResourceManager.GetString("NumberOfOccurrencesColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number Of Occurrences.
+        /// </summary>
+        internal static string NumOfOccurrencesCol {
+            get {
+                return ResourceManager.GetString("NumOfOccurrencesCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Name.
+        /// </summary>
+        internal static string PlayerNameColumn {
+            get {
+                return ResourceManager.GetString("PlayerNameColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Name.
+        /// </summary>
+        internal static string PlNameCol {
+            get {
+                return ResourceManager.GetString("PlNameCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Defender.
+        /// </summary>
+        internal static string Position_DF {
+            get {
+                return ResourceManager.GetString("Position_DF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forward.
+        /// </summary>
+        internal static string Position_FW {
+            get {
+                return ResourceManager.GetString("Position_FW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goalkeeper.
+        /// </summary>
+        internal static string Position_GK {
+            get {
+                return ResourceManager.GetString("Position_GK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Midfielder.
+        /// </summary>
+        internal static string Position_MF {
+            get {
+                return ResourceManager.GetString("Position_MF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string settingsToolStripMenuItem {
+            get {
+                return ResourceManager.GetString("settingsToolStripMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        internal static string tcPlayers {
+            get {
+                return ResourceManager.GetString("tcPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        internal static string tpPlayers {
+            get {
+                return ResourceManager.GetString("tpPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranking by yellow cards.
+        /// </summary>
+        internal static string tpRankingCards {
+            get {
+                return ResourceManager.GetString("tpRankingCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranking by scored goals.
+        /// </summary>
+        internal static string tpRankingGoals {
+            get {
+                return ResourceManager.GetString("tpRankingGoals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranking by number of visitors.
+        /// </summary>
+        internal static string tpRankingVisitors {
+            get {
+                return ResourceManager.GetString("tpRankingVisitors", resourceCulture);
             }
         }
     }

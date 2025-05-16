@@ -117,11 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AttendanceNumberCol" xml:space="preserve">
+    <value>Broj Prisutnih</value>
+  </data>
+  <data name="AwayTeamCol" xml:space="preserve">
+    <value>Gostujući Tim</value>
+  </data>
+  <data name="btnAddPicture" xml:space="preserve">
+    <value>Dodaj sliku</value>
+  </data>
   <data name="btnApply" xml:space="preserve">
     <value>Potvrdi</value>
   </data>
+  <data name="btnMoveToFav" xml:space="preserve">
+    <value>Premjesti u omiljene</value>
+  </data>
+  <data name="btnNext" xml:space="preserve">
+    <value>Pokreni</value>
+  </data>
+  <data name="btnPdfAttendance" xml:space="preserve">
+    <value>Printaj u PDF</value>
+  </data>
+  <data name="btnPdfCards" xml:space="preserve">
+    <value>Printaj u PDF</value>
+  </data>
+  <data name="btnPdfGoals" xml:space="preserve">
+    <value>Printaj u PDF</value>
+  </data>
+  <data name="btnRemoveFromFav" xml:space="preserve">
+    <value>Ukloni iz favorita</value>
+  </data>
+  <data name="btnShowAttendance" xml:space="preserve">
+    <value>Prikaži nazočnost</value>
+  </data>
+  <data name="btnShowPlayersCards" xml:space="preserve">
+    <value>Prikaži igrače</value>
+  </data>
+  <data name="btnShowPlayersGoals" xml:space="preserve">
+    <value>Prikaži igrače</value>
+  </data>
   <data name="ChampionshipMen" xml:space="preserve">
-    <value>Musko</value>
+    <value>Muško</value>
   </data>
   <data name="ChampionshipWomen" xml:space="preserve">
     <value>Zensko</value>
@@ -132,10 +168,91 @@
   <data name="EnglishOption" xml:space="preserve">
     <value>Engleski</value>
   </data>
+  <data name="HomeTeamCol" xml:space="preserve">
+    <value>Domaći Tim</value>
+  </data>
+  <data name="ImageCol" xml:space="preserve">
+    <value>Slika</value>
+  </data>
+  <data name="ImageColumn" xml:space="preserve">
+    <value>Slika</value>
+  </data>
+  <data name="lblCaptain" xml:space="preserve">
+    <value>Kapetan:</value>
+  </data>
   <data name="lblChooserChampionship" xml:space="preserve">
     <value>Odaberi prvenstvo</value>
   </data>
+  <data name="lblFavoritePl" xml:space="preserve">
+    <value>Omiljeni igrači:</value>
+  </data>
+  <data name="lblFavoritePlayer" xml:space="preserve">
+    <value>Omiljeni igrač:</value>
+  </data>
+  <data name="lblFavoriteTeam" xml:space="preserve">
+    <value>Omiljena reprezentacija:</value>
+  </data>
+  <data name="lblMainPlayer" xml:space="preserve">
+    <value>Igrač:</value>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Ime:</value>
+  </data>
+  <data name="lblPlayers" xml:space="preserve">
+    <value>Igrači:</value>
+  </data>
+  <data name="lblPosition" xml:space="preserve">
+    <value>Pozicija:</value>
+  </data>
   <data name="lblSelectLanguage" xml:space="preserve">
     <value>Odaberi jezik</value>
+  </data>
+  <data name="lblShirtNum" xml:space="preserve">
+    <value>Broj dresa:</value>
+  </data>
+  <data name="locationCol" xml:space="preserve">
+    <value>Lokacija</value>
+  </data>
+  <data name="NumberOfOccurrencesColumn" xml:space="preserve">
+    <value>Broj Pojavljivanja</value>
+  </data>
+  <data name="NumOfOccurrencesCol" xml:space="preserve">
+    <value>Broj Pojavljivanja</value>
+  </data>
+  <data name="PlayerNameColumn" xml:space="preserve">
+    <value>Ime Igrača</value>
+  </data>
+  <data name="PlNameCol" xml:space="preserve">
+    <value>Ime Igrača</value>
+  </data>
+  <data name="Position_DF" xml:space="preserve">
+    <value>Obrambeni</value>
+  </data>
+  <data name="Position_FW" xml:space="preserve">
+    <value>Napadač</value>
+  </data>
+  <data name="Position_GK" xml:space="preserve">
+    <value>Golman</value>
+  </data>
+  <data name="Position_MF" xml:space="preserve">
+    <value>Vezni</value>
+  </data>
+  <data name="settingsToolStripMenuItem" xml:space="preserve">
+    <value>Postavke</value>
+  </data>
+  <data name="tcPlayers" xml:space="preserve">
+    <value>Igrači</value>
+  </data>
+  <data name="tpPlayers" xml:space="preserve">
+    <value>Igrači</value>
+  </data>
+  <data name="tpRankingCards" xml:space="preserve">
+    <value>Rangiranje po žutim kartonima</value>
+  </data>
+  <data name="tpRankingGoals" xml:space="preserve">
+    <value>Rangiranje po golovima</value>
+  </data>
+  <data name="tpRankingVisitors" xml:space="preserve">
+    <value>Rangiranje po broju gledatelja</value>
   </data>
 </root>

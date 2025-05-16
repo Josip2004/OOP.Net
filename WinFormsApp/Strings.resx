@@ -117,8 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AttendanceNumberCol" xml:space="preserve">
+    <value>Attendance Number</value>
+  </data>
+  <data name="AwayTeamCol" xml:space="preserve">
+    <value>Away Team</value>
+  </data>
+  <data name="btnAddPicture" xml:space="preserve">
+    <value>Add picture</value>
+  </data>
   <data name="btnApply" xml:space="preserve">
     <value>Apply</value>
+  </data>
+  <data name="btnMoveToFav" xml:space="preserve">
+    <value>Move to favorites</value>
+  </data>
+  <data name="btnNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="btnPdfAttendance" xml:space="preserve">
+    <value>Print to PDF</value>
+  </data>
+  <data name="btnPdfCards" xml:space="preserve">
+    <value>Print to PDF</value>
+  </data>
+  <data name="btnPdfGoals" xml:space="preserve">
+    <value>Print to PDF</value>
+  </data>
+  <data name="btnRemoveFromFav" xml:space="preserve">
+    <value>Remove from favorites</value>
+  </data>
+  <data name="btnShowAttendance" xml:space="preserve">
+    <value>Show attendance</value>
+  </data>
+  <data name="btnShowPlayersCards" xml:space="preserve">
+    <value>Show players</value>
+  </data>
+  <data name="btnShowPlayersGoals" xml:space="preserve">
+    <value>Show players</value>
   </data>
   <data name="ChampionshipMen" xml:space="preserve">
     <value>Men</value>
@@ -132,10 +168,91 @@
   <data name="EnglishOption" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="HomeTeamCol" xml:space="preserve">
+    <value>Home Team</value>
+  </data>
+  <data name="ImageCol" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ImageColumn" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="lblCaptain" xml:space="preserve">
+    <value>Captain:</value>
+  </data>
   <data name="lblChooserChampionship" xml:space="preserve">
     <value>Choose the championship</value>
   </data>
+  <data name="lblFavoritePl" xml:space="preserve">
+    <value>Favorite players:</value>
+  </data>
+  <data name="lblFavoritePlayer" xml:space="preserve">
+    <value>Favorite player:</value>
+  </data>
+  <data name="lblFavoriteTeam" xml:space="preserve">
+    <value>Favorite national team:</value>
+  </data>
+  <data name="lblMainPlayer" xml:space="preserve">
+    <value>Player:</value>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="lblPlayers" xml:space="preserve">
+    <value>Players:</value>
+  </data>
+  <data name="lblPosition" xml:space="preserve">
+    <value>Position:</value>
+  </data>
   <data name="lblSelectLanguage" xml:space="preserve">
     <value>Select the language</value>
+  </data>
+  <data name="lblShirtNum" xml:space="preserve">
+    <value>Shirt number:</value>
+  </data>
+  <data name="locationCol" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="NumberOfOccurrencesColumn" xml:space="preserve">
+    <value>Number Of Occurrences</value>
+  </data>
+  <data name="NumOfOccurrencesCol" xml:space="preserve">
+    <value>Number Of Occurrences</value>
+  </data>
+  <data name="PlayerNameColumn" xml:space="preserve">
+    <value>Player Name</value>
+  </data>
+  <data name="PlNameCol" xml:space="preserve">
+    <value>Player Name</value>
+  </data>
+  <data name="Position_DF" xml:space="preserve">
+    <value>Defender</value>
+  </data>
+  <data name="Position_FW" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="Position_GK" xml:space="preserve">
+    <value>Goalkeeper</value>
+  </data>
+  <data name="Position_MF" xml:space="preserve">
+    <value>Midfielder</value>
+  </data>
+  <data name="settingsToolStripMenuItem" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="tcPlayers" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="tpPlayers" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="tpRankingCards" xml:space="preserve">
+    <value>Ranking by yellow cards</value>
+  </data>
+  <data name="tpRankingGoals" xml:space="preserve">
+    <value>Ranking by scored goals</value>
+  </data>
+  <data name="tpRankingVisitors" xml:space="preserve">
+    <value>Ranking by number of visitors</value>
   </data>
 </root>
