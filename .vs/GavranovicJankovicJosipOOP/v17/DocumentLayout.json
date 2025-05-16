@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\exitmessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\exitmessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\startdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\startdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +27,8 @@
       "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\strings.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\startdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\winformsapp\\startdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\startdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\properties\\applicationconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\winformsapp\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\data\\settings.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -74,11 +78,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "ExitMessageBox.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\ExitMessageBox.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\ExitMessageBox.cs",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\ExitMessageBox.cs [Design]",
+              "RelativeToolTip": "WinFormsApp\\ExitMessageBox.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T17:39:58.216Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "StartDisplay.cs [Design]",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\StartDisplay.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\StartDisplay.cs",
@@ -90,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ApplicationConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\Properties\\ApplicationConfiguration.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\Properties\\ApplicationConfiguration.cs",
@@ -98,63 +114,59 @@
               "RelativeToolTip": "WinFormsApp\\Properties\\ApplicationConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T16:51:31.258Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T16:51:31.258Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "WinFormsApp",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\WinFormsApp.csproj",
               "RelativeDocumentMoniker": "WinFormsApp\\WinFormsApp.csproj",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\WinFormsApp.csproj",
               "RelativeToolTip": "WinFormsApp\\WinFormsApp.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-16T16:51:03.836Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T16:51:03.836Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "WinFormsApp",
+              "DocumentIndex": 9,
+              "Title": "WinFormsApp.csproj",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\WinFormsApp.csproj",
               "RelativeDocumentMoniker": "WinFormsApp\\WinFormsApp.csproj",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\WinFormsApp.csproj",
               "RelativeToolTip": "WinFormsApp\\WinFormsApp.csproj",
               "ViewState": "AgIAABUAAAAAAAAAAAAAACEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-16T16:49:14.523Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T16:49:14.523Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Dao",
+              "DocumentIndex": 10,
+              "Title": "Dao.csproj",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Dao.csproj",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Dao.csproj",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Dao.csproj",
               "RelativeToolTip": "GavranovicJankovicJosipOOP\\Dao.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-16T16:49:11.142Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T16:49:11.142Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "StartDisplay.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\StartDisplay.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\StartDisplay.cs",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\StartDisplay.cs",
               "RelativeToolTip": "WinFormsApp\\StartDisplay.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAIwDoAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwIoAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-16T16:30:57.554Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "settings.txt",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\data\\settings.txt",
               "RelativeDocumentMoniker": "WinFormsApp\\data\\settings.txt",
@@ -178,19 +190,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Strings.resx",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\Strings.resx",
               "RelativeDocumentMoniker": "WinFormsApp\\Strings.resx",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\Strings.resx",
               "RelativeToolTip": "WinFormsApp\\Strings.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-05-15T20:21:35.383Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T20:21:35.383Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "favoritePlayers.txt",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\data\\favoritePlayers.txt",
               "RelativeDocumentMoniker": "WinFormsApp\\data\\favoritePlayers.txt",
@@ -202,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "IFileRepository.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Repositories\\IFileRepository.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Repositories\\IFileRepository.cs",
@@ -214,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "PlayerControl.cs [Design]",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\PlayerControl.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\PlayerControl.cs",
@@ -226,20 +237,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "PlayerControl.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\PlayerControl.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\PlayerControl.cs",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\PlayerControl.cs",
               "RelativeToolTip": "WinFormsApp\\PlayerControl.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAYwFgAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAlwBMAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-15T17:53:44.534Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "images.txt",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\data\\images.txt",
               "RelativeDocumentMoniker": "WinFormsApp\\data\\images.txt",
@@ -251,19 +262,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\MainForm.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\MainForm.cs",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\MainForm.cs",
               "RelativeToolTip": "WinFormsApp\\MainForm.cs",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAkwNIAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAADsBAAAAAAAAAAA8wE4BAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T17:39:10.522Z"
+              "WhenOpened": "2025-05-15T17:39:10.522Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "FileRepository.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Repositories\\FileRepository.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Repositories\\FileRepository.cs",

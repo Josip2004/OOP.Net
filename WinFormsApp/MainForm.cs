@@ -338,7 +338,13 @@ namespace WinFormsApp
 
                         if (player != null)
                         {
-                            playerControl.LoadPlayer(player);
+                            bool isFavorite = flpnlFavoritePlayers.Controls
+                                .OfType<Panel>()
+                                .Select(p => p.Tag)
+                                .OfType<PlayerWithImage>()
+                                .Any(pwi => pwi.Player.Name == player.Player.Name);
+
+                            playerControl.LoadPlayer(player, isFavorite);
 
                             string actualName = player.Player.Name;
                             if (_fileRepository.ImageExists(actualName))

@@ -24,7 +24,7 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        public void LoadPlayer(PlayerWithImage player)
+        public void LoadPlayer(PlayerWithImage player, bool isFavorite = false)
         {
             CurrentPlayer = player;
 
@@ -32,7 +32,7 @@ namespace WinFormsApp
             lblPosition.Text = Strings.lblPosition + " " + LocalizePosition(player.Player.Position);
             lblCaptain.Text = Strings.lblCaptain + " " + player.Player.Captain.ToString();
             lblShirtNum.Text = Strings.lblShirtNum + " " + player.Player.ShirtNumber.ToString();
-            lblFavoritePlayer.Text = Strings.lblFavoritePlayer + " ";
+            lblFavoritePlayer.Text = Strings.lblFavoritePlayer + (isFavorite ? " ★" : "");
 
             LoadPlayerImage(player.ImagePath);
         }
