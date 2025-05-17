@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime;
 using WinFormsApp.Properties;
+using iText.IO.Image;
 
 
 namespace WinFormsApp
@@ -76,7 +77,7 @@ namespace WinFormsApp
 
                 cbFavoriteNationalTeam.SelectedIndex = -1;
 
-               
+
 
 
                 await LoadFavoriteTeam();
@@ -91,7 +92,7 @@ namespace WinFormsApp
                     {
                         cbFavoriteNationalTeam.SelectedItem = savedTeam;
                     }
-                   
+
                 }
                 cbFavoriteNationalTeam.SelectedIndexChanged += cbFavoriteNationalTeam_SelectedIndexChanged;
 
@@ -157,11 +158,11 @@ namespace WinFormsApp
                     {
                         cbFavoriteNationalTeam.SelectedItem = savedTeam;
                     }
-                   
+
                 }
                 else
                 {
-                    cbFavoriteNationalTeam.SelectedIndex = 0; 
+                    cbFavoriteNationalTeam.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
@@ -215,7 +216,7 @@ namespace WinFormsApp
 
         private async void cbFavoriteNationalTeam_SelectedIndexChanged(object sender, EventArgs e)
         {
-     
+
 
             if (cbFavoriteNationalTeam.SelectedItem is Team selectedTeam)
             {
@@ -389,27 +390,18 @@ namespace WinFormsApp
                 }
 
                 ctrl.Parent.Controls.Remove(ctrl);
-
                 panel.Controls.Add(ctrl);
 
-                Player player = ctrl.Tag as Player;
-
-                if (panel == flpnlFavoritePlayers)
+                var favoritesToSave = new List<Player>();
+                foreach (var control in flpnlFavoritePlayers.Controls)
                 {
-                    if (player != null && !favoritePlayers.Contains(player))
+                    if (control is Panel p && p.Tag is PlayerWithImage pwi)
                     {
-                        favoritePlayers.Add(player);  
-                    }
-                }
-                else if (ctrl.Parent == flpnlFavoritePlayers)
-                {
-                    if (player != null)
-                    {
-                        favoritePlayers.Remove(player);  
+                        favoritesToSave.Add(pwi.Player);
                     }
                 }
 
-                _fileRepository.SaveFavoritePlayers(favoritePlayers);
+                _fileRepository.SaveFavoritePlayers(favoritesToSave);
             }
         }
 
@@ -439,7 +431,20 @@ namespace WinFormsApp
                     }
 
 
+
+                    var favoritesToSave = new List<Player>();
+
+                    foreach (var control in flpnlFavoritePlayers.Controls)
+                    {
+                        if (control is Panel panel && panel.Tag is PlayerWithImage pwi)
+                        {
+                            favoritesToSave.Add(pwi.Player);
+                        }
+                    }
+
+                    _fileRepository.SaveFavoritePlayers(favoritesToSave);
                     _selectedPlayers.Clear();
+
                 }
                 else
                 {
@@ -466,7 +471,7 @@ namespace WinFormsApp
                             if (clickedPanel.Parent == flpnlFavoritePlayers)
                             {
                                 clickedPanel.Parent.Controls.Remove(clickedPanel);
-                                flpnlPlayers.Controls.Add(clickedPanel); 
+                                flpnlPlayers.Controls.Add(clickedPanel);
                             }
                         }
                     }
@@ -518,7 +523,7 @@ namespace WinFormsApp
 
                 string playerName = ExtractOnlyName(playerControl.CurrentPlayer.Player.Name);
 
-                string safeFileName = playerName.Replace(" ", "_") + ".jpg"; 
+                string safeFileName = playerName.Replace(" ", "_") + ".jpg";
 
                 string imagesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
                 Directory.CreateDirectory(imagesFolder);
@@ -732,64 +737,153 @@ namespace WinFormsApp
             FillAttendance();
         }
 
+
+
+        private bool _shouldRestartMainForm = false;
+        private bool _isSoftRestartFromSettings = false;
+
+        public static bool IsRestarting = false;
+
+
+        private void MainForm_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            if (_isSoftRestartFromSettings)
+            {
+                return;
+            }
+
+            ExitMessageBox exitMessage = new ExitMessageBox();
+            var result = exitMessage.ShowDialog();
+
+            if (result != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
+        }
+
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var settingsForm = new Settings();
+
+            bool shouldCloseThisForm = false;
+
+            settingsForm.SettingsApplied += () =>
+            {
+                _isSoftRestartFromSettings = true;
+                shouldCloseThisForm = true;
+                this.Close();
+            };
+
+            this.Hide();
+            settingsForm.ShowDialog();
+
+            if (shouldCloseThisForm)
+                return;
+
+            this.Show();
+        }
+
+        private void DrawDataGridView(Graphics graphics, DataGridView grid, Rectangle marginBounds, ref int startRow)
+        {
+            int x = marginBounds.Left;
+            int y = marginBounds.Top;
+            int rowHeight = grid.RowTemplate.Height + 5;
+            int columnWidth = 250;
+
+            for (int i = 0; i < grid.Columns.Count; i++)
+            {
+                graphics.DrawString(grid.Columns[i].HeaderText,
+                                    grid.Font,
+                                    Brushes.Black,
+                                    x + i * columnWidth,
+                                    y);
+            }
+
+            y += rowHeight;
+
+            for (; startRow < grid.Rows.Count; startRow++)
+            {
+                if (grid.Rows[startRow].IsNewRow) continue;
+
+                for (int col = 0; col < grid.Columns.Count; col++)
+                {
+                    string value = grid.Rows[startRow].Cells[col].Value?.ToString() ?? "";
+                    graphics.DrawString(value,
+                                        grid.Font,
+                                        Brushes.Black,
+                                        x + col * columnWidth,
+                                        y);
+                }
+
+                y += rowHeight;
+
+                if (y > marginBounds.Bottom)
+                {
+                    break;
+                }
+            }
+
+            marginBounds.Y = y;
+        }
+
+        private enum PrintTarget
+        {
+            Cards,
+            Goals,
+            Attendance
+        }
+
+        private PrintTarget currentTarget;
+        private int startRow = 0;
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            switch (currentTarget)
+            {
+                case PrintTarget.Cards:
+                    DrawDataGridView(e.Graphics, dgwCardsTable, e.MarginBounds, ref startRow);
+                    e.HasMorePages = startRow < dgwCardsTable.Rows.Count;
+                    break;
+
+                case PrintTarget.Goals:
+                    DrawDataGridView(e.Graphics, dgwPlayersGoals, e.MarginBounds, ref startRow);
+                    e.HasMorePages = startRow < dgwPlayersGoals.Rows.Count;
+                    break;
+
+                case PrintTarget.Attendance:
+                    DrawDataGridView(e.Graphics, dgwAttendance, e.MarginBounds, ref startRow);
+                    e.HasMorePages = startRow < dgwAttendance.Rows.Count;
+                    break;
+            }
+
+            if (!e.HasMorePages)
+            {
+                startRow = 0; 
+            }
+        }
         private void btnPdfAttendance_Click(object sender, EventArgs e)
         {
-           // ExportDataGridViewToPdf(dgwAttendance);
+            currentTarget = PrintTarget.Attendance;
+            startRow = 0;
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
         }
 
         private void btnPdfGoals_Click(object sender, EventArgs e)
         {
-            //ExportDataGridViewToPdf(dgwPlayersGoals);
+            currentTarget = PrintTarget.Goals;
+            startRow = 0;
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
         }
 
         private void btnPdfCards_Click(object sender, EventArgs e)
         {
-           // ExportDataGridViewToPdf(dgwCardsTable);
+            currentTarget = PrintTarget.Cards;
+            startRow = 0;
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
         }
-
-        private void MainForm_FormClosing(object? sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                string gender = _fileRepository.GetStoredGender();
-                string language = _fileRepository.GetStoredLanguage();
-                string teamCode = cbFavoriteNationalTeam.SelectedValue?.ToString() ?? "";
-
-                string settingsContent = $"{gender}#{language}#{teamCode}";
-                _fileRepository.SaveSettings("../../../data/settings.txt", settingsContent);
-
-                var favoritePlayers = flpnlFavoritePlayers.Controls
-                    .OfType<Panel>()
-                    .Select(panel => panel.Tag)
-                    .OfType<PlayerWithImage>()
-                    .Select(pwi => pwi.Player)
-                    .ToList();
-
-                if (favoritePlayers.Count > 0)
-                {
-                    _fileRepository.SaveFavoritePlayers(favoritePlayers);
-                }
-
-                   ExitMessageBox exitMessage = new ExitMessageBox();
-                   var result = exitMessage.ShowDialog();
-
-                if (result == DialogResult.Yes)
-                {
-                    e.Cancel = false;
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error occurred while saving on close: " + ex.Message);
-            }
-        }
-
-
-
     }
 }

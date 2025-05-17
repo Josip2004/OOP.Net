@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             settingsToolStripMenuItem = new ToolStripMenuItem();
             lblFavoriteTeam = new Label();
@@ -65,6 +66,8 @@
             AttendanceNumberCol = new DataGridViewTextBoxColumn();
             HomeTeamCol = new DataGridViewTextBoxColumn();
             AwayTeamCol = new DataGridViewTextBoxColumn();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
             menuStrip1.SuspendLayout();
             tpPlayers.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -91,6 +94,7 @@
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             settingsToolStripMenuItem.Size = new Size(120, 36);
             settingsToolStripMenuItem.Text = "Settings";
+            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // lblFavoriteTeam
             // 
@@ -433,6 +437,21 @@
             AwayTeamCol.Name = "AwayTeamCol";
             AwayTeamCol.Width = 350;
             // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -444,6 +463,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Main";
             FormClosing += MainForm_FormClosing;
             menuStrip1.ResumeLayout(false);
@@ -503,5 +523,7 @@
         private DataGridViewTextBoxColumn AttendanceNumberCol;
         private DataGridViewTextBoxColumn HomeTeamCol;
         private DataGridViewTextBoxColumn AwayTeamCol;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
     }
 }

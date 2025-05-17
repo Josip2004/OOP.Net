@@ -14,11 +14,18 @@ namespace Dao.Repositories
 
         public ApiRepository(string gender)
         {
-            if (gender != "men" && gender != "women")
-                throw new ArgumentException("Gender must be 'men' or 'women'");
+            try
+            {
+                if (gender != "men" && gender != "women")
+                    throw new ArgumentException("Gender must be 'men' or 'women'");
 
-            string baseUrl = $"https://worldcup-vua.nullbit.hr/{gender}/";
-            _client = new RestClient(baseUrl);
+                string baseUrl = $"https://worldcup-vua.nullbit.hr/{gender}/";
+                _client = new RestClient(baseUrl);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public async Task<List<Match>> GetMatchesAsync(string code)

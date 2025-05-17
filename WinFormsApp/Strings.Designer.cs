@@ -97,6 +97,15 @@ namespace WinFormsApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        internal static string btnApplySettings {
+            get {
+                return ResourceManager.GetString("btnApplySettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Move to favorites.
         /// </summary>
         internal static string btnMoveToFav {
@@ -111,6 +120,15 @@ namespace WinFormsApp {
         internal static string btnNext {
             get {
                 return ResourceManager.GetString("btnNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string btnNo {
+            get {
+                return ResourceManager.GetString("btnNo", resourceCulture);
             }
         }
         
@@ -151,6 +169,24 @@ namespace WinFormsApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string btnSettingsNo {
+            get {
+                return ResourceManager.GetString("btnSettingsNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string btnSettingsYes {
+            get {
+                return ResourceManager.GetString("btnSettingsYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show attendance.
         /// </summary>
         internal static string btnShowAttendance {
@@ -174,6 +210,15 @@ namespace WinFormsApp {
         internal static string btnShowPlayersGoals {
             get {
                 return ResourceManager.GetString("btnShowPlayersGoals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string btnYes {
+            get {
+                return ResourceManager.GetString("btnYes", resourceCulture);
             }
         }
         
@@ -252,9 +297,45 @@ namespace WinFormsApp {
         /// <summary>
         ///   Looks up a localized string similar to Choose the championship.
         /// </summary>
+        internal static string lblChampionshipSettings {
+            get {
+                return ResourceManager.GetString("lblChampionshipSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the language.
+        /// </summary>
+        internal static string lblChooseLanguage {
+            get {
+                return ResourceManager.GetString("lblChooseLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the championship.
+        /// </summary>
         internal static string lblChooserChampionship {
             get {
                 return ResourceManager.GetString("lblChooserChampionship", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want this settings?.
+        /// </summary>
+        internal static string lblConfirmLabel {
+            get {
+                return ResourceManager.GetString("lblConfirmLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to exit the application?.
+        /// </summary>
+        internal static string lblExit {
+            get {
+                return ResourceManager.GetString("lblExit", resourceCulture);
             }
         }
         

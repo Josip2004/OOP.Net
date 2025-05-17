@@ -106,6 +106,7 @@
             Controls.Add(cbChampionship);
             Controls.Add(lblChooserChampionship);
             Name = "StartDisplay";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

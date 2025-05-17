@@ -129,11 +129,17 @@
   <data name="btnApply" xml:space="preserve">
     <value>Apply</value>
   </data>
+  <data name="btnApplySettings" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="btnMoveToFav" xml:space="preserve">
     <value>Move to favorites</value>
   </data>
   <data name="btnNext" xml:space="preserve">
     <value>Next</value>
+  </data>
+  <data name="btnNo" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="btnPdfAttendance" xml:space="preserve">
     <value>Print to PDF</value>
@@ -147,6 +153,12 @@
   <data name="btnRemoveFromFav" xml:space="preserve">
     <value>Remove from favorites</value>
   </data>
+  <data name="btnSettingsNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="btnSettingsYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
   <data name="btnShowAttendance" xml:space="preserve">
     <value>Show attendance</value>
   </data>
@@ -155,6 +167,9 @@
   </data>
   <data name="btnShowPlayersGoals" xml:space="preserve">
     <value>Show players</value>
+  </data>
+  <data name="btnYes" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="ChampionshipMen" xml:space="preserve">
     <value>Men</value>
@@ -180,8 +195,20 @@
   <data name="lblCaptain" xml:space="preserve">
     <value>Captain:</value>
   </data>
+  <data name="lblChampionshipSettings" xml:space="preserve">
+    <value>Choose the championship</value>
+  </data>
+  <data name="lblChooseLanguage" xml:space="preserve">
+    <value>Select the language</value>
+  </data>
   <data name="lblChooserChampionship" xml:space="preserve">
     <value>Choose the championship</value>
+  </data>
+  <data name="lblConfirmLabel" xml:space="preserve">
+    <value>Are you sure you want this settings?</value>
+  </data>
+  <data name="lblExit" xml:space="preserve">
+    <value>Are you sure you want to exit the application?</value>
   </data>
   <data name="lblFavoritePl" xml:space="preserve">
     <value>Favorite players:</value>

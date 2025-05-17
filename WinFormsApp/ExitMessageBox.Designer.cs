@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblExit = new Label();
             btnYes = new Button();
             btnNo = new Button();
             SuspendLayout();
             // 
-            // label1
+            // lblExit
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10F);
-            label1.Location = new Point(109, 81);
-            label1.Name = "label1";
-            label1.Size = new Size(558, 37);
-            label1.TabIndex = 0;
-            label1.Text = "Are you sure you want to exit the application?";
+            lblExit.AutoSize = true;
+            lblExit.Font = new Font("Segoe UI", 10F);
+            lblExit.Location = new Point(109, 81);
+            lblExit.Name = "lblExit";
+            lblExit.Size = new Size(558, 37);
+            lblExit.TabIndex = 0;
+            lblExit.Text = "Are you sure you want to exit the application?";
             // 
             // btnYes
             // 
@@ -70,8 +70,9 @@
             ClientSize = new Size(800, 326);
             Controls.Add(btnNo);
             Controls.Add(btnYes);
-            Controls.Add(label1);
+            Controls.Add(lblExit);
             Name = "ExitMessageBox";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ExitMessageBox";
             ResumeLayout(false);
             PerformLayout();
@@ -79,7 +80,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblExit;
         private Button btnYes;
         private Button btnNo;
     }

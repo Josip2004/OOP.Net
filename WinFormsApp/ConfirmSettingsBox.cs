@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,30 +11,30 @@ using System.Windows.Forms;
 
 namespace WinFormsApp
 {
-    public partial class ExitMessageBox : Form
+    public partial class ConfirmSettingsBox : Form
     {
-        public ExitMessageBox()
+        public ConfirmSettingsBox()
         {
             InitializeComponent();
             ApplyLocalization();
-            this.CancelButton = btnNo; 
-            this.AcceptButton = btnYes;
+            this.CancelButton = btnSettingsNo;
+            this.AcceptButton = btnSettingsYes;
         }
 
         private void ApplyLocalization()
         {
-            lblExit.Text = Strings.lblExit;
-            btnNo.Text = Strings.btnNo;
-            btnYes.Text = Strings.btnYes;
+            lblConfirmLabel.Text = Strings.lblConfirmLabel;
+            btnSettingsNo.Text = Strings.btnSettingsNo;
+            btnSettingsYes.Text = Strings.btnSettingsYes;
         }
 
-        private void btnYes_Click(object sender, EventArgs e)
+        private void btnSettingsYes_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
             Close();
         }
 
-        private void btnNo_Click(object sender, EventArgs e)
+        private void btnSettingsNo_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.No;
             Close();

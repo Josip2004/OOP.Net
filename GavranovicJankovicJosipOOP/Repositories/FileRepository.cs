@@ -68,9 +68,20 @@ namespace Dao.Repositories
             }
         }
 
-        public string GetStoredGender() => GetSetting(0);
-        public string GetStoredLanguage() => GetSetting(1);
-        public string GetCurrentTeam() => GetSetting(2);
+        public string GetStoredGender()
+        {
+            return GetSetting(0);
+        }
+
+        public string GetStoredLanguage()
+        {
+            return GetSetting(1);
+        }
+
+        public string GetCurrentTeam()
+        {
+            return GetSetting(2);
+        }
 
         private string GetSetting(int index)
         {
@@ -79,7 +90,7 @@ namespace Dao.Repositories
             {
                 return string.Empty;
             }
-            return settings.ElementAtOrDefault(index) ?? string.Empty;
+            return index < settings.Length ? settings[index] : string.Empty;
         }
 
         public bool ImageExists(string playerName)
@@ -144,7 +155,6 @@ namespace Dao.Repositories
 
             if (!File.Exists(imagePath))
             {
-                MessageBox.Show($"Slika NE POSTOJI na toj putanji: {imagePath}");
                 return string.Empty;
             }
 
@@ -157,7 +167,7 @@ namespace Dao.Repositories
                 Directory.CreateDirectory(BaseFolder);
 
             var lines = players.Select(p =>
-                $"{p.Name}#{p.Position}#{p.Captain}#{p.ShirtNumber}"
+                $"{p.Name}{Del}{p.Position}{Del}{p.Captain}{Del}{p.ShirtNumber}"
             );
 
             File.WriteAllLines(FavoritePlayersPath, lines);
@@ -172,7 +182,7 @@ namespace Dao.Repositories
             var lines = File.ReadAllLines(FavoritePlayersPath);
             foreach (var line in lines)
             {
-                var parts = line.Split('#');
+                var parts = line.Split(Del);
                 if (parts.Length < 4) continue;
 
                 var player = new Player

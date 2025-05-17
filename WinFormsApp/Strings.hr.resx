@@ -129,11 +129,17 @@
   <data name="btnApply" xml:space="preserve">
     <value>Potvrdi</value>
   </data>
+  <data name="btnApplySettings" xml:space="preserve">
+    <value>Potvrdi</value>
+  </data>
   <data name="btnMoveToFav" xml:space="preserve">
     <value>Premjesti u omiljene</value>
   </data>
   <data name="btnNext" xml:space="preserve">
     <value>Pokreni</value>
+  </data>
+  <data name="btnNo" xml:space="preserve">
+    <value>Ne</value>
   </data>
   <data name="btnPdfAttendance" xml:space="preserve">
     <value>Printaj u PDF</value>
@@ -147,6 +153,12 @@
   <data name="btnRemoveFromFav" xml:space="preserve">
     <value>Ukloni iz favorita</value>
   </data>
+  <data name="btnSettingsNo" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="btnSettingsYes" xml:space="preserve">
+    <value>Da</value>
+  </data>
   <data name="btnShowAttendance" xml:space="preserve">
     <value>Prikaži nazočnost</value>
   </data>
@@ -155,6 +167,9 @@
   </data>
   <data name="btnShowPlayersGoals" xml:space="preserve">
     <value>Prikaži igrače</value>
+  </data>
+  <data name="btnYes" xml:space="preserve">
+    <value>Da</value>
   </data>
   <data name="ChampionshipMen" xml:space="preserve">
     <value>Muško</value>
@@ -180,8 +195,20 @@
   <data name="lblCaptain" xml:space="preserve">
     <value>Kapetan:</value>
   </data>
+  <data name="lblChampionshipSettings" xml:space="preserve">
+    <value>Odaberi prvenstvo</value>
+  </data>
+  <data name="lblChooseLanguage" xml:space="preserve">
+    <value>Odaberi jezik</value>
+  </data>
   <data name="lblChooserChampionship" xml:space="preserve">
     <value>Odaberi prvenstvo</value>
+  </data>
+  <data name="lblConfirmLabel" xml:space="preserve">
+    <value>Jeste li sigurnni da želite ove postavke?</value>
+  </data>
+  <data name="lblExit" xml:space="preserve">
+    <value>Jeste li sigurni da želite napustit aplikaciju?</value>
   </data>
   <data name="lblFavoritePl" xml:space="preserve">
     <value>Omiljeni igrači:</value>
