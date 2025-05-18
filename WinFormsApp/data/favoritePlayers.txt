@@ -1,2 +1,1 @@
-Ivan PERISIC#Forward#False#4
 Luka MODRIC#Midfield#True#10

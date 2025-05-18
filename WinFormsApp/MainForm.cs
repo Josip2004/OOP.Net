@@ -565,19 +565,18 @@ namespace WinFormsApp
 
             foreach (var match in _matches)
             {
-
                 var allEvents = new List<TeamEvent>();
 
                 if (match.HomeTeam.Country == selectedTeam && match.HomeTeamEvents != null)
                 {
                     allEvents.AddRange(match.HomeTeamEvents
-                    .Where(e => e.TypeOfEvent == TypeOfEvent.YellowCard));
+                        .Where(e => e.TypeOfEvent == TypeOfEvent.YellowCard));
                 }
 
                 if (match.AwayTeam.Country == selectedTeam && match.AwayTeamEvents != null)
                 {
                     allEvents.AddRange(match.AwayTeamEvents
-                    .Where(e => e.TypeOfEvent == TypeOfEvent.YellowCard));
+                        .Where(e => e.TypeOfEvent == TypeOfEvent.YellowCard));
                 }
 
                 foreach (var ev in allEvents)
@@ -591,11 +590,10 @@ namespace WinFormsApp
                         yellowCards[ev.Player] = 1;
                     }
                 }
-
-                dgwCardsTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                dgwCardsTable.RowTemplate.Height = 60;
-
             }
+
+            dgwCardsTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgwCardsTable.RowTemplate.Height = 60;
 
             var sorted = yellowCards.OrderByDescending(x => x.Value);
 
@@ -604,9 +602,10 @@ namespace WinFormsApp
                 string playerName = e.Key;
                 int numberOfCards = e.Value;
 
-                string imagePath = $"Images/{playerName}.jpg";
-                System.Drawing.Image img = File.Exists(imagePath) ?
-                    System.Drawing.Image.FromFile(imagePath) : System.Drawing.Image.FromFile(@"Images/DefaultImage.jpg");
+                string imagePath = _fileRepository.RetrieveImagePath(playerName);
+                System.Drawing.Image img = File.Exists(imagePath)
+                    ? System.Drawing.Image.FromFile(imagePath)
+                    : System.Drawing.Image.FromFile(@"Images/DefaultImage.jpg");
 
                 dgwCardsTable.Rows.Add(img, playerName, numberOfCards);
             }
@@ -675,13 +674,15 @@ namespace WinFormsApp
                 int numberOfGoals = e.Value;
 
                 bool playerAlreadyAdded = dgwPlayersGoals.Rows.Cast<DataGridViewRow>()
-            .Any(r => r.Cells[1].Value != null && r.Cells[1].Value.ToString().Equals(playerName, StringComparison.OrdinalIgnoreCase));
+                    .Any(r => r.Cells[1].Value != null &&
+                              r.Cells[1].Value.ToString().Equals(playerName, StringComparison.OrdinalIgnoreCase));
 
                 if (!playerAlreadyAdded)
                 {
-                    string imagePath = $"Images/{playerName}.jpg";
-                    System.Drawing.Image img = File.Exists(imagePath) ?
-                        System.Drawing.Image.FromFile(imagePath) : System.Drawing.Image.FromFile(@"Images/DefaultImage.jpg");
+                    string imagePath = _fileRepository.RetrieveImagePath(playerName);
+                    System.Drawing.Image img = File.Exists(imagePath)
+                        ? System.Drawing.Image.FromFile(imagePath)
+                        : System.Drawing.Image.FromFile(@"Images/DefaultImage.jpg");
 
                     dgwPlayersGoals.Rows.Add(img, playerName, numberOfGoals);
                 }
@@ -791,39 +792,53 @@ namespace WinFormsApp
             int rowHeight = grid.RowTemplate.Height + 5;
             int columnWidth = 250;
 
+            // Iscrtavanje zaglavlja
             for (int i = 0; i < grid.Columns.Count; i++)
             {
-                graphics.DrawString(grid.Columns[i].HeaderText,
-                                    grid.Font,
-                                    Brushes.Black,
-                                    x + i * columnWidth,
-                                    y);
+                graphics.DrawString(
+                    grid.Columns[i].HeaderText,
+                    grid.Font,
+                    Brushes.Black,
+                    x + i * columnWidth,
+                    y);
             }
-
             y += rowHeight;
 
             for (; startRow < grid.Rows.Count; startRow++)
             {
-                if (grid.Rows[startRow].IsNewRow) continue;
+                var row = grid.Rows[startRow];
+                if (row.IsNewRow) continue;
 
                 for (int col = 0; col < grid.Columns.Count; col++)
                 {
-                    string value = grid.Rows[startRow].Cells[col].Value?.ToString() ?? "";
-                    graphics.DrawString(value,
-                                        grid.Font,
-                                        Brushes.Black,
-                                        x + col * columnWidth,
-                                        y);
+                    int cellX = x + col * columnWidth;
+                    Rectangle cellBounds = new Rectangle(cellX, y, columnWidth, rowHeight);
+                    var value = row.Cells[col].Value;
+
+                    if (value is System.Drawing.Image img)
+                    {
+                        int imgSize = grid.RowTemplate.Height;
+                        var imgRect = new Rectangle(cellX, y, imgSize, imgSize);
+                        graphics.DrawImage(img, imgRect);
+                    }
+                    else
+                    {
+                        string text = value?.ToString() ?? "";
+                        graphics.DrawString(
+                            text,
+                            grid.Font,
+                            Brushes.Black,
+                            cellX,
+                            y);
+                    }
                 }
 
                 y += rowHeight;
-
                 if (y > marginBounds.Bottom)
-                {
                     break;
-                }
             }
 
+            // Pomakni marginBounds.Y kako bi sljedeća stranica nastavila odavde
             marginBounds.Y = y;
         }
 

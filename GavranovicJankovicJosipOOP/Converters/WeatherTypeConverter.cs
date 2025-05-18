@@ -28,6 +28,8 @@ namespace Dao.Converters
                     return WeatherType.PartlyCloudyNight;
                 case "Sunny":
                     return WeatherType.Sunny;
+                case "Cloudy Night":
+                    return WeatherType.CloudyNight;
             }
             throw new Exception("Cannot unmarshal type Description");
         }
@@ -56,6 +58,9 @@ namespace Dao.Converters
                     return;
                 case WeatherType.Sunny:
                     serializer.Serialize(writer, "Sunny");
+                    return;
+                case WeatherType.CloudyNight:
+                    serializer.Serialize(writer, "Cloudy Night");
                     return;
             }
             throw new Exception("Cannot marshal type Description");

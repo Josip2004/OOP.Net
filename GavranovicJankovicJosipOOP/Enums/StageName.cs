@@ -28,6 +28,15 @@ namespace Dao.Enums
         RoundOf16,
 
         [EnumMember(Value = "Semi-finals")]
-        SemiFinals
+        SemiFinals,
+
+        [EnumMember(Value = "Match for third place")]
+        MatchForThirdPlace,
+
+        [EnumMember(Value = "Quarter-final")]
+        QuarterFinal,
+
+        [EnumMember(Value = "Semi-final")]
+        SemiFinal,
     };
 }

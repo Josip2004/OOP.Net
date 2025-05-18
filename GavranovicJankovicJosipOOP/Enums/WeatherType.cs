@@ -24,6 +24,9 @@ namespace Dao.Enums
         [EnumMember(Value = "Partly Cloudy Night")]
         PartlyCloudyNight,
 
+        [EnumMember(Value = "Cloudy Night")]
+        CloudyNight,
+
         [EnumMember(Value = "Sunny")]
         Sunny
     };
