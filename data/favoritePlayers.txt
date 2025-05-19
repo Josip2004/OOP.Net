@@ -1,0 +1,2 @@
+Luka MODRIC#Midfield#True#10
+Sime VRSALJKO#Defender#False#2

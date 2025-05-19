@@ -47,7 +47,6 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\Dao.deps.json
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\Dao.runtimeconfig.json
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\Dao.exe
-C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\data\images.txt
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\Images\DefaultImage.jpg
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\WinFormsApp.deps.json
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\WinFormsApp.runtimeconfig.json

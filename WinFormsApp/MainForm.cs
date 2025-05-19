@@ -224,7 +224,7 @@ namespace WinFormsApp
                 string language = _fileRepository.GetStoredLanguage();
                 string teamCode = selectedTeam.Code;
 
-                _fileRepository.SaveSettings(@"../../../data/settings.txt", $"{gender}#{language}#{teamCode}");
+                _fileRepository.SaveSettings(@"../../../../data/settings.txt", $"{gender}#{language}#{teamCode}");
 
                 flpnlPlayers.Controls.Clear();
                 flpnlFavoritePlayers.Controls.Clear();

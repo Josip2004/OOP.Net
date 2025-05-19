@@ -12,10 +12,10 @@ namespace Dao.Repositories
     {
         private const string BaseFolder = @"../../../data";
 
-        private static readonly string ConfigPath = @"../../../data/settings.txt";
-        private static readonly string ImageMapPath = @"../../../data/images.txt";
-        private static readonly string WpfAppSizePath = @"../../../data/wpf_app_size.txt";
-        private static readonly string FavoritePlayersPath = @"../../../data/favoritePlayers.txt";
+        private static readonly string ConfigPath = @"../../../../data/settings.txt";
+        private static readonly string ImageMapPath = @"../../../../data/images.txt";
+        private static readonly string WpfAppSizePath = @"../../../dataWpf/wpfSettings.txt";
+        private static readonly string FavoritePlayersPath = @"../../../../data/favoritePlayers.txt";
         private const char Del = '#';
 
  
