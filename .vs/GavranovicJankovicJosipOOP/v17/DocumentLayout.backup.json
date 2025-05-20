@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -95,19 +99,30 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\MainWindow.xaml",
+              "RelativeToolTip": "WpfApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-20T13:18:53.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "SettingsWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp\\SettingsWindow.xaml.cs",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml.cs",
               "RelativeToolTip": "WpfApp\\SettingsWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAYwFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T18:59:24.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T18:59:24.128Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "settings.txt",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\data\\settings.txt",
               "RelativeDocumentMoniker": "WinFormsApp\\data\\settings.txt",
@@ -115,12 +130,11 @@
               "RelativeToolTip": "WinFormsApp\\data\\settings.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-19T19:52:18.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T19:52:18.474Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "settings.txt",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\data\\settings.txt",
               "RelativeDocumentMoniker": "data\\settings.txt",
@@ -128,12 +142,11 @@
               "RelativeToolTip": "data\\settings.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-19T19:55:38.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T19:55:38.306Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "images.txt",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\data\\images.txt",
               "RelativeDocumentMoniker": "data\\images.txt",
@@ -141,12 +154,11 @@
               "RelativeToolTip": "data\\images.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-19T19:55:40.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T19:55:40.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\MainForm.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\MainForm.cs",
@@ -159,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "StatusConverter.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Converters\\StatusConverter.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Converters\\StatusConverter.cs",
@@ -171,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "TypeOfEventConverter.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Converters\\TypeOfEventConverter.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Converters\\TypeOfEventConverter.cs",
@@ -183,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "WeatherTypeConverter.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Converters\\WeatherTypeConverter.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Converters\\WeatherTypeConverter.cs",
@@ -195,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "StageNameConverter.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Converters\\StageNameConverter.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Converters\\StageNameConverter.cs",
@@ -207,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "TypeOfEvent.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\TypeOfEvent.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Enums\\TypeOfEvent.cs",
@@ -219,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Time.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\Time.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Enums\\Time.cs",
@@ -231,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Tactics.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\Tactics.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Enums\\Tactics.cs",
@@ -243,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "WeatherType.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\WeatherType.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Enums\\WeatherType.cs",
@@ -255,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Status.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\Status.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Enums\\Status.cs",
@@ -267,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "StageName.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\StageName.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Enums\\StageName.cs",
@@ -279,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Position.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\Position.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Enums\\Position.cs",
@@ -291,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "ApiRepository.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Repositories\\ApiRepository.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Repositories\\ApiRepository.cs",
@@ -303,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Models\\Player.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Models\\Player.cs",
@@ -315,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Match.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Models\\Match.cs",
               "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Models\\Match.cs",
@@ -327,15 +339,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\MainForm.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\MainForm.cs",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\MainForm.cs [Design]",
               "RelativeToolTip": "WinFormsApp\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T19:42:54.798Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-16T19:42:54.798Z"
             }
           ]
         }
