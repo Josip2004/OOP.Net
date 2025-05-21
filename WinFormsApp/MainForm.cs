@@ -64,7 +64,6 @@ namespace WinFormsApp
             {
                 _teams = await _apiRepository.GetTeamsAsync();
 
-                _teams.Insert(0, new Team { Country = "", Code = "" });
 
                 if (cbFavoriteNationalTeam.SelectedIndex == 0)
                 {
@@ -170,9 +169,6 @@ namespace WinFormsApp
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-
 
         private async Task LoadFavoritePlayers()
         {

@@ -12,8 +12,21 @@ namespace Dao.Models
         [JsonProperty("country")]
         public string Country { get; set; }
 
+        private string _code;
+
+        [JsonProperty("code")]
+        public string RawCode
+        {
+            set { _code = value; }
+        }
+
         [JsonProperty("fifa_code")]
-        public string Code { get; set; }
+        public string RawFifaCode
+        {
+            set { _code = value; }
+        }
+
+        public string Code => _code;
 
         [JsonProperty("goals")]
         public long Goals { get; set; }
@@ -21,6 +34,7 @@ namespace Dao.Models
         [JsonProperty("penalties")]
         public long Penalties { get; set; }
 
+        public string DisplayName => $"{Country} ({Code})";
         public override string ToString()
         {
             if (string.IsNullOrWhiteSpace(Country) && string.IsNullOrWhiteSpace(Code))

@@ -2,7 +2,6 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-w
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\Dao.runtimeconfig.json
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\Dao.exe
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\WpfApp.exe
-C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\dataWpf\wpfSettings.txt
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\WpfApp.deps.json
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\WpfApp.runtimeconfig.json
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\WpfApp.dll
@@ -29,3 +28,7 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-w
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\WpfApp.pdb
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\WpfApp.genruntimeconfig.cache
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\ref\WpfApp.dll
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\TeamInfoWindow.g.cs
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\TeamInfoWindow.baml

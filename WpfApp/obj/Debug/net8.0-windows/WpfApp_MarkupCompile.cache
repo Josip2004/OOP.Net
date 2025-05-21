@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\App.xaml
-1766067489
+3186009801
 
-4493242876
+61326759230
 209-116458952
-SettingsWindow.xaml;
+MainWindow.xaml;SettingsWindow.xaml;TeamInfoWindow.xaml;
 
 False
 

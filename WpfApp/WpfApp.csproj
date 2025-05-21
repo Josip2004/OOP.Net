@@ -9,13 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="dataWpf\FootballPitch.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GavranovicJankovicJosipOOP\Dao.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="dataWpf\FootballPitch.jpg">
+    <Resource Include="dataWpf\FootballPitch.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Resource>
   </ItemGroup>
 
 </Project>
