@@ -1,4 +1,5 @@
-﻿using Dao.Models;
+﻿using Dao.Enums;
+using Dao.Models;
 using Dao.Repositories;
 using GavranovicJankovicJosipOOP.Models;
 using System;
@@ -33,6 +34,7 @@ namespace WpfApp
             _apiRepository = apiRepository;
             _repo = fileRepository;
 
+
             _savedTeamCode = _repo.GetCurrentTeam();
         }
 
@@ -48,7 +50,6 @@ namespace WpfApp
                 cbFavoriteTeam.ItemsSource = _teams;
 
                 cbFavoriteTeam.SelectedIndex = -1;
-
             }
             catch (Exception ex)
             {
@@ -161,6 +162,16 @@ namespace WpfApp
                         long awayGoals = match.AwayTeam.Goals;
 
                         txtResult.Text = $"{homeGoals} : {awayGoals}";
+
+                        var favStats = match.HomeTeam.Code == selectedFavorite.Code
+                            ? match.HomeTeamStatistics 
+                            : match.AwayTeamStatistics;
+
+                        var oppStats = match.HomeTeam.Code != selectedFavorite.Code
+                           ? match.HomeTeamStatistics
+                           : match.AwayTeamStatistics;
+
+                        ArrangePlayers(favStats, oppStats);
                     }
                 }
             }
@@ -170,6 +181,49 @@ namespace WpfApp
             }
         }
 
-      
+        private void ArrangePlayers(TeamStatistics favStats, TeamStatistics oppStats)
+        {
+            if (_repo == null)
+            {
+                MessageBox.Show("_repo is null!");
+                return;
+            }
+            spGkFav.Children.Clear();
+            spDefFav.Children.Clear();
+            spMidFav.Children.Clear();
+            spFwdFav.Children.Clear();
+
+            spGkOpp.Children.Clear();
+            spDefOpp.Children.Clear();
+            spMidOpp.Children.Clear();
+            spFwdOpp.Children.Clear();
+
+            var (defFav, midFav, fwdFav) = EnumExtensions.ParseTactics(favStats.Tactics);
+            var gkFav = favStats.StartingEleven.FirstOrDefault(p => p.Position == Position.Goalie);
+            var fieldPlayersFav = favStats.StartingEleven.Where(p => p.Position != Position.Goalie).ToList();
+
+            var defendersFav = fieldPlayersFav.Take(defFav).ToList();
+            var midfieldersFav = fieldPlayersFav.Skip(defFav).Take(midFav).ToList();
+            var forwardsFav = fieldPlayersFav.Skip(defFav + midFav).Take(fwdFav).ToList();
+
+            if (gkFav != null) spGkFav.Children.Add(new PlayerControl(gkFav.Name, _repo));
+            defendersFav.ForEach(p => spDefFav.Children.Add(new PlayerControl(p.Name, _repo)));
+            midfieldersFav.ForEach(p => spMidFav.Children.Add(new PlayerControl(p.Name, _repo)));
+            forwardsFav.ForEach(p => spFwdFav.Children.Add(new PlayerControl(p.Name, _repo)));
+
+            var (defOpp, midOpp, fwdOpp) = EnumExtensions.ParseTactics(oppStats.Tactics);
+            var gkOpp = oppStats.StartingEleven.FirstOrDefault(p => p.Position == Position.Goalie);
+            var fieldPlayersOpp = oppStats.StartingEleven.Where(p => p.Position != Position.Goalie).ToList();
+
+            var defendersOpp = fieldPlayersOpp.Take(defOpp).ToList();
+            var midfieldersOpp = fieldPlayersOpp.Skip(defOpp).Take(midOpp).ToList();
+            var forwardsOpp = fieldPlayersOpp.Skip(defOpp + midOpp).Take(fwdOpp).ToList();
+
+            if (gkOpp != null) spGkOpp.Children.Add(new PlayerControl(gkOpp.Name, _repo));
+            defendersOpp.ForEach(p => spDefOpp.Children.Add(new PlayerControl(p.Name, _repo)));
+            midfieldersOpp.ForEach(p => spMidOpp.Children.Add(new PlayerControl(p.Name, _repo)));
+            forwardsOpp.ForEach(p => spFwdOpp.Children.Add(new PlayerControl(p.Name, _repo)));
+
+        }
     }
 }

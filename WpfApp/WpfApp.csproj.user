@@ -5,7 +5,13 @@
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="PlayerInfoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TeamInfoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlayerControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -9,7 +9,7 @@ namespace Dao.Repositories
 {
     public interface IFileRepository
     {
-        void SaveSettings(string path, string content);
+        void SaveSettings(string content);
         void AppendToFile(string path, string content);
         string ReadFromFile(string path);
 

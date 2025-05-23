@@ -64,43 +64,95 @@ namespace WinFormsApp
             {
                 _teams = await _apiRepository.GetTeamsAsync();
 
-
-                if (cbFavoriteNationalTeam.SelectedIndex == 0)
-                {
-                    cbFavoriteNationalTeam.DisplayMember = "";
-                }
-
                 cbFavoriteNationalTeam.DisplayMember = "Name";
                 cbFavoriteNationalTeam.ValueMember = "Code";
                 cbFavoriteNationalTeam.DataSource = _teams;
 
-                cbFavoriteNationalTeam.SelectedIndex = -1;
 
-
-
-
-                await LoadFavoriteTeam();
-
-                string savedTeamCode = _fileRepository.GetCurrentTeam().Trim();
                 if (!string.IsNullOrWhiteSpace(_savedTeamCode))
                 {
                     var savedTeam = _teams.FirstOrDefault(t =>
-                        t.Code.Trim().Equals(_savedTeamCode, StringComparison.OrdinalIgnoreCase));
+                        t.Code.Trim().Equals(_savedTeamCode.Trim(), StringComparison.OrdinalIgnoreCase));
 
                     if (savedTeam != null)
                     {
                         cbFavoriteNationalTeam.SelectedItem = savedTeam;
+
+                        await Task.Delay(50); 
+                        Application.DoEvents();
+
+                        await LoadPlayersByTeam(savedTeam);
                     }
-
                 }
-                cbFavoriteNationalTeam.SelectedIndexChanged += cbFavoriteNationalTeam_SelectedIndexChanged;
+                else
+                {
+                    cbFavoriteNationalTeam.SelectedIndex = 0;
+                }
 
+                cbFavoriteNationalTeam.SelectedIndexChanged += async (s, e) =>
+                {
+                    if (cbFavoriteNationalTeam.SelectedItem is Team team)
+                        await LoadPlayersByTeam(team);
+                };
 
                 await LoadFavoritePlayers();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Greška pri učitavanju timova: " + ex.Message);
+            }
+        }
+
+        private async Task LoadPlayersByTeam(Team selectedTeam)
+        {
+            if (selectedTeam == null || string.IsNullOrWhiteSpace(selectedTeam.Code)) return;
+
+
+            flpnlPlayers.Controls.Clear();
+            flpnlFavoritePlayers.Controls.Clear();
+
+            _matches = await _apiRepository.GetMatchesAsync(selectedTeam.Code);
+
+            if (_matches == null || !_matches.Any())
+            {
+                MessageBox.Show($"There are no matches for the selected team...");
+                return;
+            }
+
+            var firstMatch = _matches.First();
+
+            var teamStats = firstMatch.HomeTeam.Country == selectedTeam.Country
+                ? firstMatch.HomeTeamStatistics
+                : firstMatch.AwayTeamStatistics;
+
+            var players = teamStats.StartingEleven.Concat(teamStats.Substitutes).ToList();
+
+            foreach (var p in players)
+            {
+                var label = new Label { Text = p.Name, AutoSize = true, Margin = new Padding(5) };
+
+                var panel = new Panel
+                {
+                    Width = flpnlPlayers.Width - 15,
+                    Height = 30,
+                    BackColor = Color.Gainsboro,
+                    Margin = new Padding(5),
+                    BorderStyle = BorderStyle.FixedSingle
+                };
+
+                panel.Controls.Add(label);
+                panel.Tag = new PlayerWithImage
+                {
+                    Player = p,
+                    ImagePath = $"Images/{p.Name}.jpg"
+                };
+
+                label.MouseClick += PlayerPanel_Click;
+                panel.MouseClick += PlayerPanel_Click;
+                label.MouseMove += PlayerPanel_MouseMove;
+                panel.MouseMove += PlayerPanel_MouseMove;
+
+                flpnlPlayers.Controls.Add(panel);
             }
         }
 
@@ -140,34 +192,6 @@ namespace WinFormsApp
             dgwAttendance.Columns[3].HeaderText = Strings.AwayTeamCol;
 
             settingsToolStripMenuItem.Text = Strings.settingsToolStripMenuItem;
-        }
-
-        private async Task LoadFavoriteTeam()
-        {
-            try
-            {
-                string savedTeamCode = _fileRepository.GetCurrentTeam().Trim();
-
-                if (!string.IsNullOrWhiteSpace(savedTeamCode))
-                {
-                    var savedTeam = _teams.FirstOrDefault(t =>
-                        t.Code.Trim().Equals(savedTeamCode.Trim(), StringComparison.OrdinalIgnoreCase));
-
-                    if (savedTeam != null)
-                    {
-                        cbFavoriteNationalTeam.SelectedItem = savedTeam;
-                    }
-
-                }
-                else
-                {
-                    cbFavoriteNationalTeam.SelectedIndex = 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private async Task LoadFavoritePlayers()
@@ -212,84 +236,85 @@ namespace WinFormsApp
 
         private async void cbFavoriteNationalTeam_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbFavoriteNationalTeam.SelectedItem is not Team selectedTeam)
+                return;
 
-
-            if (cbFavoriteNationalTeam.SelectedItem is Team selectedTeam)
+            if (!string.IsNullOrWhiteSpace(_savedTeamCode))
             {
-                string gender = _fileRepository.GetStoredGender();
-                string language = _fileRepository.GetStoredLanguage();
-                string teamCode = selectedTeam.Code;
-
-                _fileRepository.SaveSettings(@"../../../../data/settings.txt", $"{gender}#{language}#{teamCode}");
-
-                flpnlPlayers.Controls.Clear();
-                flpnlFavoritePlayers.Controls.Clear();
-
-                if (string.IsNullOrWhiteSpace(selectedTeam.Code))
-                {
+                if (!selectedTeam.Code.Equals(_savedTeamCode, StringComparison.OrdinalIgnoreCase))
                     return;
-                }
 
-                _matches = await _apiRepository.GetMatchesAsync(selectedTeam.Code);
+                _savedTeamCode = null;
+            }
 
-                if (_matches == null)
+            string gender = _fileRepository.GetStoredGender();
+            string language = _fileRepository.GetStoredLanguage();
+            string teamCode = selectedTeam.Code;
+            _fileRepository.SaveSettings($"{gender}#{language}#{teamCode}");
+
+            flpnlPlayers.Controls.Clear();
+            flpnlFavoritePlayers.Controls.Clear();
+
+            if (string.IsNullOrWhiteSpace(selectedTeam.Code))
+                return;
+
+            _matches = await _apiRepository.GetMatchesAsync(selectedTeam.Code);
+
+            if (_matches == null || !_matches.Any())
+            {
+                MessageBox.Show("There are no matches for the selected team...");
+                return;
+            }
+
+            var firstMatch = _matches.First();
+            var teamSelected = firstMatch.HomeTeam.Country == selectedTeam.Country
+                ? firstMatch.HomeTeamStatistics
+                : firstMatch.AwayTeamStatistics;
+
+            var players = teamSelected.StartingEleven.Concat(teamSelected.Substitutes).ToList();
+
+            flpnlPlayers.VerticalScroll.Visible = true;
+            flpnlPlayers.VerticalScroll.Enabled = true;
+
+            foreach (var p in players)
+            {
+                Label lbl = new Label
                 {
-                    MessageBox.Show($"There are no matches for the selected team...");
-                    return;
-                }
+                    Text = p.Name,
+                    AutoSize = true,
+                    Margin = new Padding(5)
+                };
 
-                var firstMatch = _matches.FirstOrDefault();
-
-                if (firstMatch == null)
+                Panel playerPanel = new Panel
                 {
-                    MessageBox.Show($"There is no match for this team...");
-                    return;
-                }
+                    Width = flpnlPlayers.Width - 15,
+                    Height = 30,
+                    BackColor = Color.Gainsboro,
+                    Margin = new Padding(5),
+                    BorderStyle = BorderStyle.FixedSingle
+                };
 
-                var teamSelected = firstMatch.HomeTeam.Country == selectedTeam.Country ?
-                    firstMatch.HomeTeamStatistics : firstMatch.AwayTeamStatistics;
+                p.Name = ExtractOnlyName(p.Name);
 
-                var players = teamSelected.StartingEleven.Concat(teamSelected.Substitutes).ToList();
-
-                flpnlPlayers.VerticalScroll.Visible = true;
-                flpnlPlayers.VerticalScroll.Enabled = true;
-
-                foreach (var p in players)
+                playerPanel.Tag = new PlayerWithImage
                 {
-                    Label lbl = new Label();
-                    lbl.Text = p.Name;
-                    lbl.AutoSize = true;
-                    lbl.Margin = new Padding(5);
+                    Player = p,
+                    ImagePath = $"Images/{p.Name}.jpg"
+                };
 
-                    Panel playerPanel = new Panel();
-                    playerPanel.Width = flpnlPlayers.Width - 15;
-                    playerPanel.Height = 30;
-                    playerPanel.BackColor = Color.Gainsboro;
-                    playerPanel.Margin = new Padding(5);
-                    playerPanel.BorderStyle = BorderStyle.FixedSingle;
+                Cursor = Cursors.Hand;
 
-                    p.Name = ExtractOnlyName(p.Name);
+                lbl.MouseClick += PlayerPanel_Click;
+                playerPanel.MouseClick += PlayerPanel_Click;
 
-                    playerPanel.Tag = new PlayerWithImage
-                    {
-                        Player = p,
-                        ImagePath = $"Images/{p.Name}.jpg"
-                    };
+                lbl.MouseMove += PlayerPanel_MouseMove;
+                playerPanel.MouseMove += PlayerPanel_MouseMove;
 
-                    Cursor = Cursors.Hand;
-
-                    lbl.MouseClick += PlayerPanel_Click;
-                    playerPanel.MouseClick += PlayerPanel_Click;
-
-                    lbl.MouseMove += PlayerPanel_MouseMove;
-                    playerPanel.MouseMove += PlayerPanel_MouseMove;
-
-                    playerPanel.Controls.Add(lbl);
-                    flpnlPlayers.Controls.Add(playerPanel);
-
-                }
+                playerPanel.Controls.Add(lbl);
+                flpnlPlayers.Controls.Add(playerPanel);
             }
         }
+
 
         private string ExtractOnlyName(string name)
         {
@@ -521,7 +546,8 @@ namespace WinFormsApp
 
                 string safeFileName = playerName.Replace(" ", "_") + ".jpg";
 
-                string imagesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+                string solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName;
+                string imagesFolder = Path.Combine(solutionRoot, "WpfApp", "bin", "Debug", "net8.0-windows", "Images");
                 Directory.CreateDirectory(imagesFolder);
 
                 string destinationPath = Path.Combine(imagesFolder, safeFileName);

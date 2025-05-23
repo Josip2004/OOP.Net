@@ -1,45 +1,37 @@
 ﻿using Dao.Enums;
 using Dao.Models;
-using Dao.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Dao.Repositories
 {
     public class FileRepository : IFileRepository
     {
-        private const string BaseFolder = @"../../../data";
 
-        private static readonly string ConfigPath = @"../../../../data/settings.txt";
-        private static readonly string ImageMapPath = @"../../../../data/images.txt";
-        private static readonly string WpfAppSizePath = @"../../../dataWpf/wpfSettings.txt";
-        private static readonly string FavoritePlayersPath = @"../../../../data/favoritePlayers.txt";
+        private static readonly string BaseFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\WinFormsApp\data");
+
+
+        private static readonly string ConfigPath = Path.Combine(BaseFolder, "settings.txt");
+        private static readonly string ImageMapPath = Path.Combine(BaseFolder, "images.txt");
+        private static readonly string FavoritePlayersPath = Path.Combine(BaseFolder, "favoritePlayers.txt");
+
         private const char Del = '#';
 
- 
-
-        public void SaveSettings(string path, string content)
+        public void SaveSettings(string content)
         {
-            if (!Directory.Exists(BaseFolder))
-                Directory.CreateDirectory(BaseFolder);
-
-            File.WriteAllText(path, content);
+            EnsureDirectory(BaseFolder);
+            File.WriteAllText(ConfigPath, content);
         }
 
-        public void AppendToFile(string path, string content)
+        public void AppendToFile(string relativeFileName, string content)
         {
             try
             {
-                string fullPath = Path.Combine(BaseFolder, path);
-                string directory = Path.GetDirectoryName(fullPath);
-
-                if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
-                {
-                    Directory.CreateDirectory(directory);
-                }
-
+                string fullPath = Path.Combine(BaseFolder, relativeFileName);
+                EnsureDirectory(Path.GetDirectoryName(fullPath));
                 File.AppendAllText(fullPath, content + Environment.NewLine);
             }
             catch (Exception ex)
@@ -52,14 +44,7 @@ namespace Dao.Repositories
         {
             try
             {
-                if (File.Exists(path))
-                {
-                    return File.ReadAllText(path);
-                }
-                else
-                {
-                    return string.Empty;
-                }
+                return File.Exists(path) ? File.ReadAllText(path) : string.Empty;
             }
             catch (Exception ex)
             {
@@ -68,16 +53,13 @@ namespace Dao.Repositories
             }
         }
 
-        public string GetStoredGender()
-        {
+        public string GetStoredGender() {
             return GetSetting(0);
         }
-
         public string GetStoredLanguage()
         {
             return GetSetting(1);
         }
-
         public string GetCurrentTeam()
         {
             return GetSetting(2);
@@ -86,89 +68,63 @@ namespace Dao.Repositories
         private string GetSetting(int index)
         {
             var settings = ReadFromFile(ConfigPath).Split(Del);
-            if (settings.Length <= index)
-            {
-                return string.Empty;
-            }
-            return index < settings.Length ? settings[index] : string.Empty;
+            return settings.Length > index ? settings[index] : string.Empty;
         }
 
         public bool ImageExists(string playerName)
         {
+            if (!File.Exists(ImageMapPath)) return false;
+
+            return File.ReadLines(ImageMapPath)
+                .Any(line => line.Split(Del)[0].Trim().Equals(playerName.Trim(), StringComparison.OrdinalIgnoreCase));
+        }
+
+        public string RetrieveImagePath(string playerName)
+        {
+
             if (!File.Exists(ImageMapPath))
             {
-                return false;
+                return string.Empty;
             }
 
-            var lines = File.ReadAllLines(ImageMapPath);
+            var lines = File.ReadLines(ImageMapPath);
             foreach (var line in lines)
             {
 
-                var parts = line.Split(Del);
-                if (parts.Length > 0)
+                var parts = line.Split('#');
+                if (parts.Length < 2)
                 {
-                    string nameFromFile = parts[0].Trim();
+                    continue;
+                }
 
-                    if (string.Equals(nameFromFile, playerName.Trim(), StringComparison.OrdinalIgnoreCase))
+                string nameFromFile = parts[0].Trim();
+                string relativePath = parts[1].Trim();
+
+
+                if (string.Equals(nameFromFile, playerName.Trim(), StringComparison.OrdinalIgnoreCase))
+                {
+                    string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
+                    if (File.Exists(fullPath))
                     {
-                        return true;
+                        return fullPath;
+                    }
+                    else
+                    {
+                        return string.Empty;
                     }
                 }
             }
 
-            return false;
-        }
-
-        public string RetrieveImagePath(string controlName)
-        {
-            if (!File.Exists(ImageMapPath))
-            {
-                MessageBox.Show($"File does not exist: {ImageMapPath}");
-                return string.Empty;
-            }
-
-            var lines = File.ReadAllLines(ImageMapPath);
-            var line = lines.FirstOrDefault(l =>
-            {
-                var parts = l.Split(Del);
-                return parts.Length > 0 &&
-                       parts[0].Trim().Equals(controlName.Trim(), StringComparison.OrdinalIgnoreCase);
-            });
-
-            if (line == null)
-            {
-                return string.Empty;
-            }
-
-            string imagePath = line.Split(Del).ElementAtOrDefault(1)?.Trim();
-
-            if (string.IsNullOrEmpty(imagePath))
-            {
-                MessageBox.Show("Putanja slike je prazna.");
-                return string.Empty;
-            }
-
-            if (!Path.IsPathRooted(imagePath))
-            {
-                imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imagePath);
-            }
-
-            if (!File.Exists(imagePath))
-            {
-                return string.Empty;
-            }
-
-            return imagePath;
+            return string.Empty;
         }
 
         public void SaveFavoritePlayers(IEnumerable<Player> players)
         {
-            if (!Directory.Exists(BaseFolder))
-                Directory.CreateDirectory(BaseFolder);
+            EnsureDirectory(BaseFolder);
 
             var lines = players.Select(p =>
-                $"{p.Name}{Del}{p.Position}{Del}{p.Captain}{Del}{p.ShirtNumber}"
-            );
+                $"{p.Name}{Del}{p.Position}{Del}{p.Captain}{Del}{p.ShirtNumber}");
 
             File.WriteAllLines(FavoritePlayersPath, lines);
         }
@@ -176,11 +132,9 @@ namespace Dao.Repositories
         public IEnumerable<Player> GetFavoritePlayersList()
         {
             var result = new List<Player>();
-
             if (!File.Exists(FavoritePlayersPath)) return result;
 
-            var lines = File.ReadAllLines(FavoritePlayersPath);
-            foreach (var line in lines)
+            foreach (var line in File.ReadLines(FavoritePlayersPath))
             {
                 var parts = line.Split(Del);
                 if (parts.Length < 4) continue;
@@ -195,7 +149,14 @@ namespace Dao.Repositories
 
                 result.Add(player);
             }
+
             return result;
+        }
+
+        private void EnsureDirectory(string? path)
+        {
+            if (!string.IsNullOrEmpty(path) && !Directory.Exists(path))
+                Directory.CreateDirectory(path);
         }
     }
 }

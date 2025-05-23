@@ -85,6 +85,6 @@ public partial class SettingsWindow : Window
 
         string content = $"{championship.ToLower()}#{language}##{resolution}";
 
-        _repo.SaveSettings(Path, content);
+        _repo.SaveSettings(content);
     }
 }

@@ -121,7 +121,7 @@ namespace WinFormsApp
                 ? $"{gender}#{language}"
                 : $"{gender}#{language}#{existingTeamCode}";
 
-            _fileRepository.SaveSettings(@"../../../data/settings.txt", fullSettings);
+            _fileRepository.SaveSettings(fullSettings);
 
             string cultureCode = language.Equals("Croatian", StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
             var culture = new CultureInfo(cultureCode);
