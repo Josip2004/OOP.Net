@@ -15,6 +15,7 @@ public partial class App : Application
         base.OnStartup(e);
 
         var fileRepo = new FileRepository();
+      
         var gender = fileRepo.GetStoredGender(); 
 
         if (string.IsNullOrEmpty(gender))
@@ -25,8 +26,8 @@ public partial class App : Application
         }
 
         var apiRepo = new ApiRepository(gender);
-        var mainWindow = new MainWindow(apiRepo, new FileRepository());
-        mainWindow.Show();
+        var settingsWindow = new SettingsWindow(apiRepo);
+        settingsWindow.ShowDialog();
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using Dao.Models;
 using Dao.Repositories;
+using GavranovicJankovicJosipOOP.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -25,14 +26,18 @@ namespace WpfApp
     /// </summary>
     public partial class PlayerControl : UserControl
     {
-        private string _playerName;
-        public PlayerControl(string playerName, IFileRepository repo)
+        private Player _player;
+        private readonly IFileRepository _repo;
+        private readonly Match _match;
+        public PlayerControl(Player player, IFileRepository repo, Match match)
         {
             InitializeComponent();
 
-            _playerName = playerName;
+            _player = player;
+            _repo = repo;
+            _match = match;
 
-            string imagePath = FindImagePathForPlayer(playerName); 
+            string imagePath = FindImagePathForPlayer(_player.Name); 
 
             if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
             {
@@ -53,8 +58,6 @@ namespace WpfApp
                 }
             }
         }
-
-
 
         private string FindImagePathForPlayer(string playerName)
         {
@@ -95,7 +98,8 @@ namespace WpfApp
 
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var playerInfo = new PlayerInfoWindow();
+            var allEvents = _match.HomeTeamEvents.Concat(_match.AwayTeamEvents).ToList();
+            var playerInfo = new PlayerInfoWindow(_player, _repo, allEvents);
             playerInfo.ShowDialog();
         }
     }

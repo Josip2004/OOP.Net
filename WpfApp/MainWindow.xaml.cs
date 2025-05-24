@@ -34,22 +34,81 @@ namespace WpfApp
             _apiRepository = apiRepository;
             _repo = fileRepository;
 
+            try
+            {
+                string settingsLine = _repo.ReadFromFile("../../../../WinFormsApp/data/settings.txt");
+                if (!string.IsNullOrWhiteSpace(settingsLine))
+                {
+                    var parts = settingsLine.Split('#');
+                    if (parts.Length >= 4)
+                    {
+                        ApplyWindowSize(parts[3]);
+                    }
+                    if (parts.Length >= 1)
+                    {
+                        string gender = parts[0].ToLower();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Greška prilikom čitanja postavki rezolucije: " + ex.Message);
+            }
 
             _savedTeamCode = _repo.GetCurrentTeam();
+        }
+
+        private void ApplyWindowSize(string resolution)
+        {
+            if (resolution.ToLower() == "fullscreen")
+            {
+                WindowStyle = WindowStyle.None;
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                var parts = resolution.Split('x');
+
+                if (parts.Length == 2 &&
+                    int.TryParse(parts[0], out int width) &&
+                    int.TryParse(parts[1], out int height))
+                {
+                    Width = width;
+                    Height = height;
+                }
+            }
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
+                string settingsLine = _repo.ReadFromFile("../../../../WinFormsApp/data/settings.txt");
+                string gender = "men"; 
 
-                _teams = await _apiRepository.GetTeamsAsync();
+                if (!string.IsNullOrWhiteSpace(settingsLine))
+                {
+                    var parts = settingsLine.Split('#');
+                    if (parts.Length >= 1)
+                    {
+                        gender = parts[0]; 
+                    }
+                }
+
+                _teams = await _apiRepository.GetTeamsAsync(); 
 
                 cbFavoriteTeam.DisplayMemberPath = "DisplayName";
                 cbFavoriteTeam.SelectedValuePath = "Code";
                 cbFavoriteTeam.ItemsSource = _teams;
 
-                cbFavoriteTeam.SelectedIndex = -1;
+                if (!string.IsNullOrWhiteSpace(_savedTeamCode))
+                {
+                    cbFavoriteTeam.SelectedValue = _savedTeamCode;
+                }
+                else
+                {
+                    cbFavoriteTeam.SelectedIndex = -1;
+                }
             }
             catch (Exception ex)
             {
@@ -57,13 +116,36 @@ namespace WpfApp
             }
         }
 
+
         private async void cbFavoriteTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
+             
+
                 if (cbFavoriteTeam.SelectedItem is Team selectedTeam)
                 {
+
+                    string gender = _repo.GetStoredGender();
+                    string language = _repo.GetStoredLanguage();
+                    string resolution = "1200x900";
+
+                    string settingsLine = _repo.ReadFromFile("../../../../WinFormsApp/data/settings.txt");
+
+
+                    if (!string.IsNullOrWhiteSpace(settingsLine))
+                    {
+                        var parts = settingsLine.Split('#');
+                        if (parts.Length >= 4)
+                        {
+                            resolution = parts[3];
+                        }
+                    }
+
+
+
                     string code = selectedTeam.Code;
+                    _repo.SaveSettings($"{gender}#{language}#{code}#{resolution}");
 
                     if (code != null)
                     {
@@ -171,7 +253,7 @@ namespace WpfApp
                            ? match.HomeTeamStatistics
                            : match.AwayTeamStatistics;
 
-                        ArrangePlayers(favStats, oppStats);
+                        ArrangePlayers(favStats, oppStats, match);
                     }
                 }
             }
@@ -181,7 +263,7 @@ namespace WpfApp
             }
         }
 
-        private void ArrangePlayers(TeamStatistics favStats, TeamStatistics oppStats)
+        private void ArrangePlayers(TeamStatistics favStats, TeamStatistics oppStats, Match match)
         {
             if (_repo == null)
             {
@@ -206,10 +288,10 @@ namespace WpfApp
             var midfieldersFav = fieldPlayersFav.Skip(defFav).Take(midFav).ToList();
             var forwardsFav = fieldPlayersFav.Skip(defFav + midFav).Take(fwdFav).ToList();
 
-            if (gkFav != null) spGkFav.Children.Add(new PlayerControl(gkFav.Name, _repo));
-            defendersFav.ForEach(p => spDefFav.Children.Add(new PlayerControl(p.Name, _repo)));
-            midfieldersFav.ForEach(p => spMidFav.Children.Add(new PlayerControl(p.Name, _repo)));
-            forwardsFav.ForEach(p => spFwdFav.Children.Add(new PlayerControl(p.Name, _repo)));
+            if (gkFav != null) spGkFav.Children.Add(new PlayerControl(gkFav, _repo, match));
+            defendersFav.ForEach(p => spDefFav.Children.Add(new PlayerControl(p, _repo, match)));
+            midfieldersFav.ForEach(p => spMidFav.Children.Add(new PlayerControl(p, _repo, match)));
+            forwardsFav.ForEach(p => spFwdFav.Children.Add(new PlayerControl(p, _repo, match)));
 
             var (defOpp, midOpp, fwdOpp) = EnumExtensions.ParseTactics(oppStats.Tactics);
             var gkOpp = oppStats.StartingEleven.FirstOrDefault(p => p.Position == Position.Goalie);
@@ -219,11 +301,33 @@ namespace WpfApp
             var midfieldersOpp = fieldPlayersOpp.Skip(defOpp).Take(midOpp).ToList();
             var forwardsOpp = fieldPlayersOpp.Skip(defOpp + midOpp).Take(fwdOpp).ToList();
 
-            if (gkOpp != null) spGkOpp.Children.Add(new PlayerControl(gkOpp.Name, _repo));
-            defendersOpp.ForEach(p => spDefOpp.Children.Add(new PlayerControl(p.Name, _repo)));
-            midfieldersOpp.ForEach(p => spMidOpp.Children.Add(new PlayerControl(p.Name, _repo)));
-            forwardsOpp.ForEach(p => spFwdOpp.Children.Add(new PlayerControl(p.Name, _repo)));
+            if (gkOpp != null) spGkOpp.Children.Add(new PlayerControl(gkOpp, _repo, match));
+            defendersOpp.ForEach(p => spDefOpp.Children.Add(new PlayerControl(p, _repo, match)));
+            midfieldersOpp.ForEach(p => spMidOpp.Children.Add(new PlayerControl(p, _repo, match)));
+            forwardsOpp.ForEach(p => spFwdOpp.Children.Add(new PlayerControl(p, _repo, match)));
 
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var settingsWindow = new ChooseWindow(_apiRepository, _repo);
+
+            settingsWindow.SettingsApplied += () =>
+            {
+                var newApiRepo = new ApiRepository(_repo.GetStoredGender());
+                var newMainWindow = new MainWindow(newApiRepo, _repo);
+                newMainWindow.Show();
+
+                this.Close(); 
+            };
+
+            this.Hide();
+            settingsWindow.ShowDialog();
+
+            if (!settingsWindow.WasApplied)
+            {
+                this.Show();
+            }
         }
     }
 }

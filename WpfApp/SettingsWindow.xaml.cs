@@ -16,13 +16,16 @@ public partial class SettingsWindow : Window
 {
     private const string Path = @"../../../../data/settings.txt";
     private FileRepository _repo = new FileRepository();
-    public SettingsWindow()
+    private readonly IApiRepository _apiRepo;
+
+    public SettingsWindow(IApiRepository apiRepo)
     {
         InitializeComponent();
+        _apiRepo = apiRepo;
 
         cbLanguage.ItemsSource = new[] { "English", "Croatian" };
         cbChampionship.ItemsSource = new[] { "men", "women" };
-        cbResolution.ItemsSource = new[] { "1280x720", "1600x900", "fullscreen" };
+        cbResolution.ItemsSource = new[] { "1280x720", "1200x900", "fullscreen" };
 
 
         var settings = _repo.ReadFromFile(Path);
@@ -83,8 +86,14 @@ public partial class SettingsWindow : Window
             return;
         }
 
-        string content = $"{championship.ToLower()}#{language}##{resolution}";
+        string teamCode = _repo.GetCurrentTeam();
+
+        string content = $"{championship.ToLower()}#{language}#{teamCode}#{resolution}";
 
         _repo.SaveSettings(content);
+
+        var mainWindow = new MainWindow(_apiRepo, new FileRepository());
+        mainWindow.Show();
+        this.Close();
     }
 }

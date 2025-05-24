@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="PlayerInfoWindow" Height="450" Width="800">
     <Grid>
-        
+        <Image x:Name="imgPlayer" HorizontalAlignment="Left" Height="190" Margin="320,40,0,0" VerticalAlignment="Top" Width="163"/>
+        <Label x:Name="lblPlyName" Content="" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top" Width="158"/>
+        <Label x:Name="lblNumber" Content="" HorizontalAlignment="Center" Margin="0,270,0,0" VerticalAlignment="Top" Width="158" RenderTransformOrigin="0.496,-0.153"/>
+        <Label x:Name="lblPosition" Content="" HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top" Width="158"/>
+        <Label x:Name="lblCap" Content="" HorizontalAlignment="Center" Margin="0,332,0,0" VerticalAlignment="Top" Width="158"/>
+        <Label x:Name="lblGoals" Content="" HorizontalAlignment="Center" Margin="0,363,0,0" VerticalAlignment="Top" Width="158"/>
+        <Label x:Name="lblYellow" Content="" HorizontalAlignment="Center" Margin="0,394,0,0" VerticalAlignment="Top" Width="158"/>
+
     </Grid>
 </Window>

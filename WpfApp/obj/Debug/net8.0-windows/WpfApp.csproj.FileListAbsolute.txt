@@ -38,3 +38,5 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-w
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\PlayerInfoWindow.baml
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\dataWpf\DefaultImage.jpg
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\WpfApp_Content.g.cs
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\ChooseWindow.g.cs
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\ChooseWindow.baml
