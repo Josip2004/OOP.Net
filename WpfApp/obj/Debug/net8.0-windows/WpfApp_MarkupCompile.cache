@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\App.xaml
-6413756407
+101944634182
 1-821406274
-9870212
+13-692465117
 209-116458952
-ChooseWindow.xaml;MainWindow.xaml;PlayerControl.xaml;PlayerInfoWindow.xaml;SettingsWindow.xaml;TeamInfoWindow.xaml;
+ChooseWindow.xaml;ConfirmWindow.xaml;ExitWindow.xaml;MainWindow.xaml;PlayerControl.xaml;PlayerInfoWindow.xaml;Resources\Strings.en.xaml;Resources\Strings.hr.xaml;SettingsWindow.xaml;TeamInfoWindow.xaml;
 
 False
 

@@ -83,11 +83,11 @@ namespace WinFormsApp
 
             if (!string.IsNullOrEmpty(storedLanguage))
             {
-                if (storedLanguage.Equals("croatian", StringComparison.OrdinalIgnoreCase))
+                if (storedLanguage.Equals("hr", StringComparison.OrdinalIgnoreCase))
                 {
                     cbLanguage.SelectedItem = Strings.CroatianOption;
                 }
-                else if (storedLanguage.Equals("english", StringComparison.OrdinalIgnoreCase))
+                else if (storedLanguage.Equals("en", StringComparison.OrdinalIgnoreCase))
                 {
                     cbLanguage.SelectedItem = Strings.EnglishOption;
                 }
@@ -115,15 +115,16 @@ namespace WinFormsApp
                 ? "men"
                 : "women";
             string language = cbLanguage.SelectedItem.ToString();
+            string languageCode = language.Equals(Strings.CroatianOption, StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
 
             string existingTeamCode = _fileRepository.GetCurrentTeam();
             string fullSettings = string.IsNullOrWhiteSpace(existingTeamCode)
-                ? $"{gender}#{language}"
-                : $"{gender}#{language}#{existingTeamCode}";
+                ? $"{gender}#{languageCode}"
+                : $"{gender}#{languageCode}#{existingTeamCode}";
 
             _fileRepository.SaveSettings(fullSettings);
 
-            string cultureCode = language.Equals("Croatian", StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
+            string cultureCode = language.Equals(Strings.CroatianOption, StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
             var culture = new CultureInfo(cultureCode);
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;

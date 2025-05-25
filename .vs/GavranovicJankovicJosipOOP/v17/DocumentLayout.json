@@ -3,68 +3,80 @@
   "WorkspaceRootPath": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\choosewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\choosewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\data\\settings.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\data\\settings.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2CC64D94-9238-4566-A50A-444E6C8ABAD4}|GavranovicJankovicJosipOOP\\Dao.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\gavranovicjankovicjosipoop\\repositories\\filerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2CC64D94-9238-4566-A50A-444E6C8ABAD4}|GavranovicJankovicJosipOOP\\Dao.csproj|solutionrelative:gavranovicjankovicjosipoop\\repositories\\filerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\choosewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\choosewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\playerinfowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\playerinfowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\choosewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\choosewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\resources\\strings.en.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\resources\\strings.en.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\resources\\strings.hr.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\resources\\strings.hr.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\confirmwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\confirmwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\exitwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\exitwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\playerinfowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\playerinfowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2CC64D94-9238-4566-A50A-444E6C8ABAD4}|GavranovicJankovicJosipOOP\\Dao.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\gavranovicjankovicjosipoop\\repositories\\ifilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2CC64D94-9238-4566-A50A-444E6C8ABAD4}|GavranovicJankovicJosipOOP\\Dao.csproj|solutionrelative:gavranovicjankovicjosipoop\\repositories\\ifilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\teaminfowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\teaminfowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2CC64D94-9238-4566-A50A-444E6C8ABAD4}|GavranovicJankovicJosipOOP\\Dao.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\gavranovicjankovicjosipoop\\enums\\enumextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2CC64D94-9238-4566-A50A-444E6C8ABAD4}|GavranovicJankovicJosipOOP\\Dao.csproj|solutionrelative:gavranovicjankovicjosipoop\\enums\\enumextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\teaminfowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\teaminfowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\wpfapp\\wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{052198DB-E1B8-4717-B1D0-93B7D123C35C}|WpfApp\\WpfApp.csproj|solutionrelative:wpfapp\\wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|c:\\users\\josip\\source\\repos\\gavranovicjankovicjosipoop\\winformsapp\\startdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8224E02C-ED3F-449A-8973-2BDB71667A1B}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\startdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,28 +90,28 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\MainForm.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\MainForm.cs",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\MainForm.cs",
-              "RelativeToolTip": "WinFormsApp\\MainForm.cs",
-              "ViewState": "AgIAAAsDAAAAAAAAAAAIwBgDAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T12:32:10.061Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\MainWindow.xaml.cs",
               "RelativeToolTip": "WpfApp\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAC8BAAAAAAAAAADwvz0BAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAFcBAAAAAAAAAAAiwHEBAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T21:58:44.634Z",
+              "WhenOpened": "2025-05-25T17:56:22.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SettingsWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp\\SettingsWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml.cs",
+              "RelativeToolTip": "WpfApp\\SettingsWindow.xaml.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T18:15:36.934Z",
               "EditorCaption": ""
             },
             {
@@ -110,110 +122,46 @@
               "RelativeDocumentMoniker": "WpfApp\\ChooseWindow.xaml.cs",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\ChooseWindow.xaml.cs",
               "RelativeToolTip": "WpfApp\\ChooseWindow.xaml.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAADgAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAwF8AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T10:40:27.6Z",
+              "WhenOpened": "2025-05-25T18:14:52.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "ChooseWindow.xaml",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\ChooseWindow.xaml",
               "RelativeDocumentMoniker": "WpfApp\\ChooseWindow.xaml",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\ChooseWindow.xaml",
               "RelativeToolTip": "WpfApp\\ChooseWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-24T10:17:36.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\App.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\App.xaml.cs",
-              "RelativeToolTip": "WpfApp\\App.xaml.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAwwB4AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T09:31:41.6Z",
+              "WhenOpened": "2025-05-25T18:10:39.371Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "WpfApp\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\AssemblyInfo.cs",
-              "RelativeToolTip": "WpfApp\\AssemblyInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T09:29:07.705Z",
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\MainWindow.xaml",
+              "RelativeToolTip": "WpfApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-25T18:10:31.148Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "WpfApp",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\WpfApp.csproj",
-              "RelativeDocumentMoniker": "WpfApp\\WpfApp.csproj",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\WpfApp.csproj",
-              "RelativeToolTip": "WpfApp\\WpfApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-24T09:28:46.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FileRepository.cs",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Repositories\\FileRepository.cs",
-              "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Repositories\\FileRepository.cs",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Repositories\\FileRepository.cs",
-              "RelativeToolTip": "GavranovicJankovicJosipOOP\\Repositories\\FileRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T10:12:26.537Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Settings.cs",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\Settings.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\Settings.cs",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\Settings.cs",
-              "RelativeToolTip": "WinFormsApp\\Settings.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAUwHcAAABhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T11:10:00.727Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SettingsWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml",
-              "RelativeDocumentMoniker": "WpfApp\\SettingsWindow.xaml",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml",
-              "RelativeToolTip": "WpfApp\\SettingsWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-24T09:28:39.186Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "PlayerInfoWindow.xaml",
               "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\PlayerInfoWindow.xaml",
               "RelativeDocumentMoniker": "WpfApp\\PlayerInfoWindow.xaml",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\PlayerInfoWindow.xaml",
               "RelativeToolTip": "WpfApp\\PlayerInfoWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-23T21:40:43.835Z"
+              "WhenOpened": "2025-05-25T18:04:31.937Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -223,59 +171,158 @@
               "RelativeDocumentMoniker": "WinFormsApp\\data\\settings.txt",
               "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\data\\settings.txt",
               "RelativeToolTip": "WinFormsApp\\data\\settings.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-23T19:14:45.37Z",
+              "WhenOpened": "2025-05-25T17:57:25.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SettingsWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp\\SettingsWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml.cs",
-              "RelativeToolTip": "WpfApp\\SettingsWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAtAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "TeamInfoWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\TeamInfoWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp\\TeamInfoWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\TeamInfoWindow.xaml.cs",
+              "RelativeToolTip": "WpfApp\\TeamInfoWindow.xaml.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAuwD8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T17:38:30.988Z",
+              "WhenOpened": "2025-05-25T17:49:00.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ExitWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\ExitWindow.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\ExitWindow.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\ExitWindow.xaml",
+              "RelativeToolTip": "WpfApp\\ExitWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-25T17:42:22.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TeamInfoWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\TeamInfoWindow.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\TeamInfoWindow.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\TeamInfoWindow.xaml",
+              "RelativeToolTip": "WpfApp\\TeamInfoWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-25T17:41:39.238Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "WpfApp\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\MainWindow.xaml",
-              "RelativeToolTip": "WpfApp\\MainWindow.xaml",
+              "Title": "ConfirmWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\ConfirmWindow.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\ConfirmWindow.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\ConfirmWindow.xaml",
+              "RelativeToolTip": "WpfApp\\ConfirmWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-21T20:39:25.886Z",
+              "WhenOpened": "2025-05-25T17:40:12.822Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "IFileRepository.cs",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Repositories\\IFileRepository.cs",
-              "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Repositories\\IFileRepository.cs",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Repositories\\IFileRepository.cs",
-              "RelativeToolTip": "GavranovicJankovicJosipOOP\\Repositories\\IFileRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAADwvxIAAAAPAAAAAAAAAA==",
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\App.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\App.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\App.xaml",
+              "RelativeToolTip": "WpfApp\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-25T16:53:13.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Strings.en.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\Resources\\Strings.en.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\Resources\\Strings.en.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\Resources\\Strings.en.xaml",
+              "RelativeToolTip": "WpfApp\\Resources\\Strings.en.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-25T16:53:02.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Strings.hr.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\Resources\\Strings.hr.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\Resources\\Strings.hr.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\Resources\\Strings.hr.xaml",
+              "RelativeToolTip": "WpfApp\\Resources\\Strings.hr.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-25T16:52:36.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "WpfApp",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\WpfApp.csproj",
+              "RelativeDocumentMoniker": "WpfApp\\WpfApp.csproj",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\WpfApp.csproj",
+              "RelativeToolTip": "WpfApp\\WpfApp.csproj",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-25T16:31:09.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SettingsWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml",
+              "RelativeDocumentMoniker": "WpfApp\\SettingsWindow.xaml",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\SettingsWindow.xaml",
+              "RelativeToolTip": "WpfApp\\SettingsWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-25T16:22:34.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "StartDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\StartDisplay.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\StartDisplay.cs",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WinFormsApp\\StartDisplay.cs",
+              "RelativeToolTip": "WinFormsApp\\StartDisplay.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T16:08:42.431Z"
+              "WhenOpened": "2025-05-25T16:08:20.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerInfoWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\PlayerInfoWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp\\PlayerInfoWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\PlayerInfoWindow.xaml.cs",
+              "RelativeToolTip": "WpfApp\\PlayerInfoWindow.xaml.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAQwDwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T16:04:50.304Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "EnumExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\EnumExtensions.cs",
-              "RelativeDocumentMoniker": "GavranovicJankovicJosipOOP\\Enums\\EnumExtensions.cs",
-              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\GavranovicJankovicJosipOOP\\Enums\\EnumExtensions.cs",
-              "RelativeToolTip": "GavranovicJankovicJosipOOP\\Enums\\EnumExtensions.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\App.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\josip\\source\\repos\\GavranovicJankovicJosipOOP\\WpfApp\\App.xaml.cs",
+              "RelativeToolTip": "WpfApp\\App.xaml.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAwwDAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T08:27:33.534Z"
+              "WhenOpened": "2025-05-25T15:48:34.072Z",
+              "EditorCaption": ""
             }
           ]
         }

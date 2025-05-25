@@ -9,12 +9,17 @@
     <Grid>
         <Grid>
             <ComboBox x:Name="cbLanguage" HorizontalAlignment="Left" Margin="92,78,0,0" VerticalAlignment="Top" Width="182"/>
-            <Label Content="Choose language&#xD;&#xA;" HorizontalAlignment="Left" Margin="92,34,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblLang" Content="{DynamicResource lblLang}" HorizontalAlignment="Left" Margin="92,34,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbResolution" HorizontalAlignment="Left" Margin="92,306,0,0" VerticalAlignment="Top" Width="182"/>
-            <Label Content="Choose resolution" HorizontalAlignment="Left" Margin="92,260,0,0" VerticalAlignment="Top"/>
-            <Label Content="Choose championship" HorizontalAlignment="Left" Margin="92,148,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblRes" Content="{DynamicResource lblRes}" HorizontalAlignment="Left" Margin="92,260,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblChamp" Content="{DynamicResource lblChamp}" HorizontalAlignment="Left" Margin="92,148,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="cbChampionship" HorizontalAlignment="Left" Margin="99,195,0,0" VerticalAlignment="Top" Width="175"/>
-            <Button x:Name="btnApply" Content="Apply" HorizontalAlignment="Left" Margin="300,374,0,0" VerticalAlignment="Top" Height="38" Width="132" Click="Button_Click"/>
+            
+            <Button Content="{DynamicResource btnApply}"
+            x:Name="btnApply"
+            HorizontalAlignment="Left" Margin="300,374,0,0"
+            VerticalAlignment="Top" Height="38" Width="132"
+            Click="Button_Click"/>
 
         </Grid>
     </Grid>

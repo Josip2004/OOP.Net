@@ -4,6 +4,7 @@ using Dao.Repositories;
 using GavranovicJankovicJosipOOP.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,11 +29,24 @@ namespace WpfApp
         private List<Match> _matches;
         private List<Team> _teams;
         private string _savedTeamCode;
+        private bool _isRestartingFromSettings = false;
         public MainWindow(IApiRepository apiRepository, IFileRepository fileRepository)
         {
-            InitializeComponent();
             _apiRepository = apiRepository;
             _repo = fileRepository;
+
+            string languageCode = _repo.GetStoredLanguage();
+
+            if (!string.IsNullOrWhiteSpace(languageCode))
+            {
+                var culture = new CultureInfo(languageCode); 
+                Thread.CurrentThread.CurrentCulture = culture;
+                Thread.CurrentThread.CurrentUICulture = culture;
+                CultureInfo.DefaultThreadCurrentCulture = culture;
+                CultureInfo.DefaultThreadCurrentUICulture = culture;
+            }
+            InitializeComponent();
+          
 
             try
             {
@@ -314,6 +328,7 @@ namespace WpfApp
 
             settingsWindow.SettingsApplied += () =>
             {
+                _isRestartingFromSettings = true;
                 var newApiRepo = new ApiRepository(_repo.GetStoredGender());
                 var newMainWindow = new MainWindow(newApiRepo, _repo);
                 newMainWindow.Show();
@@ -328,6 +343,31 @@ namespace WpfApp
             {
                 this.Show();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_isRestartingFromSettings) return;
+
+            var confirmWindow = new ExitWindow();
+            confirmWindow.ShowDialog();
+
+            if (!confirmWindow.IsConfirmed)
+            {
+                e.Cancel = true; 
+            }
+        }
+
+        public void RefreshLanguage()
+        {
+            var currentDict = Application.Current.Resources.MergedDictionaries.FirstOrDefault();
+            if (currentDict == null) return;
+
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(currentDict);
+
+            this.InvalidateVisual();
+            this.UpdateLayout();
         }
     }
 }

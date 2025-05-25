@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp.ExitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="ExitWindow" Height="294" Width="544" KeyDown="Window_KeyDown">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="{DynamicResource lblExit}" x:Name="lblExit"
+                       FontSize="16"
+                       TextAlignment="Center"
+                       Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button x:Name="btnYes" Content="{DynamicResource btnYes}" Width="100" Height="38" Margin="10" Click="BtnYes_Click"/>
+                <Button x:Name="btnNo" Content="{DynamicResource btnNo}" Width="100" Height="38" Margin="10" Click="BtnCancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

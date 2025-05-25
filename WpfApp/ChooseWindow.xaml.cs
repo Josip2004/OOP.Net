@@ -33,31 +33,37 @@ namespace WpfApp
             _repo = fileRepo;
             _apiRepo = apiRepo;
 
-            cbLanguage.ItemsSource = new[] { "English", "Croatian" };
-            cbChampionship.ItemsSource = new[] { "men", "women" };
+            cbLanguage.ItemsSource = new[] { "English", "Hrvatski" };
+            cbChampionship.ItemsSource = new[] { "Men", "Women" };
             cbResolution.ItemsSource = new[] { "1280x720", "1200x900", "fullscreen" };
 
             var settings = _repo.ReadFromFile(SettingsPath);
+
+            string langCode = "en";
             if (!string.IsNullOrEmpty(settings))
             {
                 var parts = settings.Split('#');
                 if (parts.Length >= 2)
-                {
-                    cbChampionship.SelectedItem = parts[0];
-                    cbLanguage.SelectedItem = parts[1];
+                    langCode = parts[1];
 
-                    if (parts.Length >= 4)
-                    {
-                        cbResolution.SelectedItem = parts[3];
-                    }
-                }
+                cbLanguage.SelectedItem = langCode == "hr" ? "Hrvatski" : "English";
+
+                if (parts.Length >= 1)
+                    cbChampionship.SelectedItem = parts[0] == "women" ? "Women" : "Men";
+
+                if (parts.Length >= 4 && cbResolution.Items.Contains(parts[3]))
+                    cbResolution.SelectedItem = parts[3];
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string language = cbLanguage.SelectedItem?.ToString();
+            string langCode = language == "Hrvatski" ? "hr" : "en";
+
             string championship = cbChampionship.SelectedItem?.ToString();
+            string champCode = championship == "Women" ? "women" : "men";
+
             string resolution = cbResolution.SelectedItem?.ToString();
 
             if (string.IsNullOrWhiteSpace(language) || string.IsNullOrWhiteSpace(championship) || string.IsNullOrWhiteSpace(resolution))
@@ -67,12 +73,33 @@ namespace WpfApp
             }
 
             string teamCode = _repo.GetCurrentTeam();
-            string settings = $"{championship.ToLower()}#{language}#{teamCode}#{resolution}";
-            _repo.SaveSettings(settings);
+            var confirmWindow = new ConfirmWindow();
+            bool? result = confirmWindow.ShowDialog();
 
-            WasApplied = true;
-            SettingsApplied?.Invoke();
-            this.Close();
+            if (confirmWindow.IsConfirmed)
+            {
+                string settings = $"{champCode}#{langCode}#{teamCode}#{resolution}";
+                _repo.SaveSettings(settings);
+
+                var dict = new ResourceDictionary
+                {
+                    Source = new Uri($"/Resources/Strings.{langCode}.xaml", UriKind.Relative)
+                };
+                Application.Current.Resources.MergedDictionaries.Clear();
+                Application.Current.Resources.MergedDictionaries.Add(dict);
+
+                foreach (Window w in Application.Current.Windows)
+                {
+                    if (w is MainWindow mw)
+                    {
+                        mw.RefreshLanguage();
+                    }
+                }
+
+                WasApplied = true;
+                SettingsApplied?.Invoke();
+                this.Close();
+            }
         }
     }
 }

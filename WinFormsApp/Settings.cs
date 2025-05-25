@@ -23,8 +23,8 @@ namespace WinFormsApp
 
             _fileRepository = new FileRepository();
 
-            ApplyLocalization();
             LoadSettings();
+            ApplyLocalization();
         }
 
         private void ApplyLocalization()
@@ -33,8 +33,8 @@ namespace WinFormsApp
             lblChooseLanguage.Text = Strings.lblChooseLanguage;
             btnApplySettings.Text = Strings.btnApplySettings;
 
-            var selectedLanguage = cbChooseChampionShip.SelectedItem?.ToString();
-            var selectedChampionship = cbChooseLanguage.SelectedItem?.ToString();
+            var selectedLanguage = cbChooseLanguage.SelectedItem?.ToString();
+            var selectedChampionship = cbChooseChampionShip.SelectedItem?.ToString();
 
             cbChooseChampionShip.Items.Clear();
             cbChooseChampionShip.Items.Add(Strings.ChampionshipMen);
@@ -59,7 +59,7 @@ namespace WinFormsApp
 
             if (!string.IsNullOrEmpty(selectedLanguage))
             {
-                if (selectedLanguage.Equals("English", StringComparison.OrdinalIgnoreCase) ||
+                if (selectedLanguage.Equals("en", StringComparison.OrdinalIgnoreCase) ||
                     selectedLanguage.Equals(Strings.EnglishOption, StringComparison.OrdinalIgnoreCase))
                 {
                     cbChooseLanguage.SelectedItem = Strings.EnglishOption;
@@ -78,11 +78,11 @@ namespace WinFormsApp
 
             if (!string.IsNullOrEmpty(storedLanguage))
             {
-                if (storedLanguage.Equals("croatian", StringComparison.OrdinalIgnoreCase))
+                if (storedLanguage.Equals("hr", StringComparison.OrdinalIgnoreCase))
                 {
                     cbChooseLanguage.SelectedItem = Strings.CroatianOption;
                 }
-                else if (storedLanguage.Equals("english", StringComparison.OrdinalIgnoreCase))
+                else if (storedLanguage.Equals("en", StringComparison.OrdinalIgnoreCase))
                 {
                     cbChooseLanguage.SelectedItem = Strings.EnglishOption;
                 }
@@ -121,16 +121,17 @@ namespace WinFormsApp
                 ? "men"
                 : "women";
             string language = cbChooseLanguage.SelectedItem.ToString();
+            string languageCode = language.Equals(Strings.CroatianOption, StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
 
             string existingTeamCode = _fileRepository.GetCurrentTeam();
             string fullSettings = string.IsNullOrWhiteSpace(existingTeamCode)
-                ? $"{gender}#{language}"
-                : $"{gender}#{language}#{existingTeamCode}";
+                ? $"{gender}#{languageCode}"
+                : $"{gender}#{languageCode}#{existingTeamCode}";
 
             _fileRepository.SaveSettings(fullSettings);
 
-            string cultureCode = language.Equals("Croatian", StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
-            var culture = new CultureInfo(cultureCode);
+            string cultureCode = language.Equals(Strings.CroatianOption, StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
+            var culture = new CultureInfo(languageCode);
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
             CultureInfo.DefaultThreadCurrentCulture = culture;

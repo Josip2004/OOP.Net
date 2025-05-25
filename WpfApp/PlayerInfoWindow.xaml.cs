@@ -58,8 +58,8 @@ namespace WpfApp
                         e.Player.Trim().Equals(player.Name.Trim(), StringComparison.OrdinalIgnoreCase) &&
                         e.TypeOfEvent == Dao.Enums.TypeOfEvent.YellowCard);
 
-                    lblGoals.Content = $"Goals: {goalCount}";
-                    lblYellow.Content = $"Yellow cards: {yellowCount}";
+                    lblGoals.Content += $" {goalCount}";
+                    lblYellow.Content += $" {yellowCount}";
                 }
 
                 string imagePath = FindImagePathForPlayer(player.Name);

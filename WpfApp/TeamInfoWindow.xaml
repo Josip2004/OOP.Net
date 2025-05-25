@@ -9,14 +9,15 @@
     <Grid Margin="20">
         <StackPanel>
             <TextBlock x:Name="txtTeamName" FontSize="20" FontWeight="Bold" Margin="0 0 0 10" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtFifaCode" Text="Fifa kod: " FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtPlayed" Text="Broj odigranih: " FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtWins" Text="Broj pobjeda: " FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtDraws" Text="Broj neriješenih: " FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtLosses" Text="Broj poraza: " FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtGoalsScored" Text="Zabijeni golovi: " FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtGoalsConceded" Text="Primljeni golovi: " FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="txtGoalDifference" Text="Gol razlika: " FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtFifaCode" Text="{DynamicResource txtFifaCode}" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtPlayed" Text="{DynamicResource txtPlayed}" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtWins" Text="{DynamicResource txtWins}" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtDraws" Text="{DynamicResource txtDraws}" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtLosses" Text="{DynamicResource txtLosses}" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtGoalsScored" Text="{DynamicResource txtGoalsScored}" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtGoalsConceded" Text="{DynamicResource txtGoalsConceded}" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtGoalDifference" Text="{DynamicResource txtGoalDifference}" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+
         </StackPanel>
     </Grid>
 </Window>

@@ -5,6 +5,12 @@
     <Compile Update="ChooseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ConfirmWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ExitWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

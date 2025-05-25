@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="lblLang">Choose language</sys:String>
+    <sys:String x:Key="lblChamp">Choose championship</sys:String>
+    <sys:String x:Key="lblRes">Choose resolution</sys:String>
+    <sys:String x:Key="btnApply">Apply</sys:String>
+    <sys:String x:Key="btnFavoriteInfoLine1">Favorite</sys:String>
+    <sys:String x:Key="btnFavoriteInfoLine2">Team</sys:String>
+    <sys:String x:Key="btnOppInfo">Opponent</sys:String>
+    <sys:String x:Key="btnSettings">Settings</sys:String>
+    <sys:String x:Key="lblExit">Are you sure you want to exit?</sys:String>
+    <sys:String x:Key="btnYes">Yes</sys:String>
+    <sys:String x:Key="btnNo">Cancel</sys:String>
+    <sys:String x:Key="lblText">Are you sure you want to save?</sys:String>
+    <sys:String x:Key="txtFifaCode">FIFA code:</sys:String>
+    <sys:String x:Key="txtPlayed">Matches played:</sys:String>
+    <sys:String x:Key="txtWins">Wins:</sys:String>
+    <sys:String x:Key="txtDraws">Draws:</sys:String>
+    <sys:String x:Key="txtLosses">Losses:</sys:String>
+    <sys:String x:Key="txtGoalsScored">Goals scored:</sys:String>
+    <sys:String x:Key="txtGoalsConceded">Goals conceded:</sys:String>
+    <sys:String x:Key="txtGoalDifference">Goal difference:</sys:String>
+    <sys:String x:Key="lblGoals">Goals: </sys:String>
+    <sys:String x:Key="lblYellow">Yellow cards: </sys:String>
+</ResourceDictionary>
