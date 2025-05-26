@@ -29,7 +29,12 @@
     </Resource>
   </ItemGroup>
 
-
+	<ItemGroup>
+		<Content Include="..\WinFormsApp\data\images.txt">
+			<Link>data\images.txt</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 	
 	
 

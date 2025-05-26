@@ -11,10 +11,10 @@ false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\App.xaml
 101944634182
-1-821406274
+2569565030
 15-1487333855
 209-116458952
 ChooseWindow.xaml;ConfirmWindow.xaml;ExitWindow.xaml;MainWindow.xaml;PlayerControl.xaml;PlayerInfoWindow.xaml;Resources\Strings.en.xaml;Resources\Strings.hr.xaml;SettingsWindow.xaml;TeamInfoWindow.xaml;
 
-True
+False
 

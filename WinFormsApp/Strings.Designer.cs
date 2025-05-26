@@ -430,6 +430,69 @@ namespace WinFormsApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select at least one player.
+        /// </summary>
+        internal static string msgAtleast {
+            get {
+                return ResourceManager.GetString("msgAtleast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not selected country.
+        /// </summary>
+        internal static string msgCountry {
+            get {
+                return ResourceManager.GetString("msgCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can have a maximum of 3 favorite players..
+        /// </summary>
+        internal static string msgMaxPlayers {
+            get {
+                return ResourceManager.GetString("msgMaxPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no matches for the selected team....
+        /// </summary>
+        internal static string msgNoMatches {
+            get {
+                return ResourceManager.GetString("msgNoMatches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot locate solution root..
+        /// </summary>
+        internal static string msgRoot {
+            get {
+                return ResourceManager.GetString("msgRoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select both a championship and a language..
+        /// </summary>
+        internal static string msgSelect {
+            get {
+                return ResourceManager.GetString("msgSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error while loading teams: .
+        /// </summary>
+        internal static string msgTeamLoad {
+            get {
+                return ResourceManager.GetString("msgTeamLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number Of Occurrences.
         /// </summary>
         internal static string NumberOfOccurrencesColumn {

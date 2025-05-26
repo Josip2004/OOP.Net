@@ -66,7 +66,7 @@ namespace WpfApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška prilikom čitanja postavki rezolucije: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
             _savedTeamCode = _repo.GetCurrentTeam();
@@ -135,8 +135,6 @@ namespace WpfApp
         {
             try
             {
-             
-
                 if (cbFavoriteTeam.SelectedItem is Team selectedTeam)
                 {
 

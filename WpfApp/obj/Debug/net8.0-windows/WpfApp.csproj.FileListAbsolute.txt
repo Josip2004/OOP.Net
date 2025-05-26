@@ -47,3 +47,4 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-w
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\Resources\Strings.en.baml
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\Resources\Strings.hr.baml
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\obj\Debug\net8.0-windows\App.baml
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WpfApp\bin\Debug\net8.0-windows\data\images.txt

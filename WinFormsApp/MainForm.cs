@@ -99,7 +99,7 @@ namespace WinFormsApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška pri učitavanju timova: " + ex.Message);
+                MessageBox.Show(Strings.msgTeamLoad + ex.Message);
             }
         }
 
@@ -115,7 +115,7 @@ namespace WinFormsApp
 
             if (_matches == null || !_matches.Any())
             {
-                MessageBox.Show($"There are no matches for the selected team...");
+                MessageBox.Show(Strings.msgNoMatches);
                 return;
             }
 
@@ -262,7 +262,7 @@ namespace WinFormsApp
 
             if (_matches == null || !_matches.Any())
             {
-                MessageBox.Show("There are no matches for the selected team...");
+                MessageBox.Show(Strings.msgNoMatches);
                 return;
             }
 
@@ -406,7 +406,7 @@ namespace WinFormsApp
 
                 if (panel == flpnlFavoritePlayers && flpnlFavoritePlayers.Controls.Count >= 3)
                 {
-                    MessageBox.Show("You can have a maximum of 3 favorite players.");
+                    MessageBox.Show(Strings.msgMaxPlayers);
                     return;
                 }
 
@@ -437,7 +437,7 @@ namespace WinFormsApp
 
                     if (_selectedPlayers.Count > numberOfFavorites)
                     {
-                        MessageBox.Show("You can have a maximum of 3 favorite players.");
+                        MessageBox.Show(Strings.msgMaxPlayers);
                         return;
                     }
 
@@ -469,12 +469,12 @@ namespace WinFormsApp
                 }
                 else
                 {
-                    MessageBox.Show("Select at least one player");
+                    MessageBox.Show(Strings.msgAtleast);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error occurred " + ex.Message);
+                MessageBox.Show(ex.Message);
                 return;
             }
         }
@@ -503,12 +503,12 @@ namespace WinFormsApp
                 }
                 else
                 {
-                    MessageBox.Show("Morate odabrati barem jednog igrača za uklanjanje.");
+                    MessageBox.Show(Strings.msgAtleast);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška pri uklanjanju igrača: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -530,7 +530,7 @@ namespace WinFormsApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Greška pri spremanju omiljenih igrača: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
         private void btnAddPicture_Click(object sender, EventArgs e)
@@ -546,28 +546,35 @@ namespace WinFormsApp
 
                 string safeFileName = playerName.Replace(" ", "_") + ".jpg";
 
-                string solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName;
-                string imagesFolder = Path.Combine(solutionRoot, "WpfApp", "bin", "Debug", "net8.0-windows", "Images");
-                Directory.CreateDirectory(imagesFolder);
+                string exeDir = AppDomain.CurrentDomain.BaseDirectory;
 
-                string destinationPath = Path.Combine(imagesFolder, safeFileName);
+                string solutionRoot = Directory.GetParent(exeDir)?.Parent?.Parent?.Parent?.Parent?.FullName;
+                if (solutionRoot == null)
+                {
+                    MessageBox.Show(Strings.msgRoot);
+                    return;
+                }
+
+                string config = Directory.GetParent(exeDir).Name;
+
+                string wpfImagesFolder = Path.Combine(solutionRoot, "WpfApp", "bin", config, "net8.0-windows", "Images");
+                Directory.CreateDirectory(wpfImagesFolder); 
+
+                string destinationPath = Path.Combine(wpfImagesFolder, safeFileName);
                 File.Copy(selectedImagePath, destinationPath, true);
 
                 string relativePath = Path.Combine("Images", safeFileName);
-
                 _fileRepository.AppendToFile("images.txt", $"{playerName}#{relativePath}");
 
                 playerControl.SetImage(destinationPath);
             }
         }
 
-
-
         private void FillAndSortByCards()
         {
             if (_matches == null)
             {
-                MessageBox.Show("There is no loaded matches");
+                MessageBox.Show(Strings.msgNoMatches);
                 return;
             }
 
@@ -575,7 +582,7 @@ namespace WinFormsApp
 
             if (selectedTeam == null)
             {
-                MessageBox.Show("Not selected country");
+                MessageBox.Show(Strings.msgCountry);
                 return;
             }
 
@@ -638,7 +645,7 @@ namespace WinFormsApp
         {
             if (_matches == null)
             {
-                MessageBox.Show("There are no loaded matches.");
+                MessageBox.Show(Strings.msgNoMatches);
                 return;
             }
 
@@ -646,7 +653,7 @@ namespace WinFormsApp
 
             if (selectedTeam == null)
             {
-                MessageBox.Show("Not selected country.");
+                MessageBox.Show(Strings.msgCountry);
                 return;
             }
 
@@ -715,7 +722,7 @@ namespace WinFormsApp
         {
             if (_matches == null)
             {
-                MessageBox.Show("There is no loaded matches");
+                MessageBox.Show(Strings.msgNoMatches);
                 return;
             }
 
@@ -723,7 +730,7 @@ namespace WinFormsApp
 
             if (selectedTeam == null)
             {
-                MessageBox.Show("Not selected country.");
+                MessageBox.Show(Strings.msgCountry);
                 return;
             }
 
@@ -760,9 +767,6 @@ namespace WinFormsApp
             FillAttendance();
         }
 
-
-
-        private bool _shouldRestartMainForm = false;
         private bool _isSoftRestartFromSettings = false;
 
         public static bool IsRestarting = false;
@@ -814,7 +818,6 @@ namespace WinFormsApp
             int rowHeight = grid.RowTemplate.Height + 5;
             int columnWidth = 250;
 
-            // Iscrtavanje zaglavlja
             for (int i = 0; i < grid.Columns.Count; i++)
             {
                 graphics.DrawString(
@@ -860,7 +863,6 @@ namespace WinFormsApp
                     break;
             }
 
-            // Pomakni marginBounds.Y kako bi sljedeća stranica nastavila odavde
             marginBounds.Y = y;
         }
 

@@ -106,7 +106,7 @@ namespace WinFormsApp
         {
             if (cbChampionship.SelectedItem == null || cbLanguage.SelectedItem == null)
             {
-                MessageBox.Show("Please select both a championship and a language.");
+                MessageBox.Show(Strings.msgSelect);
                 return;
             }
 

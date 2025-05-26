@@ -48,7 +48,13 @@ public partial class SettingsWindow : Window
                 cbChampionship.SelectedItem = parts[0] == "women" ? "Women" : "Men";
 
             if (parts.Length >= 4 && cbResolution.Items.Contains(parts[3]))
+            {
                 cbResolution.SelectedItem = parts[3];
+            }
+            else
+            {
+                cbResolution.SelectedItem = "1280x720";
+            }
         }
 
         ApplyWindowSize(cbResolution.SelectedItem?.ToString());

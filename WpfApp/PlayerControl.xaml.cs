@@ -61,8 +61,8 @@ namespace WpfApp
 
         private string FindImagePathForPlayer(string playerName)
         {
-            string solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.Parent.FullName;
-            string imageMapPath = System.IO.Path.Combine(solutionRoot, "WinFormsApp", "data", "images.txt");
+            string imageMapPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "images.txt");
+
 
             if (!File.Exists(imageMapPath))
             {
@@ -92,7 +92,6 @@ namespace WpfApp
                     }
                 }
             }
-
             return string.Empty;
         }
 

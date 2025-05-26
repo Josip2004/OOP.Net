@@ -240,6 +240,27 @@
   <data name="locationCol" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="msgAtleast" xml:space="preserve">
+    <value>Select at least one player</value>
+  </data>
+  <data name="msgCountry" xml:space="preserve">
+    <value>Not selected country</value>
+  </data>
+  <data name="msgMaxPlayers" xml:space="preserve">
+    <value>You can have a maximum of 3 favorite players.</value>
+  </data>
+  <data name="msgNoMatches" xml:space="preserve">
+    <value>There are no matches for the selected team...</value>
+  </data>
+  <data name="msgRoot" xml:space="preserve">
+    <value>Cannot locate solution root.</value>
+  </data>
+  <data name="msgSelect" xml:space="preserve">
+    <value>Please select both a championship and a language.</value>
+  </data>
+  <data name="msgTeamLoad" xml:space="preserve">
+    <value>Error while loading teams: </value>
+  </data>
   <data name="NumberOfOccurrencesColumn" xml:space="preserve">
     <value>Number Of Occurrences</value>
   </data>

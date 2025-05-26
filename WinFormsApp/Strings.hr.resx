@@ -240,6 +240,27 @@
   <data name="locationCol" xml:space="preserve">
     <value>Lokacija</value>
   </data>
+  <data name="msgAtleast" xml:space="preserve">
+    <value>Odaberite barem jednog igrača</value>
+  </data>
+  <data name="msgCountry" xml:space="preserve">
+    <value>Nije odabran tim</value>
+  </data>
+  <data name="msgMaxPlayers" xml:space="preserve">
+    <value>Možete imat najviše 3 imiljena igrača</value>
+  </data>
+  <data name="msgNoMatches" xml:space="preserve">
+    <value>Nema utakmica za taj tim...</value>
+  </data>
+  <data name="msgRoot" xml:space="preserve">
+    <value>Nije moguće locirati korijen rješenja.</value>
+  </data>
+  <data name="msgSelect" xml:space="preserve">
+    <value>Odaberite i prvenstvo i jezik.</value>
+  </data>
+  <data name="msgTeamLoad" xml:space="preserve">
+    <value>Greška pri učitavanju timova: </value>
+  </data>
   <data name="NumberOfOccurrencesColumn" xml:space="preserve">
     <value>Broj Pojavljivanja</value>
   </data>
