@@ -292,31 +292,45 @@ namespace WpfApp
             spMidOpp.Children.Clear();
             spFwdOpp.Children.Clear();
 
-            var (defFav, midFav, fwdFav) = EnumExtensions.ParseTactics(favStats.Tactics);
-            var gkFav = favStats.StartingEleven.FirstOrDefault(p => p.Position == Position.Goalie);
-            var fieldPlayersFav = favStats.StartingEleven.Where(p => p.Position != Position.Goalie).ToList();
+            foreach (var player in favStats.StartingEleven)
+            {
+                var control = new PlayerControl(player, _repo, match);
+                switch (player.Position)
+                {
+                    case Position.Goalie:
+                        spGkFav.Children.Add(control);
+                        break;
+                    case Position.Defender:
+                        spDefFav.Children.Add(control);
+                        break;
+                    case Position.Midfield:
+                        spMidFav.Children.Add(control);
+                        break;
+                    case Position.Forward:
+                        spFwdFav.Children.Add(control);
+                        break;
+                }
+            }
 
-            var defendersFav = fieldPlayersFav.Take(defFav).ToList();
-            var midfieldersFav = fieldPlayersFav.Skip(defFav).Take(midFav).ToList();
-            var forwardsFav = fieldPlayersFav.Skip(defFav + midFav).Take(fwdFav).ToList();
-
-            if (gkFav != null) spGkFav.Children.Add(new PlayerControl(gkFav, _repo, match));
-            defendersFav.ForEach(p => spDefFav.Children.Add(new PlayerControl(p, _repo, match)));
-            midfieldersFav.ForEach(p => spMidFav.Children.Add(new PlayerControl(p, _repo, match)));
-            forwardsFav.ForEach(p => spFwdFav.Children.Add(new PlayerControl(p, _repo, match)));
-
-            var (defOpp, midOpp, fwdOpp) = EnumExtensions.ParseTactics(oppStats.Tactics);
-            var gkOpp = oppStats.StartingEleven.FirstOrDefault(p => p.Position == Position.Goalie);
-            var fieldPlayersOpp = oppStats.StartingEleven.Where(p => p.Position != Position.Goalie).ToList();
-
-            var defendersOpp = fieldPlayersOpp.Take(defOpp).ToList();
-            var midfieldersOpp = fieldPlayersOpp.Skip(defOpp).Take(midOpp).ToList();
-            var forwardsOpp = fieldPlayersOpp.Skip(defOpp + midOpp).Take(fwdOpp).ToList();
-
-            if (gkOpp != null) spGkOpp.Children.Add(new PlayerControl(gkOpp, _repo, match));
-            defendersOpp.ForEach(p => spDefOpp.Children.Add(new PlayerControl(p, _repo, match)));
-            midfieldersOpp.ForEach(p => spMidOpp.Children.Add(new PlayerControl(p, _repo, match)));
-            forwardsOpp.ForEach(p => spFwdOpp.Children.Add(new PlayerControl(p, _repo, match)));
+            foreach (var player in oppStats.StartingEleven)
+            {
+                var control = new PlayerControl(player, _repo, match);
+                switch (player.Position)
+                {
+                    case Position.Goalie:
+                        spGkOpp.Children.Add(control);
+                        break;
+                    case Position.Defender:
+                        spDefOpp.Children.Add(control);
+                        break;
+                    case Position.Midfield:
+                        spMidOpp.Children.Add(control);
+                        break;
+                    case Position.Forward:
+                        spFwdOpp.Children.Add(control);
+                        break;
+                }
+            }
 
         }
 

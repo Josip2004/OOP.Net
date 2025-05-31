@@ -61,8 +61,10 @@ namespace WpfApp
 
         private string FindImagePathForPlayer(string playerName)
         {
-            string imageMapPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "images.txt");
+            string solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent?.FullName;
+            string winFormsImagesFolder = System.IO.Path.Combine(solutionRoot, "WinFormsApp", "bin", "Debug", "net8.0-windows", "Images");
 
+            string imageMapPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "images.txt");
 
             if (!File.Exists(imageMapPath))
             {
@@ -78,9 +80,19 @@ namespace WpfApp
                 string nameFromFile = parts[0].Trim();
                 string relativePath = parts[1].Trim();
 
+
                 if (string.Equals(nameFromFile, playerName.Trim(), StringComparison.OrdinalIgnoreCase))
                 {
-                    string imagePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+                    string imagePath;
+                    if (relativePath.StartsWith("Images\\"))
+                    {
+                        imagePath = System.IO.Path.Combine(winFormsImagesFolder, relativePath.Substring("Images\\".Length));
+                    }
+                    else
+                    {
+                        imagePath = System.IO.Path.Combine(winFormsImagesFolder, relativePath);
+                    }
+
 
                     if (File.Exists(imagePath))
                     {
@@ -92,8 +104,12 @@ namespace WpfApp
                     }
                 }
             }
+
             return string.Empty;
         }
+
+
+
 
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

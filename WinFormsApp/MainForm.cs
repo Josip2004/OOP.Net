@@ -551,24 +551,40 @@ namespace WinFormsApp
                 string solutionRoot = Directory.GetParent(exeDir)?.Parent?.Parent?.Parent?.Parent?.FullName;
                 if (solutionRoot == null)
                 {
-                    MessageBox.Show(Strings.msgRoot);
                     return;
                 }
 
-                string config = Directory.GetParent(exeDir).Name;
+                string winFormsImagesFolder = Path.Combine(solutionRoot, "WinFormsApp", "bin", "Debug", "net8.0-windows", "Images");
 
-                string wpfImagesFolder = Path.Combine(solutionRoot, "WpfApp", "bin", config, "net8.0-windows", "Images");
-                Directory.CreateDirectory(wpfImagesFolder); 
 
-                string destinationPath = Path.Combine(wpfImagesFolder, safeFileName);
-                File.Copy(selectedImagePath, destinationPath, true);
+                try
+                {
+                    Directory.CreateDirectory(winFormsImagesFolder);
 
-                string relativePath = Path.Combine("Images", safeFileName);
-                _fileRepository.AppendToFile("images.txt", $"{playerName}#{relativePath}");
+                    string destinationPath = Path.Combine(winFormsImagesFolder, safeFileName);
 
-                playerControl.SetImage(destinationPath);
+                    if (File.Exists(destinationPath))
+                    {
+                        MessageBox.Show($"File already exists: {destinationPath}");
+                        return;
+                    }
+
+                    File.Copy(selectedImagePath, destinationPath, true);
+
+                    string relativePath = Path.Combine("Images", safeFileName);
+                    _fileRepository.AppendToFile("images.txt", $"{playerName}#{relativePath}");
+
+                    playerControl.SetImage(destinationPath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error creating file or directory: {ex.Message}");
+                }
             }
         }
+
+
+
 
         private void FillAndSortByCards()
         {

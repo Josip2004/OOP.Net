@@ -47,9 +47,20 @@ namespace WinFormsApp
                     pbPlayer.Image = null;
                 }
 
-                if (File.Exists(imagePath))
+                string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+                string solutionRoot = Directory.GetParent(exeDir)?.Parent?.Parent?.Parent?.Parent?.FullName;
+                if (solutionRoot == null)
                 {
-                    pbPlayer.Image = new Bitmap(imagePath);
+                    MessageBox.Show(Strings.msgRoot);
+                    return;
+                }
+
+                string wpfImagesFolder = Path.Combine(solutionRoot, "WpfApp", "bin", "Debug", "net8.0-windows", "Images");
+                string fullImagePath = Path.Combine(wpfImagesFolder, imagePath);
+
+                if (File.Exists(fullImagePath))
+                {
+                    pbPlayer.Image = new Bitmap(fullImagePath);
                 }
                 else if (File.Exists(DefaultImage))
                 {
