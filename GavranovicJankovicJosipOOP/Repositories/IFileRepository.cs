@@ -17,6 +17,8 @@ namespace Dao.Repositories
         string GetStoredGender();
         string GetStoredLanguage();
         string GetCurrentTeam();
+        string GetSource();
+        string ReadSettingsRaw();
 
         bool ImageExists(string playerControl);
         string RetrieveImagePath(string controlName);

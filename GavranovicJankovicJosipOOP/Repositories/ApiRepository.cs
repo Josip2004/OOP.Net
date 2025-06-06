@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dao.Repositories
 {
-    public class ApiRepository : IApiRepository
+    public class ApiRepository : IDataProvider
     {
         private readonly RestClient _client;
 

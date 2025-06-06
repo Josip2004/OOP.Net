@@ -6,8 +6,6 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOO
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\bin\Debug\net8.0-windows\RestSharp.dll
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.csproj.AssemblyReference.cache
-C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\GavranovicJankovicJosipOOP.Form1.resources
-C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.csproj.GenerateResource.cache
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.AssemblyInfoInputs.cache
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.AssemblyInfo.cs
@@ -19,3 +17,7 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOO
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.pdb
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\Dao.genruntimeconfig.cache
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\obj\Debug\net8.0-windows\ref\Dao.dll
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\bin\Debug\net8.0-windows\jsonFiles\men\matches.json
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\bin\Debug\net8.0-windows\jsonFiles\men\teams.json
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\bin\Debug\net8.0-windows\jsonFiles\women\matches.json
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\GavranovicJankovicJosipOOP\bin\Debug\net8.0-windows\jsonFiles\women\teams.json

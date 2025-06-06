@@ -39,7 +39,7 @@ public partial class App : Application
         }
 
         var apiRepo = new ApiRepository(gender);
-        var settingsWindow = new SettingsWindow(apiRepo);
+        var settingsWindow = new SettingsWindow();
         settingsWindow.ShowDialog();
     }
 

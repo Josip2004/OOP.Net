@@ -22,20 +22,19 @@ namespace WpfApp
     {
         private const string SettingsPath = "../../../../WinFormsApp/data/settings.txt";
         private readonly IFileRepository _repo;
-        private readonly IApiRepository _apiRepo;
         public event Action? SettingsApplied;
         public bool WasApplied { get; private set; } = false;
 
 
-        public ChooseWindow(IApiRepository apiRepo, IFileRepository fileRepo)
+        public ChooseWindow(IFileRepository fileRepo)
         {
             InitializeComponent();
             _repo = fileRepo;
-            _apiRepo = apiRepo;
 
             cbLanguage.ItemsSource = new[] { "English", "Hrvatski" };
             cbChampionship.ItemsSource = new[] { "Men", "Women" };
             cbResolution.ItemsSource = new[] { "1280x720", "1200x900", "fullscreen" };
+            cbSource.ItemsSource = new[] { "API", "File" };
 
             var settings = _repo.ReadFromFile(SettingsPath);
 
@@ -53,6 +52,9 @@ namespace WpfApp
 
                 if (parts.Length >= 4 && cbResolution.Items.Contains(parts[3]))
                     cbResolution.SelectedItem = parts[3];
+
+                if (parts.Length >= 5)
+                    cbSource.SelectedItem = parts[4].ToLower() == "file" ? "File" : "API";
             }
         }
 
@@ -66,7 +68,10 @@ namespace WpfApp
 
             string resolution = cbResolution.SelectedItem?.ToString();
 
-            if (string.IsNullOrWhiteSpace(language) || string.IsNullOrWhiteSpace(championship) || string.IsNullOrWhiteSpace(resolution))
+            string source = cbSource.SelectedItem?.ToString().Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(language) || string.IsNullOrWhiteSpace(championship)
+                || string.IsNullOrWhiteSpace(resolution) || string.IsNullOrWhiteSpace(source))
             {
                 MessageBox.Show("Please select all values.");
                 return;
@@ -78,7 +83,7 @@ namespace WpfApp
 
             if (confirmWindow.IsConfirmed)
             {
-                string settings = $"{champCode}#{langCode}#{teamCode}#{resolution}";
+                string settings = $"{champCode}#{langCode}#{teamCode}#{resolution}#{source}";
                 _repo.SaveSettings(settings);
 
                 var dict = new ResourceDictionary

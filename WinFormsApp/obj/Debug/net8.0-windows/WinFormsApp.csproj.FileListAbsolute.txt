@@ -57,3 +57,7 @@ C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.pdb
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.genruntimeconfig.cache
 C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\obj\Debug\net8.0-windows\ref\WinFormsApp.dll
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\jsonFiles\men\matches.json
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\jsonFiles\men\teams.json
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\jsonFiles\women\matches.json
+C:\Users\josip\source\repos\GavranovicJankovicJosipOOP\WinFormsApp\bin\Debug\net8.0-windows\jsonFiles\women\teams.json

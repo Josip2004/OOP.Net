@@ -18,19 +18,18 @@ public partial class SettingsWindow : Window
 {
     private const string Path = @"../../../../WinFormsApp/data/settings.txt";
     private FileRepository _repo = new FileRepository();
-    private readonly IApiRepository _apiRepo;
 
-    public SettingsWindow(IApiRepository apiRepo)
+    public SettingsWindow()
     {
 
         InitializeComponent();
 
-        _apiRepo = apiRepo;
         _repo = new FileRepository();
 
         cbLanguage.ItemsSource = new[] { "English", "Hrvatski" };
         cbChampionship.ItemsSource = new[] { "Men", "Women" };
         cbResolution.ItemsSource = new[] { "1280x720", "1200x900", "fullscreen" };
+        cbSource.ItemsSource = new[] { "API", "File" };  
 
         var settings = _repo.ReadFromFile(Path);
 
@@ -55,6 +54,9 @@ public partial class SettingsWindow : Window
             {
                 cbResolution.SelectedItem = "1280x720";
             }
+
+            if (parts.Length >= 5)
+                cbSource.SelectedItem = parts[4].ToLower() == "file" ? "File" : "API";
         }
 
         ApplyWindowSize(cbResolution.SelectedItem?.ToString());
@@ -100,14 +102,16 @@ public partial class SettingsWindow : Window
 
         string resolution = cbResolution.SelectedItem.ToString();
 
-        if (language == null || championship == null || resolution == null)
+        string source = cbSource.SelectedItem?.ToString().Trim().ToLower();
+
+        if (language == null || championship == null || resolution == null || source == null)
         {
             MessageBox.Show("Please select all values.");
             return;
         }
 
         string teamCode = _repo.GetCurrentTeam();
-        string content = $"{champCode}#{langCode}#{teamCode}#{resolution}";
+        string content = $"{champCode}#{langCode}#{teamCode}#{resolution}#{source}";
         _repo.SaveSettings(content);
 
         var dict = new ResourceDictionary
@@ -117,7 +121,7 @@ public partial class SettingsWindow : Window
         Application.Current.Resources.MergedDictionaries.Clear();
         Application.Current.Resources.MergedDictionaries.Add(dict);
 
-        var mainWindow = new MainWindow(_apiRepo, new FileRepository());
+        var mainWindow = new MainWindow(RepositoryFactory.GetRepo(), new FileRepository());
         mainWindow.Show();
         this.Close();
     }

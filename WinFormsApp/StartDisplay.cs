@@ -1,5 +1,6 @@
 using Dao.Models;
 using Dao.Repositories;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -61,6 +62,9 @@ namespace WinFormsApp
             cbLanguage.Items.Clear();
             cbLanguage.Items.Add(Strings.EnglishOption);
             cbLanguage.Items.Add(Strings.CroatianOption);
+            cbSource.Items.Clear();
+            cbSource.Items.Add("API");
+            cbSource.Items.Add("File");
 
             if (!string.IsNullOrEmpty(selectedLanguage))
             {
@@ -100,6 +104,10 @@ namespace WinFormsApp
                 else if (storedGender.Equals("women", StringComparison.OrdinalIgnoreCase))
                     cbChampionship.SelectedItem = Strings.ChampionshipWomen;
             }
+
+            string storedSource = _fileRepository.GetSource();
+            cbSource.SelectedItem = storedSource.Equals("file", StringComparison.OrdinalIgnoreCase) ? "File" : "API";
+
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -117,10 +125,11 @@ namespace WinFormsApp
             string language = cbLanguage.SelectedItem.ToString();
             string languageCode = language.Equals(Strings.CroatianOption, StringComparison.OrdinalIgnoreCase) ? "hr" : "en";
 
+            string source = cbSource.SelectedItem?.ToString()?.ToLower() ?? "api";
+
             string existingTeamCode = _fileRepository.GetCurrentTeam();
-            string fullSettings = string.IsNullOrWhiteSpace(existingTeamCode)
-                ? $"{gender}#{languageCode}"
-                : $"{gender}#{languageCode}#{existingTeamCode}";
+            string resolution = "1280x720";
+            string fullSettings = $"{gender}#{languageCode}#{existingTeamCode}#{resolution}#{source}";
 
             _fileRepository.SaveSettings(fullSettings);
 
@@ -140,8 +149,7 @@ namespace WinFormsApp
             string gender = selectedGender.Equals(Strings.ChampionshipMen, StringComparison.OrdinalIgnoreCase)
                 ? "men"
                 : "women";
-            var apiRepo = new ApiRepository(gender);
-            var mainForm = new MainForm(apiRepo, _fileRepository);
+            var mainForm = new MainForm(_fileRepository);
             mainForm.Show();
             this.Hide();
         }

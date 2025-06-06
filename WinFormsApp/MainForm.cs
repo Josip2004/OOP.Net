@@ -26,19 +26,17 @@ namespace WinFormsApp
 {
     public partial class MainForm : Form
     {
-        private readonly IApiRepository _apiRepository;
+        private readonly IDataProvider _dataProvider;
         private readonly IFileRepository _fileRepository;
         private List<Team> _teams;
         private List<Match> _matches;
         private List<Panel> _selectedPlayers = new();
         private string _savedTeamCode;
-        private string _saveFavoriteTeam;
-        private List<Player> favoritePlayers = new List<Player>();
 
-        public MainForm(IApiRepository apiRepository, IFileRepository fileRepository)
+        public MainForm(IFileRepository fileRepository)
         {
             InitializeComponent();
-            _apiRepository = apiRepository;
+            _dataProvider = RepositoryFactory.GetRepo();
             _fileRepository = fileRepository;
 
             _savedTeamCode = _fileRepository.GetCurrentTeam();
@@ -55,6 +53,7 @@ namespace WinFormsApp
             {
                 playerControl.ApplyLocalization();
                 await LoadTeams();
+
             };
         }
 
@@ -62,7 +61,7 @@ namespace WinFormsApp
         {
             try
             {
-                _teams = await _apiRepository.GetTeamsAsync();
+                _teams = await _dataProvider.GetTeamsAsync();
 
                 cbFavoriteNationalTeam.DisplayMember = "Name";
                 cbFavoriteNationalTeam.ValueMember = "Code";
@@ -78,7 +77,7 @@ namespace WinFormsApp
                     {
                         cbFavoriteNationalTeam.SelectedItem = savedTeam;
 
-                        await Task.Delay(50); 
+                        await Task.Delay(150); 
                         Application.DoEvents();
 
                         await LoadPlayersByTeam(savedTeam);
@@ -111,7 +110,7 @@ namespace WinFormsApp
             flpnlPlayers.Controls.Clear();
             flpnlFavoritePlayers.Controls.Clear();
 
-            _matches = await _apiRepository.GetMatchesAsync(selectedTeam.Code);
+            _matches = await _dataProvider.GetMatchesAsync(selectedTeam.Code);
 
             if (_matches == null || !_matches.Any())
             {
@@ -239,18 +238,23 @@ namespace WinFormsApp
             if (cbFavoriteNationalTeam.SelectedItem is not Team selectedTeam)
                 return;
 
-            if (!string.IsNullOrWhiteSpace(_savedTeamCode))
+            if (!string.IsNullOrWhiteSpace(_savedTeamCode) &&
+             selectedTeam.Code.Equals(_savedTeamCode, StringComparison.OrdinalIgnoreCase))
             {
-                if (!selectedTeam.Code.Equals(_savedTeamCode, StringComparison.OrdinalIgnoreCase))
-                    return;
-
                 _savedTeamCode = null;
             }
 
             string gender = _fileRepository.GetStoredGender();
             string language = _fileRepository.GetStoredLanguage();
             string teamCode = selectedTeam.Code;
-            _fileRepository.SaveSettings($"{gender}#{language}#{teamCode}");
+            var parts = _fileRepository.ReadSettingsRaw()?.Split('#');
+
+            if (parts != null && parts.Length >= 5)
+            {
+                parts[2] = teamCode;
+                string updatedSettings = string.Join("#", parts);
+                _fileRepository.SaveSettings(updatedSettings);
+            }
 
             flpnlPlayers.Controls.Clear();
             flpnlFavoritePlayers.Controls.Clear();
@@ -258,7 +262,7 @@ namespace WinFormsApp
             if (string.IsNullOrWhiteSpace(selectedTeam.Code))
                 return;
 
-            _matches = await _apiRepository.GetMatchesAsync(selectedTeam.Code);
+            _matches = await _dataProvider.GetMatchesAsync(selectedTeam.Code);
 
             if (_matches == null || !_matches.Any())
             {
@@ -583,9 +587,6 @@ namespace WinFormsApp
             }
         }
 
-
-
-
         private void FillAndSortByCards()
         {
             if (_matches == null)
@@ -654,7 +655,6 @@ namespace WinFormsApp
 
                 dgwCardsTable.Rows.Add(img, playerName, numberOfCards);
             }
-
         }
 
         private void FillAndSortByGoals()
@@ -803,7 +803,6 @@ namespace WinFormsApp
                 e.Cancel = true;
             }
         }
-
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -25,14 +25,14 @@ namespace WpfApp
     public partial class MainWindow : Window
     {
         private readonly IFileRepository _repo;
-        private readonly IApiRepository _apiRepository;
+        private readonly IDataProvider _dataProvider;
         private List<Match> _matches;
         private List<Team> _teams;
         private string _savedTeamCode;
         private bool _isRestartingFromSettings = false;
-        public MainWindow(IApiRepository apiRepository, IFileRepository fileRepository)
+        public MainWindow(IDataProvider dataProvider, IFileRepository fileRepository)
         {
-            _apiRepository = apiRepository;
+            _dataProvider = dataProvider;
             _repo = fileRepository;
 
             string languageCode = _repo.GetStoredLanguage();
@@ -109,7 +109,7 @@ namespace WpfApp
                     }
                 }
 
-                _teams = await _apiRepository.GetTeamsAsync(); 
+                _teams = await _dataProvider.GetTeamsAsync(); 
 
                 cbFavoriteTeam.DisplayMemberPath = "DisplayName";
                 cbFavoriteTeam.SelectedValuePath = "Code";
@@ -157,11 +157,14 @@ namespace WpfApp
 
 
                     string code = selectedTeam.Code;
-                    _repo.SaveSettings($"{gender}#{language}#{code}#{resolution}");
+                    string source = _repo.GetSource(); 
+
+                    string content = $"{gender}#{language}#{code}#{resolution}#{source}";
+                    _repo.SaveSettings(content);
 
                     if (code != null)
                     {
-                        _matches = await _apiRepository.GetMatchesAsync(code);
+                        _matches = await _dataProvider.GetMatchesAsync(code);
 
                         var firstMatch = _matches.FirstOrDefault();
 
@@ -227,7 +230,7 @@ namespace WpfApp
             {
                 try
                 {
-                    var opponentMatches = await _apiRepository.GetMatchesAsync(selectedTeam.Code);
+                    var opponentMatches = await _dataProvider.GetMatchesAsync(selectedTeam.Code);
 
                     var infoWindow = new TeamInfoWindow(selectedTeam, opponentMatches);
                     infoWindow.ShowDialog();
@@ -336,13 +339,13 @@ namespace WpfApp
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            var settingsWindow = new ChooseWindow(_apiRepository, _repo);
+            var settingsWindow = new ChooseWindow(_repo);
 
             settingsWindow.SettingsApplied += () =>
             {
                 _isRestartingFromSettings = true;
-                var newApiRepo = new ApiRepository(_repo.GetStoredGender());
-                var newMainWindow = new MainWindow(newApiRepo, _repo);
+                var dataProvider = RepositoryFactory.GetRepo();
+                var newMainWindow = new MainWindow(dataProvider, _repo);
                 newMainWindow.Show();
 
                 this.Close(); 

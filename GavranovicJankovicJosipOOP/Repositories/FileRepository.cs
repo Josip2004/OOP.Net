@@ -22,6 +22,7 @@ namespace Dao.Repositories
 
         public void SaveSettings(string content)
         {
+
             EnsureDirectory(BaseFolder);
             File.WriteAllText(ConfigPath, content);
         }
@@ -63,6 +64,12 @@ namespace Dao.Repositories
         public string GetCurrentTeam()
         {
             return GetSetting(2);
+        }
+
+        public string GetSource()
+        {
+            var value = GetSetting(4);
+            return string.IsNullOrWhiteSpace(value) ? "api" : value;
         }
 
         private string GetSetting(int index)
@@ -123,8 +130,10 @@ namespace Dao.Repositories
         {
             EnsureDirectory(BaseFolder);
 
+            string gender = GetStoredGender();
+
             var lines = players.Select(p =>
-                $"{p.Name}{Del}{p.Position}{Del}{p.Captain}{Del}{p.ShirtNumber}");
+                $"{p.Name}#{p.Position}#{p.Captain}#{p.ShirtNumber}#{gender}");
 
             File.WriteAllLines(FavoritePlayersPath, lines);
         }
@@ -132,12 +141,17 @@ namespace Dao.Repositories
         public IEnumerable<Player> GetFavoritePlayersList()
         {
             var result = new List<Player>();
+            string gender = GetStoredGender();
+
             if (!File.Exists(FavoritePlayersPath)) return result;
 
             foreach (var line in File.ReadLines(FavoritePlayersPath))
             {
-                var parts = line.Split(Del);
-                if (parts.Length < 4) continue;
+                var parts = line.Split('#');
+                if (parts.Length < 5) continue;
+
+                string entryGender = parts[4].Trim().ToLower();
+                if (entryGender != gender.ToLower()) continue;
 
                 var player = new Player
                 {
@@ -153,10 +167,16 @@ namespace Dao.Repositories
             return result;
         }
 
+
         private void EnsureDirectory(string? path)
         {
             if (!string.IsNullOrEmpty(path) && !Directory.Exists(path))
                 Directory.CreateDirectory(path);
+        }
+
+        public string ReadSettingsRaw()
+        {
+            return ReadFromFile(ConfigPath);
         }
     }
 }

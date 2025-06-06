@@ -34,6 +34,8 @@
             cbLanguage = new ComboBox();
             btnApply = new Button();
             btnNext = new Button();
+            lblFileApi = new Label();
+            cbSource = new ComboBox();
             SuspendLayout();
             // 
             // lblChooserChampionship
@@ -94,11 +96,30 @@
             btnNext.UseVisualStyleBackColor = true;
             btnNext.Click += btnNext_Click;
             // 
+            // lblFileApi
+            // 
+            lblFileApi.AutoSize = true;
+            lblFileApi.Location = new Point(805, 72);
+            lblFileApi.Name = "lblFileApi";
+            lblFileApi.Size = new Size(140, 32);
+            lblFileApi.TabIndex = 6;
+            lblFileApi.Text = "Data source";
+            // 
+            // cbSource
+            // 
+            cbSource.FormattingEnabled = true;
+            cbSource.Location = new Point(754, 154);
+            cbSource.Name = "cbSource";
+            cbSource.Size = new Size(242, 40);
+            cbSource.TabIndex = 7;
+            // 
             // StartDisplay
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1293, 860);
+            Controls.Add(cbSource);
+            Controls.Add(lblFileApi);
             Controls.Add(btnNext);
             Controls.Add(btnApply);
             Controls.Add(cbLanguage);
@@ -120,5 +141,7 @@
         private ComboBox cbLanguage;
         private Button btnApply;
         private Button btnNext;
+        private Label lblFileApi;
+        private ComboBox cbSource;
     }
 }
