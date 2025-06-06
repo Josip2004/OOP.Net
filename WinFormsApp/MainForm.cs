@@ -239,7 +239,7 @@ namespace WinFormsApp
                 return;
 
             if (!string.IsNullOrWhiteSpace(_savedTeamCode) &&
-             selectedTeam.Code.Equals(_savedTeamCode, StringComparison.OrdinalIgnoreCase))
+                selectedTeam.Code.Equals(_savedTeamCode, StringComparison.OrdinalIgnoreCase))
             {
                 _savedTeamCode = null;
             }
@@ -317,7 +317,10 @@ namespace WinFormsApp
                 playerPanel.Controls.Add(lbl);
                 flpnlPlayers.Controls.Add(playerPanel);
             }
+
+            await LoadFavoritePlayers(); 
         }
+
 
 
         private string ExtractOnlyName(string name)

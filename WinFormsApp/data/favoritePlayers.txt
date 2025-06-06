@@ -1,1 +1,4 @@
-Thibaut COURTOIS#Goalie#False#1#men
+Thibaut COURTOIS#Goalie#False#1#men#BEL
+Toby ALDERWEIRELD#Defender#False#2#men#BEL
+Keylor NAVAS#Goalie#False#1#men#CRC
+Stephanie LABBE#Goalie#False#1#women#CAN

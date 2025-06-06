@@ -131,27 +131,47 @@ namespace Dao.Repositories
             EnsureDirectory(BaseFolder);
 
             string gender = GetStoredGender();
+            string teamCode = GetCurrentTeam();
 
-            var lines = players.Select(p =>
-                $"{p.Name}#{p.Position}#{p.Captain}#{p.ShirtNumber}#{gender}");
+            var allLines = File.Exists(FavoritePlayersPath)
+                ? File.ReadAllLines(FavoritePlayersPath).ToList()
+                : new List<string>();
 
-            File.WriteAllLines(FavoritePlayersPath, lines);
+            allLines.RemoveAll(line =>
+            {
+                var parts = line.Split('#');
+                return parts.Length >= 6 &&
+                       parts[^2].Equals(gender, StringComparison.OrdinalIgnoreCase) &&
+                       parts[^1].Equals(teamCode, StringComparison.OrdinalIgnoreCase);
+            });
+
+            var newLines = players.Select(p =>
+                $"{p.Name}#{p.Position}#{p.Captain}#{p.ShirtNumber}#{gender}#{teamCode}");
+
+            allLines.AddRange(newLines);
+
+            File.WriteAllLines(FavoritePlayersPath, allLines);
         }
+
 
         public IEnumerable<Player> GetFavoritePlayersList()
         {
-            var result = new List<Player>();
             string gender = GetStoredGender();
+            string teamCode = GetCurrentTeam();
 
-            if (!File.Exists(FavoritePlayersPath)) return result;
+            if (!File.Exists(FavoritePlayersPath)) return Enumerable.Empty<Player>();
+
+            var result = new List<Player>();
 
             foreach (var line in File.ReadLines(FavoritePlayersPath))
             {
                 var parts = line.Split('#');
-                if (parts.Length < 5) continue;
+                if (parts.Length < 6) continue;
 
-                string entryGender = parts[4].Trim().ToLower();
-                if (entryGender != gender.ToLower()) continue;
+                string g = parts[4].Trim().ToLower();
+                string t = parts[5].Trim().ToUpper();
+
+                if (g != gender.ToLower() || t != teamCode.ToUpper()) continue;
 
                 var player = new Player
                 {
