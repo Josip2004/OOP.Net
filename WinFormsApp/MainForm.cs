@@ -406,32 +406,51 @@ namespace WinFormsApp
 
         private void flpnlPlayers_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetData(typeof(Panel)) is Panel ctrl && sender is FlowLayoutPanel panel)
+            if (e.Data.GetData(typeof(Panel)) is Panel ctrl && sender is FlowLayoutPanel targetPanel)
             {
-                if (ctrl.Parent == panel)
+                if (ctrl.Parent == targetPanel)
                     return;
 
-                if (panel == flpnlFavoritePlayers && flpnlFavoritePlayers.Controls.Count >= 3)
+                if (targetPanel == flpnlFavoritePlayers && flpnlFavoritePlayers.Controls.Count >= 3)
                 {
                     MessageBox.Show(Strings.msgMaxPlayers);
                     return;
                 }
 
                 ctrl.Parent.Controls.Remove(ctrl);
-                panel.Controls.Add(ctrl);
+                targetPanel.Controls.Add(ctrl);
 
-                var favoritesToSave = new List<Player>();
-                foreach (var control in flpnlFavoritePlayers.Controls)
+                ctrl.BackColor = (targetPanel == flpnlFavoritePlayers) ? Color.Gainsboro : SystemColors.Control;
+
+                if (targetPanel == flpnlFavoritePlayers)
                 {
-                    if (control is Panel p && p.Tag is PlayerWithImage pwi)
+                    var favoritesToSave = new List<Player>();
+                    foreach (var control in flpnlFavoritePlayers.Controls)
                     {
-                        favoritesToSave.Add(pwi.Player);
+                        if (control is Panel p && p.Tag is PlayerWithImage pwi)
+                        {
+                            favoritesToSave.Add(pwi.Player);
+                        }
                     }
-                }
 
-                _fileRepository.SaveFavoritePlayers(favoritesToSave);
+                    _fileRepository.SaveFavoritePlayers(favoritesToSave);
+                }
+                else
+                {
+                    var favoritesToSave = new List<Player>();
+                    foreach (var control in flpnlFavoritePlayers.Controls)
+                    {
+                        if (control is Panel p && p.Tag is PlayerWithImage pwi)
+                        {
+                            favoritesToSave.Add(pwi.Player);
+                        }
+                    }
+
+                    _fileRepository.SaveFavoritePlayers(favoritesToSave);
+                }
             }
         }
+
 
 
         private void btnMoveToFav_Click(object sender, EventArgs e)
@@ -450,15 +469,18 @@ namespace WinFormsApp
 
                     foreach (var player in _selectedPlayers)
                     {
-                        if (player != flpnlFavoritePlayers)
+                        if (player != null)
                         {
-                            player.Parent.Controls.Remove(player);
+                            if (player.Parent != null)
+                            {
+                                player.Parent.Controls.Remove(player);
+                            }
+
                             flpnlFavoritePlayers.Controls.Add(player);
+
+                            player.BackColor = Color.Gainsboro;     
                         }
-                        player.BackColor = Color.Gainsboro;
                     }
-
-
 
                     var favoritesToSave = new List<Player>();
 

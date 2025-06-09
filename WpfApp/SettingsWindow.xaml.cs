@@ -28,7 +28,7 @@ public partial class SettingsWindow : Window
 
         cbLanguage.ItemsSource = new[] { "English", "Hrvatski" };
         cbChampionship.ItemsSource = new[] { "Men", "Women" };
-        cbResolution.ItemsSource = new[] { "1280x720", "1200x900", "fullscreen" };
+        cbResolution.ItemsSource = new[] { "1280x720", "1200x600", "fullscreen" };
         cbSource.ItemsSource = new[] { "API", "File" };  
 
         var settings = _repo.ReadFromFile(Path);
