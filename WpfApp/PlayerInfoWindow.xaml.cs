@@ -88,15 +88,22 @@ namespace WpfApp
 
         private string FindImagePathForPlayer(string playerName)
         {
-            string solutionRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent?.FullName;
-            string winFormsImagesFolder = System.IO.Path.Combine(solutionRoot, "WinFormsApp", "bin", "Debug", "net8.0-windows", "Images");
+            string projectRoot = System.IO.Path.Combine(
+                   Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)!
+                            .Parent!.Parent!.Parent!.Parent!.FullName,
+                   "GavranovicJankovicJosipOOP"
+               );
 
-            string imageMapPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "images.txt");
 
-            if (!File.Exists(imageMapPath))
-            {
+            if (projectRoot == null)
                 return string.Empty;
-            }
+
+            string sharedImagesFolder = System.IO.Path.Combine(projectRoot, "ImagesForApp", "Images");
+
+
+            string imageMapPath = System.IO.Path.Combine(projectRoot, "ImagesForApp", "images.txt");
+            if (!File.Exists(imageMapPath))
+                return string.Empty;
 
             var lines = File.ReadAllLines(imageMapPath);
             foreach (var line in lines)
@@ -109,15 +116,8 @@ namespace WpfApp
 
                 if (string.Equals(nameFromFile, playerName.Trim(), StringComparison.OrdinalIgnoreCase))
                 {
-                    string imagePath;
-                    if (relativePath.StartsWith("Images\\"))
-                    {
-                        imagePath = System.IO.Path.Combine(winFormsImagesFolder, relativePath.Substring("Images\\".Length));
-                    }
-                    else
-                    {
-                        imagePath = System.IO.Path.Combine(winFormsImagesFolder, relativePath);
-                    }
+                    string fileName = relativePath.Replace("Images/", "").Replace("Images\\", "").Trim();
+                    string imagePath = System.IO.Path.Combine(sharedImagesFolder, fileName);
 
                     return File.Exists(imagePath) ? imagePath : string.Empty;
                 }

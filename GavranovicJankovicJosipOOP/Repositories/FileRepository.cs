@@ -12,10 +12,15 @@ namespace Dao.Repositories
     {
 
         private static readonly string BaseFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\WinFormsApp\data");
+        private static readonly string BaseFolderImage = Path.Combine(
+                Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)!
+                         .Parent!.Parent!.Parent!.Parent!.FullName,
+                "GavranovicJankovicJosipOOP", "ImagesForApp"
+            );
 
 
         private static readonly string ConfigPath = Path.Combine(BaseFolder, "settings.txt");
-        private static readonly string ImageMapPath = Path.Combine(BaseFolder, "images.txt");
+        private static readonly string ImageMapPath = Path.Combine(BaseFolderImage, "images.txt");
         private static readonly string FavoritePlayersPath = Path.Combine(BaseFolder, "favoritePlayers.txt");
 
         private const char Del = '#';
@@ -86,45 +91,40 @@ namespace Dao.Repositories
                 .Any(line => line.Split(Del)[0].Trim().Equals(playerName.Trim(), StringComparison.OrdinalIgnoreCase));
         }
 
+
         public string RetrieveImagePath(string playerName)
         {
+            string projectRoot = Path.Combine(
+                Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)!
+                         .Parent!.Parent!.Parent!.Parent!.FullName,
+                "GavranovicJankovicJosipOOP"
+            );
 
-            if (!File.Exists(ImageMapPath))
-            {
+            string imageMapPath = Path.Combine(projectRoot, "ImagesForApp", "images.txt");
+
+            if (!File.Exists(imageMapPath))
                 return string.Empty;
-            }
 
-            var lines = File.ReadLines(ImageMapPath);
+            var lines = File.ReadLines(imageMapPath);
             foreach (var line in lines)
             {
-
                 var parts = line.Split('#');
                 if (parts.Length < 2)
-                {
                     continue;
-                }
 
                 string nameFromFile = parts[0].Trim();
                 string relativePath = parts[1].Trim();
 
-
                 if (string.Equals(nameFromFile, playerName.Trim(), StringComparison.OrdinalIgnoreCase))
                 {
-                    string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
-
-                    if (File.Exists(fullPath))
-                    {
-                        return fullPath;
-                    }
-                    else
-                    {
-                        return string.Empty;
-                    }
+                    string fullPath = Path.Combine(projectRoot, "ImagesForApp", relativePath.Replace("/", "\\"));
+                    return File.Exists(fullPath) ? fullPath : string.Empty;
                 }
             }
 
             return string.Empty;
         }
+
 
         public void SaveFavoritePlayers(IEnumerable<Player> players)
         {

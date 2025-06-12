@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ImagesForApp\images.txt" />
+    <None Remove="ImagesForApp\Images\DefaultImage.jpg" />
+    <None Remove="ImagesForApp\Images\DefaultImage.jpg.jpg" />
     <None Remove="jsonFiles\men\matches.json" />
     <None Remove="jsonFiles\men\teams.json" />
     <None Remove="jsonFiles\women\matches.json" />
@@ -16,6 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ImagesForApp\images.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ImagesForApp\Images\DefaultImage.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="jsonFiles\men\matches.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

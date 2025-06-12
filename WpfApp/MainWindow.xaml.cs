@@ -280,7 +280,9 @@ namespace WpfApp
 
         private void ArrangePlayers(TeamStatistics favStats, TeamStatistics oppStats, Match match)
         {
-            if (_repo == null)
+            try
+            {
+                if (_repo == null)
             {
                 MessageBox.Show("_repo is null!");
                 return;
@@ -333,7 +335,12 @@ namespace WpfApp
                         spFwdOpp.Children.Add(control);
                         break;
                 }
+                }
             }
+                catch (Exception ex)
+                {
+                MessageBox.Show($"Error arranging players: {ex.Message}");
+                }
 
         }
 

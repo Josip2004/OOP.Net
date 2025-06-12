@@ -570,47 +570,59 @@ namespace WinFormsApp
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string selectedImagePath = openFileDialog.FileName;
-
-                string playerName = ExtractOnlyName(playerControl.CurrentPlayer.Player.Name);
-
-                string safeFileName = playerName.Replace(" ", "_") + ".jpg";
-
-                string exeDir = AppDomain.CurrentDomain.BaseDirectory;
-
-                string solutionRoot = Directory.GetParent(exeDir)?.Parent?.Parent?.Parent?.Parent?.FullName;
-                if (solutionRoot == null)
+                if (playerControl.CurrentPlayer == null || playerControl.CurrentPlayer.Player == null)
                 {
+                    MessageBox.Show("Choose player.");
                     return;
                 }
+                string playerName = ExtractOnlyName(playerControl.CurrentPlayer.Player.Name);
+                string safeFileName = playerName.Replace(" ", "_") + ".jpg";
 
-                string winFormsImagesFolder = Path.Combine(solutionRoot, "WinFormsApp", "bin", "Debug", "net8.0-windows", "Images");
+                string projectRoot = Path.Combine(
+                    Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)!.Parent!.Parent!.Parent!.Parent!.FullName,
+                    "GavranovicJankovicJosipOOP"
+                );
 
+                string imagesFolder = Path.Combine(projectRoot, "ImagesForApp", "Images");
+                string imagesTxtPath = Path.Combine(projectRoot, "ImagesForApp", "images.txt");
+                string destinationPath = Path.Combine(imagesFolder, safeFileName);
+                string relativePath = Path.Combine("Images", safeFileName).Replace("\\", "/");
+                string newLine = $"{playerName}#{relativePath}";
 
                 try
                 {
-                    Directory.CreateDirectory(winFormsImagesFolder);
-
-                    string destinationPath = Path.Combine(winFormsImagesFolder, safeFileName);
+                    Directory.CreateDirectory(imagesFolder);
 
                     if (File.Exists(destinationPath))
                     {
-                        MessageBox.Show($"File already exists: {destinationPath}");
+                        MessageBox.Show($"File already exists:\n{destinationPath}");
                         return;
                     }
 
                     File.Copy(selectedImagePath, destinationPath, true);
 
-                    string relativePath = Path.Combine("Images", safeFileName);
-                    _fileRepository.AppendToFile("images.txt", $"{playerName}#{relativePath}");
+                    if (!File.Exists(imagesTxtPath))
+                    {
+                        File.WriteAllText(imagesTxtPath, newLine + Environment.NewLine);
+                    }
+                    else
+                    {
+                        var existingLines = File.ReadAllLines(imagesTxtPath);
+                        if (!existingLines.Any(line => line.StartsWith(playerName + "#")))
+                        {
+                            File.AppendAllLines(imagesTxtPath, new[] { newLine });
+                        }
+                    }
 
                     playerControl.SetImage(destinationPath);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error creating file or directory: {ex.Message}");
+                    MessageBox.Show($"Error saving image:\n{destinationPath}\n\n{ex.Message}");
                 }
             }
         }
+
 
         private void FillAndSortByCards()
         {

@@ -9,6 +9,5 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("datawpf/defaultimage.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images.txt")]
 
 

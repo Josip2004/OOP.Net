@@ -37,7 +37,7 @@ namespace WinFormsApp
             LoadPlayerImage(player.ImagePath);
         }
 
-        private void LoadPlayerImage(string imagePath)
+        private void LoadPlayerImage(string imageFileName)
         {
             try
             {
@@ -47,28 +47,30 @@ namespace WinFormsApp
                     pbPlayer.Image = null;
                 }
 
-                string exeDir = AppDomain.CurrentDomain.BaseDirectory;
-                string solutionRoot = Directory.GetParent(exeDir)?.Parent?.Parent?.Parent?.Parent?.FullName;
-                if (solutionRoot == null)
-                {
-                    MessageBox.Show(Strings.msgRoot);
-                    return;
-                }
+                string imagePath = Path.Combine(
+                    AppDomain.CurrentDomain.BaseDirectory,
+                    "ImagesForApp", "Images", imageFileName
+                );
 
-                string wpfImagesFolder = Path.Combine(solutionRoot, "WpfApp", "bin", "Debug", "net8.0-windows", "Images");
-                string fullImagePath = Path.Combine(wpfImagesFolder, imagePath);
-
-                if (File.Exists(fullImagePath))
+                if (File.Exists(imagePath))
                 {
-                    pbPlayer.Image = new Bitmap(fullImagePath);
-                }
-                else if (File.Exists(DefaultImage))
-                {
-                    pbPlayer.Image = new Bitmap(DefaultImage);
+                    pbPlayer.Image = new Bitmap(imagePath);
                 }
                 else
                 {
-                    MessageBox.Show("Default image nije pronađena.");
+                    string defaultPath = Path.Combine(
+                          AppDomain.CurrentDomain.BaseDirectory,
+                          "ImagesForApp", "Images", "DefaultImage.jpg"
+                      );
+
+                    if (File.Exists(defaultPath))
+                    {
+                        pbPlayer.Image = new Bitmap(defaultPath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Default image nije pronađena.");
+                    }
                 }
             }
             catch (Exception ex)
@@ -76,6 +78,7 @@ namespace WinFormsApp
                 MessageBox.Show($"Greška pri učitavanju slike: {ex.Message}");
             }
         }
+
 
 
         public void SetImage(string imagePath)
