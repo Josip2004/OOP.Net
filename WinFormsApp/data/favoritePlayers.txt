@@ -1,0 +1,3 @@
+Danijel SUBASIC#Goalie#False#23#men#CRO
+Sime VRSALJKO#Defender#False#2#men#CRO
+Ivan PERISIC#Forward#False#4#men#CRO

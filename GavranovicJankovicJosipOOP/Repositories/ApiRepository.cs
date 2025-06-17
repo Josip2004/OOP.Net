@@ -30,28 +30,40 @@ namespace Dao.Repositories
 
         public async Task<List<Match>> GetMatchesAsync(string code)
         {
-            var request = new RestRequest($"matches/country", Method.Get);
-            request.AddParameter("fifa_code", code);
+            try
+            {
+                var request = new RestRequest("matches/country", Method.Get);
+                request.AddParameter("fifa_code", code);
 
-            var response = await _client.ExecuteAsync(request);
+                var response = await _client.ExecuteAsync(request);
 
-            if (!response.IsSuccessful)
-                throw new Exception($"Error fetching matches: {response.ErrorMessage}");
+                if (!response.IsSuccessful)
+                    throw new Exception($"Error fetching matches: {response.StatusCode} - {response.ErrorMessage}");
 
-            return JsonConvert.DeserializeObject<List<Match>>(response.Content);
+                return JsonConvert.DeserializeObject<List<Match>>(response.Content);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred: ", ex);
+            }
         }
 
         public async Task<List<Team>> GetTeamsAsync()
         {
-            var request = new RestRequest("teams/results", Method.Get);
+            try
+            {
+                var request = new RestRequest("teams/results", Method.Get);
+                var response = await _client.ExecuteAsync(request);
 
-            var response = await _client.ExecuteAsync(request);
+                if (!response.IsSuccessful)
+                    throw new Exception($"Error fetching teams: {response.StatusCode} - {response.ErrorMessage}");
 
-            if (!response.IsSuccessful)
-                throw new Exception($"Error fetching teams: {response.ErrorMessage}");
-
-            return JsonConvert.DeserializeObject<List<Team>>(response.Content);
+                return JsonConvert.DeserializeObject<List<Team>>(response.Content);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred: ", ex);
+            }
         }
-
     }
 }

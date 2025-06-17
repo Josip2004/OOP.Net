@@ -53,7 +53,6 @@ namespace WinFormsApp
             {
                 playerControl.ApplyLocalization();
                 await LoadTeams();
-
             };
         }
 
@@ -864,7 +863,7 @@ namespace WinFormsApp
         }
 
         private void DrawDataGridView(Graphics graphics, DataGridView grid, Rectangle marginBounds, ref int startRow)
-        {
+        {   
             int x = marginBounds.Left;
             int y = marginBounds.Top;
             int rowHeight = grid.RowTemplate.Height + 5;
